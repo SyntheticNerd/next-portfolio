@@ -1,7 +1,8 @@
 {
-  "name": "portfolio-2022-next",
+  "name": "Synthetic Nerd",
   "version": "0.1.0",
   "private": true,
+  "author": "Andrew Schroepfer",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
