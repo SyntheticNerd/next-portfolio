@@ -28,12 +28,13 @@ const padding = 20;
 const closedSize = `max(${40 + padding}px, min(${
   80 + padding
 }px, calc(3vw + ${padding}px)))`;
-const animationDuration = 100;
+const animationDuration = 1;
 //TODO I don't want the buttons to trail in when nav animates
 //TODO Nav too big in mobile
-//TODO Touch mouse up doesn't work
+//// Touch mouse up doesn't work
 
 const NavBar = () => {
+  const [initialLoad, setInitialLoad] = useState(true);
   const [navItems, setNavItems] = useState(initialNavItems);
   const [freeItems, setFreeItems] = useState<NavItem[]>([]);
   const [navOpen, setNavOpen] = useState(true);
@@ -54,21 +55,40 @@ const NavBar = () => {
     nav2Ref,
     navBoundary,
     flip,
+    animating,
   };
+
+  useEffect(() => {
+    setInitialLoad(false);
+    if (initialLoad) {
+      let rect = nav1Ref.current!.getBoundingClientRect();
+      console.log("one", rect);
+      setNavWrapperSize({ width: rect.width, height: rect.height });
+    }
+  }, [initialLoad]);
 
   useEffect(() => {
     if (flip) {
       let rect = nav1Ref.current!.getBoundingClientRect();
       console.log("one", rect);
-      setNavWrapperSize({ width: rect.height, height: rect.width });
+      setNavWrapperSize({ width: rect.width, height: rect.height });
     } else {
+      let rect = nav2Ref.current!.getBoundingClientRect();
+      console.log("one", rect);
+      setNavWrapperSize({ width: rect.width, height: rect.height });
+    }
+  }, [navItems]);
+
+  useEffect(() => {
+    if (flip && !initialLoad) {
+      let rect = nav1Ref.current!.getBoundingClientRect();
+      console.log("one", rect);
+      setNavWrapperSize({ width: rect.height, height: rect.width });
+    } else if (!initialLoad) {
       let rect = nav2Ref.current!.getBoundingClientRect();
       console.log("two", rect);
       setNavWrapperSize({ width: rect.height, height: rect.width });
     }
-  }, [flip, nav1Ref, nav2Ref]);
-
-  useEffect(() => {
     clearTimeout(to);
     setAnimating(true);
     const timeOut = setTimeout(() => {
@@ -76,7 +96,7 @@ const NavBar = () => {
     }, animationDuration);
     setTo(timeOut);
     return clearTimeout(to);
-  }, [flip]);
+  }, [flip, nav1Ref, nav2Ref]);
 
   return (
     <div className={classes.navBoundary} ref={navBoundary}>
@@ -87,20 +107,28 @@ const NavBar = () => {
         style={{
           width: !navOpen ? closedSize : navWrapperSize.width,
           height: !navOpen ? closedSize : navWrapperSize.height,
-          display: "relative",
-          margin: "32px 32px 0px auto",
+          // margin: "32px 32px 0px 0px",
+          // display: "flex",
+          // justifyContent: "flex-end",
+          // alignItems: "flex-end",
+          float: "right",
         }}
+        // initial={{ transform: "translate(-32px, 32px)" }}
       >
         {flip ? (
           <motion.div
             className={classes.navWrapper}
             key='nav1'
             ref={nav1Ref}
-            style={{ originX: 1 }}
-            initial={{ rotate: -90 }}
+            style={{ originX: 0.96, originY: 0.5 }}
+            initial={{ rotate: !initialLoad ? -90 : 0 }}
             animate={{ rotate: 0 }}
+            transition={{
+              duration: 0.3,
+              ease: "easeIn",
+            }}
           >
-            <BorderWrapper borderRadius='32px' borderSize='2px'>
+            <BorderWrapper borderRadius='80px' borderSize='2px'>
               <nav
                 className={clsx(
                   classes.nav,
@@ -114,16 +142,17 @@ const NavBar = () => {
                       axis='x'
                       onReorder={setNavItems}
                       values={navItems}
-                      style={{ opacity: animating ? 0 : 1 }}
+                      // style={{ opacity: animating ? 0 : 1 }}
                     >
-                      {navItems.map((btnData) => (
-                        <NavBtn
-                          key={btnData.id}
-                          btnData={btnData}
-                          navState={navState}
-                          reorder={true}
-                        />
-                      ))}
+                      {(!animating || initialLoad) &&
+                        navItems.map((btnData) => (
+                          <NavBtn
+                            key={btnData.id}
+                            btnData={btnData}
+                            navState={navState}
+                            reorder={true}
+                          />
+                        ))}
                     </Reorder.Group>
                     <button onClick={() => setFlip((prev) => !prev)}>
                       Flip
@@ -141,11 +170,15 @@ const NavBar = () => {
             className={classes.navWrapper}
             key='nav2'
             ref={nav2Ref}
-            style={{ width: "fit-content", originY: 0 }}
+            style={{ width: "fit-content", originY: 0.04, originX: 0.5 }}
             initial={{ rotate: 90 }}
             animate={{ rotate: 0 }}
+            transition={{
+              duration: 0.3,
+              ease: "easeIn",
+            }}
           >
-            <BorderWrapper borderRadius='32px' borderSize='2px'>
+            <BorderWrapper borderRadius='80px' borderSize='2px'>
               <nav
                 className={clsx(
                   classes.nav,
@@ -160,14 +193,15 @@ const NavBar = () => {
                       onReorder={setNavItems}
                       values={navItems}
                     >
-                      {navItems.map((btnData) => (
-                        <NavBtn
-                          key={btnData.id}
-                          btnData={btnData}
-                          navState={navState}
-                          reorder={true}
-                        />
-                      ))}
+                      {(!animating || initialLoad) &&
+                        navItems.map((btnData) => (
+                          <NavBtn
+                            key={btnData.id}
+                            btnData={btnData}
+                            navState={navState}
+                            reorder={true}
+                          />
+                        ))}
                     </Reorder.Group>
                     <button onClick={() => setFlip((prev) => !prev)}>
                       Flip

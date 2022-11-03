@@ -20,6 +20,7 @@ interface NavState {
   navBoundary: React.MutableRefObject<null>;
   flip: boolean;
   //   navHovered: boolean;
+  animating: boolean;
 }
 
 interface Props {
@@ -37,6 +38,7 @@ const NavBtn = ({ btnData, navState, reorder }: Props) => {
   };
 
   const handleDragEnd = () => {
+    console.log("End");
     if (
       wasDragged &&
       (navState.nav1Ref.current || navState.nav2Ref.current) &&
@@ -77,19 +79,23 @@ const NavBtn = ({ btnData, navState, reorder }: Props) => {
   };
 
   const handleClick = () => {
-    console.log(btnRef.current);
+    if (wasDragged) {
+      setWasDragged(false);
+    } else {
+      console.log(btnRef.current);
+    }
   };
+
   if (reorder) {
     return (
       <Reorder.Item
         drag
         onDragStart={handleDragStart}
-        onMouseUp={handleDragEnd}
+        onDragEnd={handleDragEnd}
         value={btnData}
         id={btnData.id}
         ref={btnRef}
-        dragSnapToOrigin
-        // animate={{ rotate: navState.flip ? 90 : 0 }}
+        // dragSnapToOrigin
       >
         <button className={classes.navBtn} onClick={handleClick}>
           {btnData.title}
@@ -101,7 +107,7 @@ const NavBtn = ({ btnData, navState, reorder }: Props) => {
       <motion.div
         drag
         onDragStart={handleDragStart}
-        onMouseUp={handleDragEnd}
+        onDragEnd={handleDragEnd}
         id={btnData.id}
         ref={btnRef}
         dragConstraints={navState.navBoundary}
