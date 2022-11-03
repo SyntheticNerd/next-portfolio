@@ -30,6 +30,8 @@ const closedSize = `max(${40 + padding}px, min(${
 }px, calc(3vw + ${padding}px)))`;
 const animationDuration = 100;
 //TODO I don't want the buttons to trail in when nav animates
+//TODO Nav too big in mobile
+//TODO Touch mouse up doesn't work
 
 const NavBar = () => {
   const [navItems, setNavItems] = useState(initialNavItems);
