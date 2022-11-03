@@ -1,0 +1,60 @@
+.navBoundary {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+}
+
+.nav {
+  background-color: var(--ele-2);
+  border-radius: 80px;
+  gap: 48px;
+}
+
+.nav button {
+  max-width: 80px;
+  max-height: 80px;
+  width: 3vw;
+  height: 3vw;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+}
+
+.vertNav {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 8px;
+  /* padding: 8px 32px; */
+}
+
+#nav1 {
+  display: flex;
+  padding: 8px;
+}
+#nav2 {
+  display: flex;
+  flex-direction: column-reverse;
+  padding: 8px;
+}
+
+.nav ul {
+  display: inherit;
+  list-style: none;
+  flex-direction: inherit;
+  gap: 32px;
+}
+
+.navBtn {
+  max-width: 80px;
+  max-height: 80px;
+  width: 3vw;
+  height: 3vw;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.navWrapper {
+  width: fit-content;
+  position: absolute;
+  margin-left: auto;
+}
