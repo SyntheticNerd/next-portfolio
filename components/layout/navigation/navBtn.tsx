@@ -19,8 +19,6 @@ interface NavState {
   nav2Ref: React.MutableRefObject<Element | null>;
   navBoundary: React.MutableRefObject<null>;
   flip: boolean;
-  //   navHovered: boolean;
-  animating: boolean;
 }
 
 interface Props {

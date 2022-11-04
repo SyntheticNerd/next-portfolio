@@ -8,8 +8,9 @@
 .nav {
   background-color: var(--ele-2);
   border-radius: 80px;
-  gap: 48px;
+  gap: 32px;
   transition: all 0.2s;
+  /* overflow: hidden; */
 }
 
 .nav button {
@@ -20,30 +21,27 @@
   min-width: 40px;
   min-height: 40px;
   border-radius: 50%;
-}
-
-.vertNav {
-  display: flex;
-  flex-direction: column-reverse;
-  padding: 8px;
-  /* padding: 8px 32px; */
+  display: block;
 }
 
 #nav1 {
   display: flex;
+  justify-content: flex-end;
   padding: 8px;
 }
+
 #nav2 {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   padding: 8px;
+  /* justify-content: flex-end; */
 }
 
 .nav ul {
   display: inherit;
   list-style: none;
   flex-direction: inherit;
-  gap: 32px;
+  gap: 16px;
 }
 
 .navBtn {
@@ -57,4 +55,11 @@
 
 .navWrapper {
   width: fit-content;
+  position: absolute;
+  float: right;
+}
+
+.dragContainer {
+  display: flex;
+  justify-content: flex-end;
 }
