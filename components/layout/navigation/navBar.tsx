@@ -1,10 +1,11 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import { Reorder, useMotionValue, motion } from "framer-motion";
-import BorderWrapper from "../borderWrapper";
+import { Reorder, motion } from "framer-motion";
+import BorderWrapper from "../../props/borderWrapper";
 import classes from "./navigation.module.css";
-import NavBtn from "./navBtn";
 import clsx from "clsx";
+import NavBtnHandler from "./navBtnHandler";
+import MenuBtn from "./menuBtn";
 
 const initialNavItems = [
   { id: "home", title: "Home" },
@@ -24,11 +25,12 @@ interface NavItem {
   y?: number;
 }
 
-const padding = 20;
-const paddingNav = 16;
+const padding = 16;
 const closedSize = `max(${40 + padding}px, min(${
   80 + padding
 }px, calc(3vw + ${padding}px)))`;
+
+const paddingNav = 12;
 const closedSizeNav = `max(${40 + paddingNav}px, min(${
   80 + paddingNav
 }px, calc(3vw + ${paddingNav}px)))`;
@@ -36,14 +38,17 @@ const closedSizeNav = `max(${40 + paddingNav}px, min(${
 //// I don't want the buttons to trail in when nav animates
 //TODO Nav too big in mobile
 //// Touch mouse up doesn't work
+//TODO If screen is resized the navBar boundary doesn't update
+//TODO Track the drag history of the whole nav bar prevent click when dragged
 
 const NavBar = () => {
-  const [initialLoad, setInitialLoad] = useState(true);
   const [navItems, setNavItems] = useState(initialNavItems);
   const [freeItems, setFreeItems] = useState<NavItem[]>([]);
+
   const [navOpen, setNavOpen] = useState(true);
-  const [navWrapperSize, setNavWrapperSize] = useState({ width: 0, height: 0 });
   const [flip, setFlip] = useState(true);
+
+  const [navWrapperSize, setNavWrapperSize] = useState({ width: 0, height: 0 });
   const nav1Ref = useRef<HTMLDivElement>(null);
   const nav2Ref = useRef<HTMLDivElement>(null);
   const navBoundary = useRef(null);
@@ -87,12 +92,11 @@ const NavBar = () => {
         style={{
           width: !navOpen ? closedSize : navWrapperSize.width,
           height: !navOpen ? closedSize : navWrapperSize.height,
-          float: "right",
         }}
+        //I can migrate this to css... I think
       >
         <motion.div
           className={classes.navWrapper}
-          key='nav1'
           ref={nav1Ref}
           style={{
             originX: 0.95,
@@ -100,7 +104,7 @@ const NavBar = () => {
             opacity: flip ? 1 : 0,
             pointerEvents: flip ? "auto" : "none",
           }}
-          initial={{ rotate: !initialLoad ? -90 : 0 }}
+          initial={{ rotate: 0 }}
           animate={{ rotate: flip ? 0 : -90 }}
           transition={{
             duration: 0.3,
@@ -108,18 +112,17 @@ const NavBar = () => {
           }}
         >
           <BorderWrapper borderRadius='80px' borderSize='2px'>
-            <motion.nav
+            <nav
               className={clsx(classes.nav)}
               id={classes.nav1}
               style={{
-                originX: 1,
                 overflow: navOpen ? "visible" : "hidden",
                 width: navOpen ? "fit-content" : closedSizeNav,
               }}
             >
               <Reorder.Group axis='x' onReorder={setNavItems} values={navItems}>
                 {navItems.map((btnData) => (
-                  <NavBtn
+                  <NavBtnHandler
                     key={btnData.id}
                     btnData={btnData}
                     navState={navState}
@@ -128,20 +131,17 @@ const NavBar = () => {
                 ))}
               </Reorder.Group>
               <button onClick={() => setFlip((prev) => !prev)}>Flip</button>
-              <button
+              <MenuBtn
+                navOpen={navOpen}
                 onClick={() => {
-                  console.log(navWrapperSize);
                   setNavOpen(!navOpen);
                 }}
-              >
-                {navOpen ? "Close" : "Open"}
-              </button>
-            </motion.nav>
+              />
+            </nav>
           </BorderWrapper>
         </motion.div>
         <motion.div
           className={classes.navWrapper}
-          key='nav2'
           ref={nav2Ref}
           style={{
             originY: 0.05,
@@ -157,7 +157,7 @@ const NavBar = () => {
           }}
         >
           <BorderWrapper borderRadius='80px' borderSize='2px'>
-            <motion.nav
+            <nav
               className={clsx(classes.nav)}
               id={classes.nav2}
               style={{
@@ -165,16 +165,13 @@ const NavBar = () => {
                 overflow: navOpen ? "visible" : "hidden",
               }}
             >
-              <button
+              <MenuBtn
+                navOpen={navOpen}
                 onClick={() => {
-                  console.log(navWrapperSize);
                   setNavOpen(!navOpen);
                 }}
-              >
-                {navOpen ? "Close" : "Open"}
-              </button>
+              />
               <button onClick={() => setFlip((prev) => !prev)}>Flip</button>
-
               <Reorder.Group
                 axis='y'
                 onReorder={(items) => setNavItems(items.reverse())}
@@ -182,7 +179,7 @@ const NavBar = () => {
               >
                 {[...navItems].reverse().map((btnData) => {
                   return (
-                    <NavBtn
+                    <NavBtnHandler
                       key={btnData.id}
                       btnData={btnData}
                       navState={navState}
@@ -191,12 +188,12 @@ const NavBar = () => {
                   );
                 })}
               </Reorder.Group>
-            </motion.nav>
+            </nav>
           </BorderWrapper>
         </motion.div>
       </motion.div>
       {freeItems.map((btnData) => (
-        <NavBtn key={btnData.id} btnData={btnData} navState={navState} />
+        <NavBtnHandler key={btnData.id} btnData={btnData} navState={navState} />
       ))}
     </div>
   );

@@ -10,31 +10,19 @@
   border-radius: 80px;
   gap: 32px;
   transition: all 0.2s;
-  /* overflow: hidden; */
-}
-
-.nav button {
-  max-width: 80px;
-  max-height: 80px;
-  width: 3vw;
-  height: 3vw;
-  min-width: 40px;
-  min-height: 40px;
-  border-radius: 50%;
-  display: block;
+  padding: 4px;
 }
 
 #nav1 {
   display: flex;
   justify-content: flex-end;
-  padding: 8px;
+  align-items: center;
 }
 
 #nav2 {
   display: flex;
   flex-direction: column;
-  padding: 8px;
-  /* justify-content: flex-end; */
+  align-items: center;
 }
 
 .nav ul {
@@ -42,15 +30,6 @@
   list-style: none;
   flex-direction: inherit;
   gap: 16px;
-}
-
-.navBtn {
-  max-width: 80px;
-  max-height: 80px;
-  width: 3vw;
-  height: 3vw;
-  min-width: 40px;
-  min-height: 40px;
 }
 
 .navWrapper {
@@ -62,4 +41,5 @@
 .dragContainer {
   display: flex;
   justify-content: flex-end;
+  float: right;
 }
