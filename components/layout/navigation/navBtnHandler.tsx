@@ -3,6 +3,7 @@ import { Reorder, motion } from "framer-motion";
 import { checkIntersection } from "../../../utils/domUtil";
 import classes from "./navigation.module.css";
 import NavBtn from "./navBtn";
+import ClockBtn from "./clockBtn";
 
 interface NavItem {
   id: string;
@@ -96,7 +97,11 @@ const NavBtnHandler = ({ btnData, navState, reorder }: Props) => {
         ref={btnRef}
         dragSnapToOrigin
       >
-        <NavBtn btnData={btnData} onClick={handleClick} />
+        {btnData.id === "clock" ? (
+          <ClockBtn />
+        ) : (
+          <NavBtn btnData={btnData} onClick={handleClick} />
+        )}
       </Reorder.Item>
     );
   } else {
@@ -117,7 +122,11 @@ const NavBtnHandler = ({ btnData, navState, reorder }: Props) => {
           left: btnData.x ? btnData.x : "auto",
         }}
       >
-        <NavBtn btnData={btnData} onClick={handleClick} />
+        {btnData.id === "clock" ? (
+          <ClockBtn />
+        ) : (
+          <NavBtn btnData={btnData} onClick={handleClick} />
+        )}
       </motion.div>
     );
   }

@@ -1,0 +1,51 @@
+.clockBtn {
+  max-width: 80px;
+  max-height: 80px;
+  width: 3vw;
+  height: 3vw;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 80px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: var(--ele-2);
+}
+
+.clockBtn div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.face svg {
+  height: 100%;
+  width: 100%;
+}
+
+.hour::before {
+  content: "";
+  height: 30%;
+  width: 2px;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-33%);
+  top: 20%;
+  border-radius: 2px;
+  border: 1px solid rgba(104, 104, 104, 0.8);
+}
+.minute::before {
+  content: "";
+  height: 40%;
+  width: 1px;
+  background-color: rgb(242, 242, 242);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-40%);
+  top: 10%;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
