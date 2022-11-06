@@ -6,17 +6,8 @@ import classes from "./navigation.module.css";
 import clsx from "clsx";
 import NavBtnHandler from "./navBtnHandler";
 import MenuBtn from "./menuBtn";
-
-const initialNavItems = [
-  { id: "home", title: "Home" },
-  { id: "about-me", title: "About Me" },
-  { id: "portfolio", title: "Portfolio" },
-  { id: "contact", title: "Contact" },
-  { id: "clock", title: "Clock" },
-  { id: "github", title: "Github" },
-  { id: "linkedin", title: "LinkedIn" },
-  { id: "behance", title: "Behance" },
-];
+import initialNavItems from "./navBtnData";
+import FlipBtn from "./flipBtn";
 
 interface NavItem {
   id: string;
@@ -39,7 +30,9 @@ const closedSizeNav = `max(${40 + paddingNav}px, min(${
 //TODO Nav too big in mobile
 //// Touch mouse up doesn't work
 //TODO If screen is resized the navBar boundary doesn't update
-//TODO Track the drag history of the whole nav bar prevent click when dragged
+//// Track the drag history of the whole nav bar prevent click when dragged
+//? Maybe I don't need the NavBtnHandler
+//? How can me make this components simpler/smaller
 
 const NavBar = () => {
   const [navItems, setNavItems] = useState(initialNavItems);
@@ -47,8 +40,11 @@ const NavBar = () => {
 
   const [navOpen, setNavOpen] = useState(true);
   const [flip, setFlip] = useState(true);
+  const [wasDragged, setWasDragged] = useState(false);
+  const [initial, setInitial] = useState(true);
 
   const [navWrapperSize, setNavWrapperSize] = useState({ width: 0, height: 0 });
+  const [navSizeTransition, setNavSizeTransition] = useState("fit-content");
   const nav1Ref = useRef<HTMLDivElement>(null);
   const nav2Ref = useRef<HTMLDivElement>(null);
   const navBoundary = useRef(null);
@@ -65,6 +61,7 @@ const NavBar = () => {
   };
 
   //Resizes the draggable nav container when the nav changes
+  //* This should be where we can resize if screen changes too maybe
   useEffect(() => {
     let rect = nav1Ref.current!.getBoundingClientRect();
     if (flip) {
@@ -82,19 +79,26 @@ const NavBar = () => {
     }
   }, [flip, navItems]);
 
+  useEffect(() => {
+    console.log(navSizeTransition);
+  }, [navSizeTransition]);
+
   return (
     <div className={classes.navBoundary} ref={navBoundary}>
+      {/* Outer Div for dragging the whole thing */}
       <motion.div
         drag
         dragConstraints={navBoundary}
         dragTransition={{ power: 0.02 }}
         className={classes.dragContainer}
+        onDragStart={() => setWasDragged(true)}
         style={{
           width: !navOpen ? closedSize : navWrapperSize.width,
           height: !navOpen ? closedSize : navWrapperSize.height,
         }}
         //I can migrate this to css... I think
       >
+        {/* First and Second Child responsible for flip animation, the nav is rendered inside them */}
         <motion.div
           className={classes.navWrapper}
           ref={nav1Ref}
@@ -112,7 +116,7 @@ const NavBar = () => {
           }}
         >
           <BorderWrapper borderRadius='80px' borderSize='2px'>
-            <nav
+            <motion.nav
               className={clsx(classes.nav)}
               id={classes.nav1}
               style={{
@@ -130,14 +134,19 @@ const NavBar = () => {
                   />
                 ))}
               </Reorder.Group>
-              <button onClick={() => setFlip((prev) => !prev)}>Flip</button>
+              <FlipBtn onClick={() => setFlip((prev) => !prev)} flip={flip} />
+
               <MenuBtn
                 navOpen={navOpen}
                 onClick={() => {
-                  setNavOpen(!navOpen);
+                  if (wasDragged) {
+                    setWasDragged(false);
+                  } else {
+                    setNavOpen(!navOpen);
+                  }
                 }}
               />
-            </nav>
+            </motion.nav>
           </BorderWrapper>
         </motion.div>
         <motion.div
@@ -163,15 +172,20 @@ const NavBar = () => {
               style={{
                 height: navOpen ? "fit-content" : closedSizeNav,
                 overflow: navOpen ? "visible" : "hidden",
+                maxWidth: `${navWrapperSize.width - 4}px`,
               }}
             >
               <MenuBtn
                 navOpen={navOpen}
                 onClick={() => {
-                  setNavOpen(!navOpen);
+                  if (wasDragged) {
+                    setWasDragged(false);
+                  } else {
+                    setNavOpen(!navOpen);
+                  }
                 }}
               />
-              <button onClick={() => setFlip((prev) => !prev)}>Flip</button>
+              <FlipBtn onClick={() => setFlip((prev) => !prev)} flip={flip} />
               <Reorder.Group
                 axis='y'
                 onReorder={(items) => setNavItems(items.reverse())}

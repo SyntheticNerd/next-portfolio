@@ -8,7 +8,7 @@
 .nav {
   background-color: var(--ele-2);
   border-radius: 80px;
-  gap: 32px;
+  gap: 8px;
   transition: all 0.2s;
   padding: 4px;
 }
@@ -22,7 +22,6 @@
 #nav2 {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .nav ul {

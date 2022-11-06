@@ -1,13 +1,25 @@
 .navBtn {
-  max-width: 80px;
   max-height: 80px;
-  width: 3vw;
-  height: 3vw;
-  min-width: 40px;
-  min-height: 40px;
+  width: fit-content;
+  max-width: 120px;
+  height: fit-content;
   border: none;
   outline: none;
   border-radius: 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  background-color: var(--ele-2);
+}
+
+.navBtn p {
+  width: fit-content;
+  white-space: nowrap;
+  transition: all 0.5s;
+  overflow: hidden;
+  text-align: left;
 }
 
 .btnShadow {
@@ -55,9 +67,35 @@
   position: absolute;
 }
 
-.menuClose .line1 {
+.iconWrapper {
+  max-width: 80px;
+  max-height: 80px;
+  width: 3vw;
+  height: 3vw;
+  min-width: 40px;
+  min-height: 40px;
+  top: 0;
+  left: 0;
 }
-.menuClose .line2 {
+
+.iconWrapper svg {
+  height: 100%;
+  width: 100%;
 }
-.menuClose .line3 {
+
+.flipBtn {
+  max-width: 80px;
+  max-height: 80px;
+  width: 3vw;
+  height: 3vw;
+  min-width: 40px;
+  min-height: 40px;
+  background: none;
+  border: none;
+}
+
+.flipBtn svg {
+  height: 100%;
+  width: 100%;
+  padding: 20%;
 }

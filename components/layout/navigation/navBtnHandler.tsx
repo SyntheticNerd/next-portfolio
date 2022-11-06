@@ -63,7 +63,7 @@ const NavBtnHandler = ({ btnData, navState, reorder }: Props) => {
         );
         //item is already in array
         if (filteredItems.length) return;
-        //i think this can be optimized
+        //i think this can be optimized to not calculate every time
         let rect = btnRef.current!.getBoundingClientRect();
         btnData.x = rect.x;
         btnData.y = rect.y;
