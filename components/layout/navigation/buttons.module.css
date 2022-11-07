@@ -20,6 +20,8 @@
   transition: all 0.5s;
   overflow: hidden;
   text-align: left;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .btnShadow {

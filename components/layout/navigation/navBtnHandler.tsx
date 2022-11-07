@@ -121,7 +121,6 @@ const NavBtnHandler = ({ btnData, navState, reorder }: Props) => {
         style={{
           width: "fit-content",
           position: "absolute",
-          // borderRadius: "100px",
           top: btnData.y ? btnData.y : "auto",
           left: btnData.x ? btnData.x : "auto",
         }}

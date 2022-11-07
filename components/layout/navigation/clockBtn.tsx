@@ -29,6 +29,7 @@ const ClockBtn = ({ wasDragged, setWasDragged }: Props) => {
   const [expand, setExpand] = useState(true);
   const [initialLoad, setInitialLoad] = useState(false);
 
+
   const updateTime = () => {
     const date = new Date();
     setTime({ hour: date.getHours(), minute: date.getMinutes() });

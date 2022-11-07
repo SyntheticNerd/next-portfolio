@@ -19,7 +19,7 @@ interface Props {
 const measureText = (text: string) => {
   let canvas = document.createElement("canvas");
   let ctx = canvas.getContext("2d");
-  ctx!.font = "16px Sans-Serif";
+  ctx!.font = "20px bold Sans-Serif";
   let width = ctx!.measureText(text).width;
   return width;
 };
