@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BorderWrapper from "../../props/borderWrapper";
 import classes from "./buttons.module.css";
+import { motion } from "framer-motion";
 
 interface NavItem {
   id: string;
@@ -12,6 +13,7 @@ interface NavItem {
 interface Props {
   btnData: NavItem;
   onClick: () => void;
+  wasDragged: boolean;
 }
 
 const measureText = (text: string) => {
@@ -22,8 +24,9 @@ const measureText = (text: string) => {
   return width;
 };
 
-const NavBtn = ({ btnData, onClick }: Props) => {
+const NavBtn = ({ btnData, onClick, wasDragged }: Props) => {
   const [hover, setHover] = useState(false);
+  const [mouseDown, setMouseDown] = useState(false);
 
   return (
     <BorderWrapper
@@ -36,7 +39,11 @@ const NavBtn = ({ btnData, onClick }: Props) => {
         className={classes.navBtn}
         onClick={onClick}
         onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
+        onMouseLeave={() => {
+          setHover(false);
+        }}
+        onMouseDown={() => setMouseDown(true)}
+        onMouseUp={() => setMouseDown(false)}
       >
         {btnData.Icon && (
           <div className={classes.iconWrapper}>
@@ -44,13 +51,16 @@ const NavBtn = ({ btnData, onClick }: Props) => {
           </div>
         )}
 
-        <p
-          style={{
-            width: hover ? `${measureText(btnData.title)}px` : "0px",
+        <motion.p
+          initial={{ width: "0px" }}
+          animate={{
+            width:
+              hover && !mouseDown ? `${measureText(btnData.title)}px` : "0px",
           }}
+          transition={{ duration: 0.1, ease: "easeIn" }}
         >
           {btnData.title && btnData.title}
-        </p>
+        </motion.p>
       </button>
     </BorderWrapper>
   );

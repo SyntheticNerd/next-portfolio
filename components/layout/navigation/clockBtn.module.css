@@ -1,10 +1,19 @@
 .clockBtn {
-  max-width: 80px;
+  width: fit-content;
+  border: none;
+  display: flex;
+  position: relative;
+  background-color: var(--ele-2);
+  border-radius: 80px;
+}
+
+.clockFace {
   max-height: 80px;
-  width: 3vw;
   height: 3vw;
-  min-width: 40px;
   min-height: 40px;
+  max-width: 80px;
+  width: 3vw;
+  min-width: 40px;
   border-radius: 80px;
   border: none;
   display: flex;
@@ -14,12 +23,19 @@
   background-color: var(--ele-2);
 }
 
-.clockBtn div {
+.clockFace > div {
   position: absolute;
   height: 100%;
-  width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.centerDot {
+  height: 5px !important;
+  width: 5px !important;
+  background: var(--border-gradient);
+  border-radius: 50%;
+  box-shadow: 0px 0px 3px black;
 }
 
 .face {
@@ -55,10 +71,46 @@
   box-shadow: 0px 0px 3px black;
 }
 
-.centerDot {
-  height: 5px !important;
-  width: 5px !important;
+.analog {
+  max-height: 80px;
+  height: 3vw;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  justify-content: center;
+}
+
+.analog div {
+  position: relative;
+  width: 6px;
+  height: 100%;
+}
+
+.analog div::before {
+  content: "";
   background: var(--border-gradient);
+  height: 6px;
+  width: 6px;
+  position: absolute;
   border-radius: 50%;
-  box-shadow: 0px 0px 3px black;
+  left: 0;
+  top: 50%;
+  transform: translateY(-120%);
+}
+.analog div::after {
+  content: "";
+  background: var(--border-gradient);
+  height: 6px;
+  width: 6px;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  top: 50%;
+  transform: translateY(40%);
+}
+.clockBtn p {
+  font-weight: bold;
+  font-size: 24px;
 }

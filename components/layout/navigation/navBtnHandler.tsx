@@ -98,9 +98,13 @@ const NavBtnHandler = ({ btnData, navState, reorder }: Props) => {
         dragSnapToOrigin
       >
         {btnData.id === "clock" ? (
-          <ClockBtn />
+          <ClockBtn wasDragged={wasDragged} setWasDragged={setWasDragged} />
         ) : (
-          <NavBtn btnData={btnData} onClick={handleClick} />
+          <NavBtn
+            btnData={btnData}
+            onClick={handleClick}
+            wasDragged={wasDragged}
+          />
         )}
       </Reorder.Item>
     );
@@ -123,9 +127,13 @@ const NavBtnHandler = ({ btnData, navState, reorder }: Props) => {
         }}
       >
         {btnData.id === "clock" ? (
-          <ClockBtn />
+          <ClockBtn wasDragged={wasDragged} setWasDragged={setWasDragged} />
         ) : (
-          <NavBtn btnData={btnData} onClick={handleClick} />
+          <NavBtn
+            btnData={btnData}
+            onClick={handleClick}
+            wasDragged={wasDragged}
+          />
         )}
       </motion.div>
     );

@@ -172,7 +172,7 @@ const NavBar = () => {
               style={{
                 height: navOpen ? "fit-content" : closedSizeNav,
                 overflow: navOpen ? "visible" : "hidden",
-                maxWidth: `${navWrapperSize.width - 4}px`,
+                maxWidth: `${navWrapperSize.width - 8}px`,
               }}
             >
               <MenuBtn
