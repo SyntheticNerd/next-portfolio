@@ -3,7 +3,7 @@
   min-height: 5700px;
   position: relative;
   object-fit: scale-down;
-  background-image: url("./images/bg-main.svg");
+  background-image: url("./images/bg-main.png");
   background-size: 100%;
   background-repeat: repeat-y;
 }
