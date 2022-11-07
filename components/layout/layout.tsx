@@ -1,4 +1,5 @@
 import React, { ReactNode } from "react";
+import Background from "./background/background";
 import NavBar from "./navigation/navBar";
 
 interface Props {
@@ -7,10 +8,10 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   return (
-    <>
+    <Background>
       <NavBar />
       <main>{children}</main>
-    </>
+    </Background>
   );
 };
 

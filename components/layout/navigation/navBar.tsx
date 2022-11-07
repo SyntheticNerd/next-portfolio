@@ -41,7 +41,6 @@ const NavBar = () => {
   const [navOpen, setNavOpen] = useState(true);
   const [flip, setFlip] = useState(true);
   const [wasDragged, setWasDragged] = useState(false);
-  const [initial, setInitial] = useState(true);
 
   const [navWrapperSize, setNavWrapperSize] = useState({ width: 0, height: 0 });
   const [navSizeTransition, setNavSizeTransition] = useState("fit-content");
@@ -92,6 +91,7 @@ const NavBar = () => {
         dragTransition={{ power: 0.02 }}
         className={classes.dragContainer}
         onDragStart={() => setWasDragged(true)}
+        onClick={() => setWasDragged(false)}
         style={{
           width: !navOpen ? closedSize : navWrapperSize.width,
           height: !navOpen ? closedSize : navWrapperSize.height,
@@ -122,6 +122,7 @@ const NavBar = () => {
               style={{
                 overflow: navOpen ? "visible" : "hidden",
                 width: navOpen ? "fit-content" : closedSizeNav,
+                boxShadow: "var(--nav-bar-shadow)",
               }}
             >
               <Reorder.Group axis='x' onReorder={setNavItems} values={navItems}>
@@ -134,16 +135,17 @@ const NavBar = () => {
                   />
                 ))}
               </Reorder.Group>
-              <FlipBtn onClick={() => setFlip((prev) => !prev)} flip={flip} />
+              <FlipBtn
+                onClick={() => {
+                  !wasDragged && setFlip((prev) => !prev);
+                }}
+                flip={flip}
+              />
 
               <MenuBtn
                 navOpen={navOpen}
                 onClick={() => {
-                  if (wasDragged) {
-                    setWasDragged(false);
-                  } else {
-                    setNavOpen(!navOpen);
-                  }
+                  !wasDragged && setNavOpen(!navOpen);
                 }}
               />
             </motion.nav>
@@ -165,7 +167,11 @@ const NavBar = () => {
             ease: "easeIn",
           }}
         >
-          <BorderWrapper borderRadius='80px' borderSize='2px'>
+          <BorderWrapper
+            borderRadius='80px'
+            borderSize='2px'
+            style={{ boxShadow: "var(--nav-bar-shadow)" }}
+          >
             <nav
               className={clsx(classes.nav)}
               id={classes.nav2}
@@ -178,14 +184,15 @@ const NavBar = () => {
               <MenuBtn
                 navOpen={navOpen}
                 onClick={() => {
-                  if (wasDragged) {
-                    setWasDragged(false);
-                  } else {
-                    setNavOpen(!navOpen);
-                  }
+                  !wasDragged && setNavOpen(!navOpen);
                 }}
               />
-              <FlipBtn onClick={() => setFlip((prev) => !prev)} flip={flip} />
+              <FlipBtn
+                onClick={() => {
+                  !wasDragged && setFlip((prev) => !prev);
+                }}
+                flip={flip}
+              />
               <Reorder.Group
                 axis='y'
                 onReorder={(items) => setNavItems(items.reverse())}

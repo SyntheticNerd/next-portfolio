@@ -15,6 +15,7 @@
     #fbf5b7 63.91%,
     #aa771c 100%
   );
+
   --ele-1: #121212;
   --ele-2: #1e1e1e;
   --ele-3: #232323;
@@ -22,6 +23,13 @@
   --ele-5: #383838;
 
   --nav-btn-shadow: 0px 16px 32px rgba(0, 0, 0, 0.5);
+  --nav-bar-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html,
@@ -35,13 +43,8 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
@@ -49,4 +52,4 @@ a {
     color: white;
     background: black;
   }
-}
+} */

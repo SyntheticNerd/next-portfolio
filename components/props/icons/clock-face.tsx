@@ -159,11 +159,11 @@ const ClockFace = () => {
           y2='77'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint1_linear_254_125'
@@ -173,11 +173,11 @@ const ClockFace = () => {
           y2='75'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint2_linear_254_125'
@@ -187,11 +187,11 @@ const ClockFace = () => {
           y2='77'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint3_linear_254_125'
@@ -201,11 +201,11 @@ const ClockFace = () => {
           y2='75'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint4_linear_254_125'
@@ -215,11 +215,11 @@ const ClockFace = () => {
           y2='77'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint5_linear_254_125'
@@ -229,11 +229,11 @@ const ClockFace = () => {
           y2='75'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint6_linear_254_125'
@@ -243,11 +243,11 @@ const ClockFace = () => {
           y2='77'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint7_linear_254_125'
@@ -257,11 +257,11 @@ const ClockFace = () => {
           y2='75'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint8_linear_254_125'
@@ -271,11 +271,11 @@ const ClockFace = () => {
           y2='77'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint9_linear_254_125'
@@ -285,11 +285,11 @@ const ClockFace = () => {
           y2='75'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint10_linear_254_125'
@@ -299,11 +299,11 @@ const ClockFace = () => {
           y2='77'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint11_linear_254_125'
@@ -313,11 +313,11 @@ const ClockFace = () => {
           y2='75'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint12_linear_254_125'
@@ -327,11 +327,11 @@ const ClockFace = () => {
           y2='77'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint13_linear_254_125'
@@ -341,11 +341,11 @@ const ClockFace = () => {
           y2='75'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint14_linear_254_125'
@@ -355,11 +355,11 @@ const ClockFace = () => {
           y2='77'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint15_linear_254_125'
@@ -369,11 +369,11 @@ const ClockFace = () => {
           y2='75'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint16_linear_254_125'
@@ -383,11 +383,11 @@ const ClockFace = () => {
           y2='77'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint17_linear_254_125'
@@ -397,11 +397,11 @@ const ClockFace = () => {
           y2='75'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint18_linear_254_125'
@@ -411,11 +411,11 @@ const ClockFace = () => {
           y2='77'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint19_linear_254_125'
@@ -425,11 +425,11 @@ const ClockFace = () => {
           y2='75'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint20_linear_254_125'
@@ -439,11 +439,11 @@ const ClockFace = () => {
           y2='77'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint21_linear_254_125'
@@ -453,11 +453,11 @@ const ClockFace = () => {
           y2='75'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint22_linear_254_125'
@@ -467,11 +467,11 @@ const ClockFace = () => {
           y2='77'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint23_linear_254_125'
@@ -481,11 +481,11 @@ const ClockFace = () => {
           y2='75'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint24_linear_254_125'
@@ -495,11 +495,11 @@ const ClockFace = () => {
           y2='77'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
         <linearGradient
           id='paint25_linear_254_125'
@@ -509,11 +509,11 @@ const ClockFace = () => {
           y2='75'
           gradientUnits='userSpaceOnUse'
         >
-          <stop stop-color='#BF953F' />
-          <stop offset='0.234375' stop-color='#FCF6BA' />
-          <stop offset='0.515625' stop-color='#B38728' />
-          <stop offset='0.78125' stop-color='#FBF5B7' />
-          <stop offset='1' stop-color='#AA771C' />
+          <stop stopColor='#BF953F' />
+          <stop offset='0.234375' stopColor='#FCF6BA' />
+          <stop offset='0.515625' stopColor='#B38728' />
+          <stop offset='0.78125' stopColor='#FBF5B7' />
+          <stop offset='1' stopColor='#AA771C' />
         </linearGradient>
       </defs>
     </svg>

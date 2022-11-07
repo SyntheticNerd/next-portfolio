@@ -6,6 +6,7 @@ interface Props {
   className?: string;
   borderSize?: string;
   borderRadius?: string;
+  style?: React.CSSProperties;
 }
 
 const BorderWrapper = ({
@@ -13,6 +14,7 @@ const BorderWrapper = ({
   className,
   borderSize,
   borderRadius,
+  style,
 }: Props) => {
   return (
     <div
@@ -23,6 +25,7 @@ const BorderWrapper = ({
         width: "fit-content",
         borderRadius: borderRadius ? borderRadius : "0px",
         flexDirection: "inherit",
+        ...style,
       }}
     >
       <div

@@ -5,6 +5,10 @@
   padding: 32px;
 }
 
+.navBoundary * {
+  color: white;
+}
+
 .nav {
   background-color: var(--ele-2);
   border-radius: 80px;

@@ -29,7 +29,6 @@ const ClockBtn = ({ wasDragged, setWasDragged }: Props) => {
   const [expand, setExpand] = useState(true);
   const [initialLoad, setInitialLoad] = useState(false);
 
-
   const updateTime = () => {
     const date = new Date();
     setTime({ hour: date.getHours(), minute: date.getMinutes() });
@@ -53,6 +52,7 @@ const ClockBtn = ({ wasDragged, setWasDragged }: Props) => {
       className={classes.btnShadow}
       borderRadius='80px'
       borderSize='2px'
+      style={{ boxShadow: "var(--nav-btn-shadow)" }}
     >
       <button
         className={classes.clockBtn}
@@ -85,7 +85,7 @@ const ClockBtn = ({ wasDragged, setWasDragged }: Props) => {
             }}
             animate={{ maxWidth: "180px", width: "5vw", minWidth: "140px" }}
           >
-            <p className={classes.dots}>{pad(time.hour % 12)}</p>
+            <p className={classes.dots}>{pad(time.hour % 12 ? time.hour % 12 : 12)}</p>
             <div></div>
             <p>{pad(time.minute)}</p>
             <p>{time.hour > 12 ? "pm" : "am"}</p>
