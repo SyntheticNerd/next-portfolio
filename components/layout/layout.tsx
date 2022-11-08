@@ -8,10 +8,11 @@ interface Props {
 
 const Layout = ({ children }: Props) => {
   return (
-    <Background>
+    <>
       <NavBar />
-      <main>{children}</main>
-    </Background>
+      {children}
+      <Background />
+    </>
   );
 };
 

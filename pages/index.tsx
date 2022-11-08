@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Intro from "../components/intro/intro";
 
 export default function Home() {
   return (
@@ -8,7 +9,9 @@ export default function Home() {
         <meta name='description' content='Synthetic Nerd Portfolio and Blog' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main></main>
+      <main>
+        <Intro />
+      </main>
       <footer></footer>
     </div>
   );
