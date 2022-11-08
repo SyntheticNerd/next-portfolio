@@ -1,0 +1,22 @@
+.introWrapper {
+  height: 100vh;
+  max-height: 1800px;
+  min-height: 400px;
+  display: grid;
+  place-items: center;
+  perspective: 1000px;
+  .intro {
+    width: 80vw;
+    max-width: 500px;
+    background-color: var(--ele-2);
+    color: var(--font-color-light);
+    padding: min(3%, 80px) min(5%, 60px);
+    font-size: 32px;
+    .name {
+      background: var(--line-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
