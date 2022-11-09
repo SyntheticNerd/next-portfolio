@@ -57,7 +57,7 @@ const NavBtn = ({ btnData, onClick, wasDragged }: Props) => {
             width:
               hover && !mouseDown ? `${measureText(btnData.title)}px` : "0px",
           }}
-          transition={{ duration: 0.1, ease: "easeIn" }}
+          transition={{ duration: 0.005, ease: "easeIn" }}
         >
           {btnData.title && btnData.title}
         </motion.p>

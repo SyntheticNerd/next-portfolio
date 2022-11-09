@@ -44,6 +44,7 @@ const Intro = () => {
           <div className={classes.intro}>
             <h1>Hello,</h1>
             <h1>
+              {/* TODO Redirect to about me sectioni */}
               {/* eslint-disable-next-line react/no-unescaped-entities */}
               I'm <span className={classes.name}>Andrew</span>,
             </h1>
