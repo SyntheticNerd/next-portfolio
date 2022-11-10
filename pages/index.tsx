@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Featured from "../components/featured/featured";
 import Intro from "../components/intro/intro";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       </Head>
       <main>
         <Intro />
+        <Featured />
       </main>
       <footer></footer>
     </div>

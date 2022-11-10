@@ -1,16 +1,43 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import ReactTyped from "react-typed";
 import useMousePosition from "../../utils/hooks/useMousePosition";
 import BorderWrapper from "../props/borderWrapper";
 import classes from "./intro.module.scss";
+import Ticker from "./ticker";
+
+const skillList = [
+  "JavaScript",
+  "TypeScript",
+  "HTML",
+  "CSS",
+  "Python",
+  "C++",
+  "React",
+  "Next.JS",
+  "Redux",
+  "Redux Toolkit",
+  "Node",
+  "Express",
+  "MongoDB",
+  "Mongoose",
+  "SQL",
+  "MySql",
+  "Sequelize",
+  "Firebase",
+  "UX Design",
+  "Figma",
+];
 
 const Intro = () => {
-  const mousePosition = useMousePosition();
+  const introRef = useRef<HTMLDivElement>(null);
+
+  const mousePosition = useMousePosition(introRef);
 
   return (
     <div className={classes.introWrapper}>
       <motion.div
+        ref={introRef}
         style={{
           boxShadow: "var(--nav-bar-shadow)",
           transformStyle: "preserve-3d",
@@ -65,6 +92,11 @@ const Intro = () => {
           </div>
         </BorderWrapper>
       </motion.div>
+      <Ticker baseVelocity={-3}>
+        {skillList.map((skill) => (
+          <p key={skill}>{skill}</p>
+        ))}
+      </Ticker>
     </div>
   );
 };

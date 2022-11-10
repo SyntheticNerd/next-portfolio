@@ -1,0 +1,17 @@
+.ticker {
+  width: 100%;
+  overflow: hidden;
+}
+
+.innerTicker {
+  color: var(--font-color-dim);
+  display: flex;
+  gap: 60px;
+  font-size: 48px;
+  font-weight: bold;
+  font-family: sans-serif;
+  white-space: nowrap;
+  p {
+    text-shadow: var(--ticker-shadow);
+  }
+}

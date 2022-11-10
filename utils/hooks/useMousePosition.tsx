@@ -1,8 +1,14 @@
+import { useInView } from "framer-motion";
 import { useState, useEffect } from "react";
 
-//This can be a performance heavy only use while target is in view
+////This can be a performance heavy only use while target is in view
 
-const useMousePosition = () => {
+interface Props {
+  inView?: boolean;
+}
+
+const useMousePosition = (ref: React.RefObject<HTMLDivElement>) => {
+  const inView = useInView(ref);
   const [mousePosition, setMousePosition] = useState<{
     x: number | null;
     y: number | null;
@@ -14,13 +20,13 @@ const useMousePosition = () => {
   useEffect(() => {
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-      console.log({ x: e.clientX, y: e.clientY });
+      // console.log({ x: e.clientX, y: e.clientY });
     };
-    window.addEventListener("mousemove", updateMousePosition);
+    inView && window.addEventListener("mousemove", updateMousePosition);
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
     };
-  }, []);
+  }, [inView]);
 
   return mousePosition;
 };
