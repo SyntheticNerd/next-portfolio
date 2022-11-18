@@ -1,0 +1,25 @@
+.project {
+  color: var(--font-color-light);
+  display: flex;
+  gap: 10%;
+  justify-content: center;
+}
+
+.summary {
+  width: 40%;
+}
+
+.images {
+  position: relative;
+  div {
+    position: absolute;
+  }
+
+  .desktopImage{
+
+  }
+
+  
+}
+
+

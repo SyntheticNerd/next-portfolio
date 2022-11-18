@@ -35,7 +35,7 @@ const Background = () => {
       <motion.div
         className={classes.layer3Bottom}
         style={{
-          y: scrollProgress * -0.1 + 500,
+          y: scrollProgress * -0.1 + 410,
         }}
       />
     </div>
