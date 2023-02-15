@@ -25,12 +25,10 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
     damping: 50,
     stiffness: 400,
   });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+  const velocityFactor = useTransform(smoothVelocity, [10, 30], [20, 30], {
     clamp: false,
   });
-  useEffect(() => {
-    console.log(children);
-  });
+
   /**
    * This is a magic wrapping for the length of the text - you
    * have to replace for wrapping that works for you or dynamically
@@ -39,7 +37,7 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
   //TODO need to fix this so it resets properly.
   const x = useTransform(baseX, (v) => {
     // console.log(wrap(-100, -200, v));
-    return `${wrap(-80, -280, v)}%`;
+    return `${wrap(0, -7447, v)}px`;
   });
 
   const directionFactor = useRef<number>(1);

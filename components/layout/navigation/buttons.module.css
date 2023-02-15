@@ -12,7 +12,6 @@
   justify-content: center;
   background: none;
   background-color: var(--ele-2);
-  pointer-events: auto;
 }
 
 .navBtn p {

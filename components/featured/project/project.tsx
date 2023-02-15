@@ -7,9 +7,9 @@ const Project = () => {
   return (
     <div className={classes.project}>
       <Summary />
-      <div>
+      <div className={classes.imageContainer}>
         <Pictures />
-        <div>
+        <div className={classes.techStack}>
           <b>React</b>
           <b>Redux</b>
           <b>Styled Components</b>

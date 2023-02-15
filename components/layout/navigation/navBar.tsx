@@ -34,6 +34,7 @@ const closedSizeNav = `max(${40 + paddingNav}px, min(${
 //? Maybe I don't need the NavBtnHandler
 //? How can me make this components simpler/smaller
 
+
 const NavBar = () => {
   const [navItems, setNavItems] = useState(initialNavItems);
   const [freeItems, setFreeItems] = useState<NavItem[]>([]);

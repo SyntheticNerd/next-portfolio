@@ -1,19 +1,20 @@
+import { SessionProvider } from "next-auth/react";
 import React, { ReactNode } from "react";
 import Background from "./background/background";
 import NavBar from "./navigation/navBar";
 
 interface Props {
-  children: ReactNode;
+	children: ReactNode;
 }
 
 const Layout = ({ children }: Props) => {
-  return (
-    <>
-      <NavBar />
-      {children}
-      <Background />
-    </>
-  );
+	return (
+		<SessionProvider>
+			<NavBar />
+			{children}
+			<footer></footer>
+		</SessionProvider>
+	);
 };
 
 export default Layout;

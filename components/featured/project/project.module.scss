@@ -1,25 +1,70 @@
 .project {
-  color: var(--font-color-light);
-  display: flex;
-  gap: 10%;
-  justify-content: center;
+	color: var(--font-color-light);
+	display: flex;
+	flex-wrap: wrap-reverse;
+	justify-content: space-between;
+	margin-bottom: 10%;
+	width: 90%;
 }
 
 .summary {
-  width: 40%;
+	flex-grow: 1;
+	max-width: 660px;
+	margin: 0px auto;
 }
 
+.imageContainer {
+	width: 100%;
+	max-width: 660px;
+	margin: 0px auto 16px;
+}
 .images {
-  position: relative;
-  div {
-    position: absolute;
-  }
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 410px;
+	width: 100%;
+	div {
+		position: absolute;
+	}
 
-  .desktopImage{
-
-  }
-
-  
+	.desktopImage {
+		top: 0;
+		max-width: 80%;
+		img {
+			max-width: 100%;
+			height: auto;
+			object-fit: scale-down;
+		}
+	}
+	.tabletImage {
+		left: 25%;
+		top: 8%;
+		max-width: 35%;
+		img {
+			max-width: 100%;
+			height: auto;
+			object-fit: scale-down;
+		}
+	}
+	.cellphoneImage {
+		bottom: 0;
+		right: 30%;
+		max-width: 20%;
+		img {
+			max-width: 100%;
+			height: auto;
+			object-fit: scale-down;
+		}
+	}
 }
 
-
+.techStack {
+	display: flex;
+	justify-content: center;
+	gap: 16px;
+	b {
+		display: block;
+	}
+}

@@ -123,6 +123,7 @@ const NavBtnHandler = ({ btnData, navState, reorder }: Props) => {
           position: "absolute",
           top: btnData.y ? btnData.y : "auto",
           left: btnData.x ? btnData.x : "auto",
+          pointerEvents: "auto",
         }}
       >
         {btnData.id === "clock" ? (
