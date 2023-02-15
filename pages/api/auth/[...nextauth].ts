@@ -12,12 +12,13 @@ interface Credentials {
 export default NextAuth({
 	session: {
 		strategy: "jwt",
-		maxAge: 30 * 24 * 60 * 60,
+		maxAge: 2592000,
 	},
 	jwt: {
 		// The maximum age of the NextAuth.js issued JWT in seconds.
 		// Defaults to `session.maxAge`.
-		maxAge: 60 * 60 * 24 * 30,
+		maxAge: 2592000,
+		secret: process.env.NEXT_AUTH_SECRET,
 	},
 	//sessions is a setting used by next auth here we can tell it to use json web tokens
 	secret: process.env.AUTH_SECRET,
