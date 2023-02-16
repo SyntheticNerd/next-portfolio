@@ -1,0 +1,53 @@
+.inputWrapper {
+	label {
+		display: block;
+		margin-bottom: 8px;
+		font-weight: 600;
+		letter-spacing: 0.5px;
+	}
+	input {
+		background: none;
+		background-color: var(--ele-4);
+		border: 1px solid var(--font-color-dim);
+		outline: none;
+		color: var(--font-color-light);
+		width: 100%;
+		padding: 8px 4px;
+	}
+	textarea {
+		min-width: 100%;
+		max-width: 100%;
+		background: none;
+		background-color: var(--ele-4);
+		border: 1px solid var(--font-color-dim);
+		outline: none;
+		color: var(--font-color-light);
+		width: 100%;
+		padding: 8px 4px;
+	}
+	margin-bottom: 8px;
+}
+
+.collapsibleTitle {
+	margin-bottom: 16px;
+	display: flex;
+	gap: 8px;
+	.extraLabel {
+		display: block;
+		font-weight: 600;
+		letter-spacing: 0.5px;
+	}
+	button {
+		background: none;
+		display: grid;
+		place-items: center;
+		border: none;
+	}
+	svg {
+		fill: var(--font-color-dim);
+	}
+}
+.fileInput {
+	// opacity: 0;
+	// position: absolute;
+}
