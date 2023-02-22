@@ -26,7 +26,6 @@ const ResizableMenu = ({ children, session }: PropsWithChildren<Props>) => {
 	});
 
 	useEffect(() => {
-		console.log(session);
 		if (window) {
 			if (session) {
 				setDims((prev) => ({ ...prev, w2: window.innerWidth - prev.w }));

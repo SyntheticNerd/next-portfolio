@@ -23,13 +23,11 @@ const Login = ({ setSessionState }: { setSessionState: Dispatch<any> }) => {
 		}
 		//optional add validation
 		if (isLogin) {
-			console.log("TRYING SINGIN");
 			const result = await signIn("credentials", {
 				redirect: false,
 				username: usernameInputRef.current.value,
 				password: passwordInputRef.current.value,
 			});
-			console.log(result);
 			if (!result!.error) {
 				const newSession = await getSession();
 				setSessionState(newSession);
@@ -40,7 +38,6 @@ const Login = ({ setSessionState }: { setSessionState: Dispatch<any> }) => {
 					usernameInputRef.current.value,
 					passwordInputRef.current.value
 				);
-				console.log("THIS RESULT", result);
 			} catch (error) {
 				console.log("THIS ERROR", error);
 			}

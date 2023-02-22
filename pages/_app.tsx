@@ -4,9 +4,10 @@ import Layout from "../components/layout/layout";
 
 import Head from "next/head";
 import { Provider } from "react-redux";
-import { store } from "../features/store";
+import { wrapper } from "../features/store";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, ...rest }: AppProps) {
+	const {store, props} = wrapper.useWrappedStore(rest)
 	return (
 		<Provider store={store}>
 			<Layout>
@@ -16,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 						content="width=device-width, initial-scale=1.0"
 					/>
 				</Head>
-				<Component {...pageProps} />
+				<Component {...props.pageProps} />
 			</Layout>
 		</Provider>
 	);

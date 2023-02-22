@@ -26,16 +26,24 @@
 		padding: 8px 4px;
 	}
 	margin-bottom: 8px;
+	img {
+		object-fit: contain;
+	}
 }
 
 .collapsibleTitle {
 	margin-bottom: 16px;
 	display: flex;
+	align-items: center;
 	gap: 8px;
-	.extraLabel {
+
+	label {
 		display: block;
 		font-weight: 600;
 		letter-spacing: 0.5px;
+		* {
+			margin: 0px !important;
+		}
 	}
 	button {
 		background: none;
@@ -47,7 +55,17 @@
 		fill: var(--font-color-dim);
 	}
 }
+
 .fileInput {
 	// opacity: 0;
 	// position: absolute;
+}
+
+.radioInputWrapper {
+	label {
+		font-weight: 600;
+		letter-spacing: 0.5px;
+	}
+	input {
+	}
 }

@@ -20,7 +20,6 @@ const useMousePosition = (ref: React.RefObject<HTMLDivElement>) => {
   useEffect(() => {
     const updateMousePosition = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
-      // console.log({ x: e.clientX, y: e.clientY });
     };
     inView && window.addEventListener("mousemove", updateMousePosition);
     return () => {

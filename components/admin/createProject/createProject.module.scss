@@ -5,7 +5,6 @@
 	color: var(--font-color-light);
 }
 
-
 .technologiesUsed {
 	display: flex;
 	flex-wrap: wrap;
@@ -23,4 +22,10 @@
 		position: absolute;
 		opacity: 0;
 	}
+}
+
+.radioWrapper {
+	display: flex;
+	gap: 16px;
+	margin-bottom: 16px;
 }

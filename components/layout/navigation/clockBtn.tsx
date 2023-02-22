@@ -45,7 +45,6 @@ const ClockBtn = ({ wasDragged, setWasDragged }: Props) => {
     }
   }, []);
 
-  useEffect(() => console.log(expand), [expand]);
 
   return (
     <BorderWrapper

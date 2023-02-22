@@ -1,0 +1,46 @@
+.github {
+	background: none;
+	border: none;
+	outline: none;
+	background-color: var(--ele-5);
+	height: 64px;
+	width: 64px;
+	border-radius: 50%;
+	svg {
+		height: 100%;
+		width: 100%;
+	}
+}
+
+.webPage {
+	background: none;
+	border: none;
+	outline: none;
+	background-color: var(--ele-5);
+	height: 64px;
+	width: 64px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	svg {
+		height: 50%;
+	}
+}
+
+.largePill {
+	font-family: "Poppins";
+	font-weight: 600;
+	font-size: 32px;
+	color: var(--font-color-light);
+	background: none;
+	border: none;
+	outline: none;
+	background-color: var(--ele-5);
+	height: 64px;
+	padding: 0px 36px;
+	border-radius: 64px;
+}
+
+.btnShadow {
+	box-shadow: var(--nav-btn-shadow);
+}

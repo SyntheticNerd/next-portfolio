@@ -84,7 +84,7 @@ const Intro = () => {
                   "Digital Artist",
                   "React Developer",
                 ]}
-                typeSpeed={35}
+                typeSpeed={25}
                 backSpeed={50}
                 loop
               />

@@ -6,11 +6,38 @@
 	margin-bottom: 10%;
 	width: 90%;
 }
+.projectFlip {
+	color: var(--font-color-light);
+	display: flex;
+	flex-wrap: wrap-reverse;
+	justify-content: space-between;
+	margin-bottom: 10%;
+	width: 90%;
+}
 
 .summary {
 	flex-grow: 1;
 	max-width: 660px;
 	margin: 0px auto;
+	h2 {
+		font-weight: 700;
+		font-size: 42px;
+		line-height: 134.02%;
+		max-width: 540px;
+		margin-bottom: 36px;
+	}
+	p {
+		font-weight: 400;
+		font-size: 32px;
+		line-height: 39px;
+		margin-bottom: 80px;
+		letter-spacing: 0.1em;
+		color: var(--font-color-body);
+	}
+	div {
+		display: flex;
+		gap: 10px;
+	}
 }
 
 .imageContainer {
@@ -25,13 +52,14 @@
 	align-items: center;
 	height: min(60vw, 410px);
 	width: 100%;
+	margin-bottom: 5%;
 	div {
 		position: absolute;
 	}
 
 	.desktopImage {
 		top: 0;
-		max-width: 80%;
+		// max-width: 80%;
 		img {
 			max-width: 100%;
 			height: auto;
@@ -41,7 +69,7 @@
 	.tabletImage {
 		left: 25%;
 		top: 8%;
-		max-width: 35%;
+		max-width: 40%;
 		img {
 			max-width: 100%;
 			height: auto;
@@ -51,7 +79,7 @@
 	.cellphoneImage {
 		top: 30%;
 		right: 30%;
-		max-width: 20%;
+		max-width: 25%;
 		img {
 			max-width: 100%;
 			height: auto;
@@ -63,8 +91,15 @@
 .techStack {
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 	gap: 16px;
 	b {
 		display: block;
+		background: var(--line-gradient);
+		-webkit-background-clip: text;
+		background-clip: text;
+		-webkit-text-fill-color: transparent;
+		font-weight: 600;
+		font-size: 28px;
 	}
 }

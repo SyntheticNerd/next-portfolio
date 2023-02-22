@@ -25,7 +25,7 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
     damping: 50,
     stiffness: 400,
   });
-  const velocityFactor = useTransform(smoothVelocity, [10, 30], [20, 30], {
+  const velocityFactor = useTransform(smoothVelocity, [5, 30], [12, 30], {
     clamp: false,
   });
 
@@ -36,7 +36,6 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
    */
   //TODO need to fix this so it resets properly.
   const x = useTransform(baseX, (v) => {
-    // console.log(wrap(-100, -200, v));
     return `${wrap(0, -7447, v)}px`;
   });
 

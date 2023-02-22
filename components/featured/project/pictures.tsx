@@ -27,7 +27,7 @@ const Pictures = () => {
           width={260}
         />
       </motion.div>
-      <motion.div className={classes.cellphoneImage} animate={{ transform: hover ? "translateX(100%) translateY(-30%) rotate(20deg)" : "translateX(0px) translateY(0px) rotate(0deg)"}}>
+      <motion.div className={classes.cellphoneImage} animate={{ transform: hover ? "translateX(130%) translateY(-20%) rotate(20deg)" : "translateX(0px) translateY(0px) rotate(0deg)"}}>
         <Image
           src='/images/projects/tesla/tesla-cellphone.png'
           alt='Tesla Clone Desktop'

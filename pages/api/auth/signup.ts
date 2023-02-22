@@ -6,7 +6,6 @@ import { hashPassword } from "../../../lib/auth";
 const handler: NextApiHandler = async (req, res) => {
 	if (req.method === "POST") {
 		const { username, password }: { username: string; password: string } = req.body;
-        console.log(username, password)
 		if (
 			!username ||
 			!password ||

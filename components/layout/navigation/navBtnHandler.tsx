@@ -82,7 +82,7 @@ const NavBtnHandler = ({ btnData, navState, reorder }: Props) => {
     if (wasDragged) {
       setWasDragged(false);
     } else {
-      console.log(btnRef.current);
+      console.log(btnRef.current, "WHY IS THIS HERE");
     }
   };
 

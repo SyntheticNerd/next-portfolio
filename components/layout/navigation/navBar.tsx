@@ -79,9 +79,6 @@ const NavBar = () => {
     }
   }, [flip, navItems]);
 
-  useEffect(() => {
-    console.log(navSizeTransition);
-  }, [navSizeTransition]);
 
   return (
     <div className={classes.navBoundary} ref={navBoundary}>
