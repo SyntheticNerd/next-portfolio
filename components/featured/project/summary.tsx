@@ -5,15 +5,17 @@ import GithubIcon from "../../props/icons/github-icon";
 import classes from "./project.module.scss";
 import btnClasses from "../../../styles/buttons.module.scss";
 import WebpageIcon from "../../props/icons/webpage-icon";
+import { ProjectType } from "../../../utils/types";
 
-const Summary = () => {
+const Summary = ({
+	projectData: { title, body, github, liveSite },
+}: {
+	projectData: ProjectType;
+}) => {
 	return (
 		<div className={classes.summary}>
-			<h2>Creating a Shop.Tesla Clone with a Team</h2>
-			<p>
-				In this project I had the opportunity to bring a UX designers work to
-				life. I used animations and paralax effects to keep users engaged.
-			</p>
+			<h2>{title}</h2>
+			<p>{body}</p>
 			<div>
 				<BorderWrapper
 					className={btnClasses.btnShadow}
@@ -27,18 +29,30 @@ const Summary = () => {
 					borderRadius="50%"
 					borderSize="3px"
 				>
-					<button className={btnClasses.github}>
+					<a
+						href={github}
+						className={btnClasses.github}
+						rel="noreferrer noopener"
+						target="_blank"
+						title="Github"
+					>
 						<GithubIcon />
-					</button>
+					</a>
 				</BorderWrapper>
 				<BorderWrapper
 					className={btnClasses.btnShadow}
 					borderRadius="50%"
 					borderSize="3px"
 				>
-					<button className={btnClasses.webPage}>
+					<a
+						className={btnClasses.webPage}
+						href={liveSite}
+						rel="noreferrer noopener"
+						target="_blank"
+						title="Live Site"
+					>
 						<WebpageIcon />
-					</button>
+					</a>
 				</BorderWrapper>
 			</div>
 		</div>

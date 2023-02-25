@@ -1,4 +1,5 @@
 export interface ProjectType {
+	_id?: string;
 	title: string;
 	body: string;
 	github: string;
@@ -6,6 +7,7 @@ export interface ProjectType {
 	deskImgUrl?: string;
 	tabletImgUrl?: string;
 	mobileImgUrl?: string;
-	alignLeft: boolean;
 	techSelected: string[];
+	alignLeft: boolean;
+	featured: boolean;
 }

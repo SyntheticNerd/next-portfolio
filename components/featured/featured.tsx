@@ -1,15 +1,20 @@
 import React from "react";
+import { currentProjects } from "../../features/admin/projectsSlice";
+import { useAppSelector } from "../../features/store";
+import { ProjectType } from "../../utils/types";
 import classes from "./featured.module.scss";
 import Project from "./project/project";
 
 const Featured = () => {
-  return (
-    <div className={classes.featured}>
-      <Project />
-      <Project />
-      <Project />
-    </div>
-  );
+	const projects = useAppSelector<ProjectType[]>(currentProjects);
+	console.log(projects);
+	return (
+		<div className={classes.featured}>
+			{projects.map((project) => (
+				<Project key={project._id} projectData={project} />
+			))}
+		</div>
+	);
 };
 
 export default Featured;

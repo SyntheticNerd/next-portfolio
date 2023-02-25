@@ -23,4 +23,5 @@ function MyApp({ Component, ...rest }: AppProps) {
 	);
 }
 
+
 export default MyApp;

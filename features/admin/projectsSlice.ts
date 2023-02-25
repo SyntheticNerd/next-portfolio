@@ -1,10 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../store";
-import { HYDRATE } from "next-redux-wrapper";
+import { APP_HYDRATE, RootState } from "../store";
 
 const initialState = {
 	oldProjects: [],
-	newProjects: [],
+	currentProjects: [],
 };
 
 export const projectSlice = createSlice({
@@ -13,19 +12,18 @@ export const projectSlice = createSlice({
 	reducers: {
 		createProject: (state, action) => {},
 		updateAllProjects: (state, action) => {
-			state.oldProjects = state.newProjects;
-			state.newProjects = action.payload;
+			state.oldProjects = state.currentProjects;
+			state.currentProjects = action.payload;
 		},
 	},
-	extraReducers: {
-		[HYDRATE]: (state, action) => {
-			//this action is called whenever you access a page that has getSSP on it
-			console.log("HYDRATE", action.payload.projects);
+	extraReducers: (builder) => {
+		builder.addCase(APP_HYDRATE, (state, action) => {
+			// this action is called whenever you access a page that has getSSP on it
 			return action.payload.projects;
-		},
+		});
 	},
 });
 
 export const { updateAllProjects, createProject } = projectSlice.actions;
-export const newProjects = (state: RootState) => state.projects.newProjects;
+export const currentProjects = (state: RootState) => state.projects.currentProjects;
 export default projectSlice.reducer;

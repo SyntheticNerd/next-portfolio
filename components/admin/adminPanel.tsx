@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./adminPanel.module.scss";
 import { useAppDispatch } from "../../features/store";
 import { toggleAdminOverlap } from "../../features/ui/uiSlice";
-import CreateProject from "./createProject/createProject";
+import AdminProjects from "./projects/adminProjects";
 
 const AdminPanel = () => {
 	const dispatch = useAppDispatch();
@@ -17,8 +17,7 @@ const AdminPanel = () => {
 						logout
 					</button>
 				</div>
-
-				<CreateProject />
+				<AdminProjects />
 			</div>
 		</div>
 	);

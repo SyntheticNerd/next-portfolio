@@ -2,11 +2,12 @@ import {
 	configureStore,
 	ThunkAction,
 	Action,
+	createAction,
 } from "@reduxjs/toolkit";
 import uiReducer from "./ui/uiSlice";
 import projectReducer from "./admin/projectsSlice";
 import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
-import { createWrapper } from "next-redux-wrapper";
+import { createWrapper, HYDRATE } from "next-redux-wrapper";
 
 const makeStore = () =>
 	configureStore({
@@ -29,5 +30,6 @@ export type AppThunk<ReturnType = void> = ThunkAction<
 
 export const wrapper = createWrapper(makeStore, { debug: true });
 
+export const APP_HYDRATE = createAction<RootState>(HYDRATE);
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

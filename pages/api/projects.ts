@@ -1,4 +1,4 @@
-import { Db } from "mongodb";
+import { Db, ObjectId } from "mongodb";
 import { NextApiHandler } from "next";
 import { connectToDatabase } from "../../lib/db";
 import { ProjectType } from "../../utils/types";
@@ -18,6 +18,7 @@ import { ProjectType } from "../../utils/types";
 const handler: NextApiHandler = async (req, res) => {
 	if (req.method === "POST") {
 		let {
+			_id,
 			title,
 			body,
 			github,
@@ -25,8 +26,9 @@ const handler: NextApiHandler = async (req, res) => {
 			deskImgUrl,
 			tabletImgUrl,
 			mobileImgUrl,
-			alignLeft,
 			techSelected,
+			alignLeft,
+			featured,
 		}: ProjectType = req.body;
 		let client;
 		try {
@@ -37,9 +39,25 @@ const handler: NextApiHandler = async (req, res) => {
 		}
 
 		const db: Db = client.db();
+		const options = { upsert: true };
+		const filter = { _id: new ObjectId(_id) };
+		const data = {
+			title,
+			body,
+			github,
+			liveSite,
+			deskImgUrl,
+			tabletImgUrl,
+			mobileImgUrl,
+			techSelected,
+			alignLeft,
+			featured,
+		};
 
 		try {
-			db.collection("projects").insertOne(req.body);
+			_id
+				? db.collection("projects").updateOne(filter, { $set: data }, options)
+				: db.collection("projects").insertOne(data);
 		} catch (error) {
 			client.close();
 			res.status(500).json({ message: "Storing project failed" });

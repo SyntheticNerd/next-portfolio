@@ -6,25 +6,18 @@ import ResizableMenu from "../components/admin/resizableMenu";
 import Featured from "../components/featured/featured";
 import Intro from "../components/intro/intro";
 import Background from "../components/layout/background/background";
-import Login from "../components/login/Login";
-import {
-	newProjects,
-	updateAllProjects,
-} from "../features/admin/projectsSlice";
-import { useAppDispatch, useAppSelector, wrapper } from "../features/store";
+
+import { updateAllProjects } from "../features/admin/projectsSlice";
+import { wrapper } from "../features/store";
 import { ProjectType } from "../utils/types";
 
 interface Props {
 	session: any;
 	projects: ProjectType[];
+	err: any;
 }
 
-export default function Admin({ session, projects }: Props) {
-	const dispatch = useAppDispatch();
-	const projectState = useAppSelector(newProjects);
-	useEffect(() => {
-		// dispatch(updateAllProjects(projects));
-	}, [projects, dispatch]);
+export default function Admin({ session }: Props) {
 	return (
 		<>
 			<Head>
@@ -48,16 +41,24 @@ export default function Admin({ session, projects }: Props) {
 export const getServerSideProps = wrapper.getServerSideProps(
 	(store) => async (context: GetServerSidePropsContext) => {
 		const session = await getSession({ req: context.req });
-		const response = await fetch(`${process.env.API_BASE_URL}/projects`);
-		const projects = await response.json();
 
-		store.dispatch(updateAllProjects(projects));
-
-		return {
-			props: {
-				session,
-				projects,
-			},
-		};
+		try {
+			const response = await fetch(`${process.env.API_BASE_URL}/projects`);
+			const projects = await response.json();
+			store.dispatch(updateAllProjects(projects));
+			return {
+				props: {
+					session,
+					error: false,
+				},
+			};
+		} catch (err) {
+			return {
+				props: {
+					session,
+					error: err,
+				},
+			};
+		}
 	}
 );

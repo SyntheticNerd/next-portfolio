@@ -1,100 +1,57 @@
-import clsx from "clsx";
-import React, { ChangeEventHandler, useState } from "react";
-import formClasses from "../../../styles/forms.module.scss";
-import classes from "./createProject.module.scss";
-import Chevron from "../../props/icons/chevron";
 import { useS3Upload } from "next-s3-upload";
-import CollapsibleTitle from "../collapsibleTitle";
+import React, { useState } from "react";
+import { technologies } from "../../../utils/dummyData";
+import { useImgFileHandler } from "../../../utils/hooks/useImageHandler";
+import formClasses from "../../../styles/forms.module.scss";
+import classes from "./adminProjects.module.scss";
 import Image from "next/image";
+import CollapsibleTitle from "../collapsibleTitle";
+import clsx from "clsx";
+import { ProjectType } from "../../../utils/types";
+import { useRouter } from "next/router";
 
-const technologies = [
-	"JavaScript",
-	"TypeScript",
-	"HTML",
-	"CSS",
-	"Python",
-	"C++",
-	"React",
-	"Next.JS",
-	"Redux",
-	"Redux Toolkit",
-	"Django",
-	"Node",
-	"Express",
-	"Webpack",
-	"MongoDB",
-	"Mongoose",
-	"SQL",
-	"MySql",
-	"Sequelize",
-	"PostgreSQL",
-	"Firebase",
-	"RT/Storage",
-	"DB",
-	"Cloud Functions",
-	"Firebase SDK",
-	"AWS",
-	"Amplify",
-	"Lambda",
-	"CloudFront",
-	"Agile Methodologies",
-	"Scrum Development",
-	"Debugging",
-	"Unit Testing",
-	"Performance Testing",
-	"Docker",
-	"Kubernetes",
-	"UX Design",
-	"Information Architecture",
-	"Figma",
-	"XD",
-	"Photoshop",
-	"Illustrator",
-	"User Surveys",
-	"Interviews",
-	"Personas",
-	"User Testing",
-];
-
-const useImgFileHandler = () => {
-	let [url, setUrl] = useState<string>("");
-	let [file, setFile] = useState<File>();
-	let changeHandler = async (event: React.ChangeEvent<HTMLInputElement>) => {
-		if (event.currentTarget && event.currentTarget.files) {
-			let file = event.currentTarget.files[0];
-			// let { url } = await uploadToS3(file);
-			setUrl(URL.createObjectURL(file));
-			setFile(file);
-		}
-	};
-	const reset = () => {
-		setUrl("");
-		setFile(undefined);
-	};
-	return { url, file, changeHandler, reset };
-};
-
-const CreateProject = () => {
-	const [collapseProjects, setCollapseProjects] = useState(true);
+const ProjectForm = ({ project }: { project?: ProjectType }) => {
+	const router = useRouter();
 	const [collapseTechUsed, setCollapseTechUsed] = useState(true);
+	const [creating, setCreating] = useState(false);
 
-	const [title, setTitle] = useState<string>("");
-	const [body, setBody] = useState<string>("");
-	const [github, setGithub] = useState<string>("");
-	const [liveSite, setLiveSite] = useState<string>("");
+	const [title, setTitle] = useState<string>(project ? project.title : "");
+	const [body, setBody] = useState<string>(project ? project.body : "");
+	const [github, setGithub] = useState<string>(project ? project.github : "");
+	const [liveSite, setLiveSite] = useState<string>(
+		project ? project.liveSite : ""
+	);
 
-	const desktopImg = useImgFileHandler();
-	const tabletImg = useImgFileHandler();
-	const mobileImg = useImgFileHandler();
+	const desktopImg = useImgFileHandler(project ? project.deskImgUrl : "");
+	const tabletImg = useImgFileHandler(project ? project.tabletImgUrl : "");
+	const mobileImg = useImgFileHandler(project ? project.mobileImgUrl : "");
 
-	const [techSelected, setTechSelected] = useState<string[]>([]);
-	const [alignLeft, setAlignLeft] = useState(true);
+	const [techSelected, setTechSelected] = useState<string[]>(
+		project ? project.techSelected : []
+	);
+	const [otherTech, setOtherTech] = useState<string>("");
+	const [techOptions, setTechOptions] = useState(technologies);
+
+	const [alignLeft, setAlignLeft] = useState(
+		project ? project.alignLeft : true
+	);
+	const [featured, setFeatured] = useState(project ? project.featured : false);
+
+	const addOtherTechHandler = () => {
+		if (techOptions.indexOf(otherTech) >= 0) {
+			addTechHandler(otherTech);
+		} else {
+			setTechOptions((old) => [...old, otherTech]);
+			setTechSelected((old) => [...old, otherTech]);
+		}
+		setOtherTech("");
+	};
 
 	const addTechHandler = (tech: string) => {
 		if (techSelected.indexOf(tech) < 0) {
 			setTechSelected((old) => [...old, tech]);
 		} else {
-			setTechSelected((old) => old.filter((_tech) => _tech !== tech));
+			setTechSelected((old) => old.filter((item) => item !== tech));
 		}
 	};
 
@@ -110,20 +67,23 @@ const CreateProject = () => {
 		mobileImg.reset();
 		setTechSelected([]);
 		setAlignLeft(true);
+		setFeatured(false);
 	};
 
 	const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		let _data = {
+			_id: project?._id,
 			title: title,
 			body: body,
 			github: github,
 			liveSite: liveSite,
-			deskImgUrl: "",
-			tabletImgUrl: "",
-			mobileImgUrl: "",
+			deskImgUrl: desktopImg.url,
+			tabletImgUrl: tabletImg.url,
+			mobileImgUrl: mobileImg.url,
 			alignLeft: alignLeft,
 			techSelected: techSelected,
+			featured: featured,
 		};
 		if (desktopImg.file) {
 			let { url } = await uploadToS3(desktopImg.file);
@@ -151,23 +111,27 @@ const CreateProject = () => {
 				"Content-Type": "application/json",
 			},
 		});
-		if (response.ok) {
+		if (response.ok && !project) {
 			resetForm();
 		}
+		router.replace(router.asPath);
 	};
-
 	return (
-		<div className={classes.createProjectWrapper}>
-			<CollapsibleTitle
-				onClick={() => {
-					setCollapseProjects((old) => !old);
-				}}
-				open={collapseProjects}
-				id="collapseProject"
-			>
-				<h3>Projects</h3>
-			</CollapsibleTitle>
-			{!collapseProjects && (
+		<>
+			{project ? (
+				<CollapsibleTitle
+					onClick={() => setCreating((old) => !old)}
+					open={creating}
+					id={project._id!}
+				>
+					{project.title}
+				</CollapsibleTitle>
+			) : (
+				<button onClick={() => setCreating((old) => !old)}>
+					{creating ? "Collapse Form" : "New Project Form"}
+				</button>
+			)}
+			{creating && (
 				<form onSubmit={submitHandler}>
 					<div className={formClasses.inputWrapper}>
 						<label htmlFor="project-title">Title</label>
@@ -269,26 +233,42 @@ const CreateProject = () => {
 						Tech Used
 					</CollapsibleTitle>
 					{!collapseTechUsed && (
-						<div className={classes.technologiesUsed}>
-							{technologies.map((tech) => (
-								<div
-									key={tech}
-									className={clsx(
-										techSelected.indexOf(tech) >= 0 ? classes.selectedTech : ""
-									)}
-								>
-									<label htmlFor={tech}>{tech}</label>
-									<input
-										onChange={(e) => {
-											addTechHandler(e.target.id);
-										}}
-										type="checkbox"
-										name={tech}
-										id={tech}
-									/>
-								</div>
-							))}
-						</div>
+						<>
+							<div className={classes.technologiesUsed}>
+								{techOptions.map((tech) => (
+									<div
+										key={tech}
+										className={clsx(
+											techSelected.indexOf(tech) >= 0
+												? classes.selectedTech
+												: ""
+										)}
+									>
+										<label htmlFor={tech}>{tech}</label>
+										<input
+											onChange={(e) => {
+												addTechHandler(e.target.id);
+											}}
+											type="checkbox"
+											name={tech}
+											id={tech}
+										/>
+									</div>
+								))}
+							</div>
+							<div className={formClasses.inputWrapper}>
+								<label htmlFor="otherTech">Other Tech</label>
+								<input
+									type="text"
+									id="otherTech"
+									value={otherTech}
+									onChange={(e) => setOtherTech(e.target.value)}
+								/>
+								<button type="button" onClick={addOtherTechHandler}>
+									add
+								</button>
+							</div>
+						</>
 					)}
 					<div className={classes.radioWrapper}>
 						<div className={formClasses.radioInputWrapper}>
@@ -312,12 +292,22 @@ const CreateProject = () => {
 							<label htmlFor="project-align-right">Align Right</label>
 						</div>
 					</div>
+					<div className={formClasses.checkboxWrapper}>
+						<input
+							type="checkbox"
+							name="featured"
+							id="featured"
+							onChange={() => setFeatured((old) => !old)}
+							checked={featured}
+						/>
+						<label htmlFor="featured">Featured</label>
+					</div>
 
 					<button>Save Project</button>
 				</form>
 			)}
-		</div>
+		</>
 	);
 };
 
-export default CreateProject;
+export default ProjectForm;
