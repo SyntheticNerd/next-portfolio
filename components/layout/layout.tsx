@@ -1,6 +1,5 @@
 import { SessionProvider } from "next-auth/react";
 import React, { ReactNode } from "react";
-import Background from "./background/background";
 import NavBar from "./navigation/navBar";
 
 interface Props {

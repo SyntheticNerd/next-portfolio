@@ -7,53 +7,56 @@ import btnClasses from "../../../styles/buttons.module.scss";
 import WebpageIcon from "../../props/icons/webpage-icon";
 import { ProjectType } from "../../../utils/types";
 
-const Summary = ({
-	projectData: { title, body, github, liveSite },
-}: {
-	projectData: ProjectType;
-}) => {
+const Summary = ({ projectData }: { projectData: ProjectType }) => {
+	const { title, body, github, liveSite } = projectData;
 	return (
 		<div className={classes.summary}>
 			<h2>{title}</h2>
 			<p>{body}</p>
 			<div>
-				<BorderWrapper
-					className={btnClasses.btnShadow}
-					borderRadius="64px"
-					borderSize="3px"
-				>
-					<button className={btnClasses.largePill}>Read Article</button>
-				</BorderWrapper>
-				<BorderWrapper
-					className={btnClasses.btnShadow}
-					borderRadius="50%"
-					borderSize="3px"
-				>
-					<a
-						href={github}
-						className={btnClasses.github}
-						rel="noreferrer noopener"
-						target="_blank"
-						title="Github"
+				{projectData.article && (
+					<BorderWrapper
+						className={btnClasses.btnShadow}
+						borderRadius="64px"
+						borderSize="3px"
 					>
-						<GithubIcon />
-					</a>
-				</BorderWrapper>
-				<BorderWrapper
-					className={btnClasses.btnShadow}
-					borderRadius="50%"
-					borderSize="3px"
-				>
-					<a
-						className={btnClasses.webPage}
-						href={liveSite}
-						rel="noreferrer noopener"
-						target="_blank"
-						title="Live Site"
+						<button className={btnClasses.largePill}>Read Article</button>
+					</BorderWrapper>
+				)}
+				{github && (
+					<BorderWrapper
+						className={btnClasses.btnShadow}
+						borderRadius="50%"
+						borderSize="3px"
 					>
-						<WebpageIcon />
-					</a>
-				</BorderWrapper>
+						<a
+							href={github}
+							className={btnClasses.github}
+							rel="noreferrer noopener"
+							target="_blank"
+							title="Github"
+						>
+							<GithubIcon />
+						</a>
+					</BorderWrapper>
+				)}
+				{liveSite && (
+					<BorderWrapper
+						className={btnClasses.btnShadow}
+						borderRadius="50%"
+						borderSize="3px"
+					>
+						<a
+							className={btnClasses.webPage}
+							href={liveSite}
+							rel="noreferrer noopener"
+							target="_blank"
+							title="Live Site"
+						>
+							<WebpageIcon />
+						</a>
+					</BorderWrapper>
+				)}
 			</div>
 		</div>
 	);

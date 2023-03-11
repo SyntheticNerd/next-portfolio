@@ -2,6 +2,7 @@ import { GetServerSidePropsContext } from "next";
 import { getSession, useSession } from "next-auth/react";
 import Head from "next/head";
 import { useEffect, useState } from "react";
+import AboutMe from "../components/aboutMe/aboutMe";
 import ResizableMenu from "../components/admin/resizableMenu";
 import Featured from "../components/featured/featured";
 import Intro from "../components/intro/intro";
@@ -28,9 +29,11 @@ export default function Admin({ session }: Props) {
 			<div className="admin-wrapper">
 				<ResizableMenu session={session}>
 					<main>
-						<Background />
-						<Intro />
-						<Featured />
+						<Background>
+							<Intro />
+							<Featured />
+							<AboutMe />
+						</Background>
 					</main>
 				</ResizableMenu>
 			</div>

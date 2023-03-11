@@ -3,15 +3,17 @@
 	display: flex;
 	flex-wrap: wrap-reverse;
 	justify-content: space-between;
+	align-items: center;
 	margin-bottom: 10%;
 	width: 90%;
-	align-items: center;
 }
 .projectFlip {
 	color: var(--font-color-light);
 	display: flex;
+	flex-direction: row-reverse;
 	flex-wrap: wrap-reverse;
 	justify-content: space-between;
+	align-items: center;
 	margin-bottom: 10%;
 	width: 90%;
 }

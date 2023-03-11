@@ -10,4 +10,5 @@ export interface ProjectType {
 	techSelected: string[];
 	alignLeft: boolean;
 	featured: boolean;
+	article?: boolean;
 }
