@@ -3,9 +3,8 @@
 	display: flex;
 	flex-wrap: wrap-reverse;
 	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 10%;
 	width: 90%;
+	gap: 32px;
 }
 .projectFlip {
 	color: var(--font-color-light);
@@ -13,26 +12,34 @@
 	flex-direction: row-reverse;
 	flex-wrap: wrap-reverse;
 	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 10%;
 	width: 90%;
+	text-align: right;
+	gap: 32px;
+	.summary {
+		h2 {
+			margin-left: auto;
+		}
+		div {
+			flex-direction: row-reverse;
+		}
+	}
 }
 
 .summary {
+	margin: auto;
+	flex-shrink: 1;
 	flex-grow: 1;
-	max-width: 660px;
-	margin: 0px auto;
+	width: 45%;
+	max-width: 1000px;
 	h2 {
-		font-weight: 700;
-		font-size: 42px;
+		font: var(--header);
+		color: var(--font-color-light);
 		line-height: 134.02%;
 		max-width: 540px;
 		margin-bottom: 36px;
 	}
 	p {
-		font-weight: 400;
-		font-size: 24px;
-		line-height: 32px;
+		font: var(--p);
 		margin-bottom: 80px;
 		letter-spacing: 0.1em;
 		color: var(--font-color-body);
@@ -44,8 +51,11 @@
 }
 
 .imageContainer {
-	width: 100%;
-	max-width: 660px;
+	gap: 8px;
+	width: 45%;
+	flex-shrink: 1;
+	flex-grow: 1;
+	min-width: min(100%, 500px);
 	margin: 0px auto 16px;
 }
 .images {
@@ -94,15 +104,16 @@
 .techStack {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	flex-wrap: wrap;
 	gap: 16px;
 	b {
 		display: block;
 		background: var(--line-gradient);
-		-webkit-background-clip: text;
+		font: var(--bold);
 		background-clip: text;
+		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
-		font-weight: 600;
-		font-size: 28px;
+		text-align: center;
 	}
 }

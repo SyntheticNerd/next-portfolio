@@ -11,6 +11,7 @@ const Layout = ({ children }: Props) => {
 		<SessionProvider>
 			<NavBar />
 			{children}
+
 			<footer></footer>
 		</SessionProvider>
 	);

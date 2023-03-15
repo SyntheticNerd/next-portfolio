@@ -31,7 +31,7 @@ const NavBtn = ({ btnData, onClick, wasDragged }: Props) => {
   return (
     <BorderWrapper
       className={classes.btnShadow}
-      borderRadius='80px'
+      borderRadius='100px'
       borderSize='2px'
     >
       <button

@@ -7,6 +7,7 @@ import ResizableMenu from "../components/admin/resizableMenu";
 import Featured from "../components/featured/featured";
 import Intro from "../components/intro/intro";
 import Background from "../components/layout/background/background";
+import MidBackground from "../components/layout/background/midBackground";
 
 import { updateAllProjects } from "../features/admin/projectsSlice";
 import { wrapper } from "../features/store";
@@ -31,8 +32,10 @@ export default function Admin({ session }: Props) {
 					<main>
 						<Background>
 							<Intro />
-							<Featured />
-							<AboutMe />
+							<MidBackground>
+								<Featured />
+								<AboutMe />
+							</MidBackground>
 						</Background>
 					</main>
 				</ResizableMenu>

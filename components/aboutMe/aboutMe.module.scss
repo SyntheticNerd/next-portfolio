@@ -1,3 +1,30 @@
 .aboutMeContainer {
-    margin-bottom: 200px;
+	// background-color: red;
+	width: 90%;
+	margin: auto;
+	margin-top: 15vh;
+	padding-bottom: 600px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.summary {
+	width: 50%;
+	h1 {
+		font: var(--header);
+		color: var(--font-color-light);
+	}
+	p {
+		font: var(--p);
+		margin-bottom: 80px;
+		letter-spacing: 0.1em;
+		color: var(--font-color-body);
+	}
+}
+
+.skillFolders {
+	width: 50%;
+	height: 300px;
+	background-color: red;
 }

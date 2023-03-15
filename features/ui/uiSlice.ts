@@ -4,6 +4,7 @@ import { RootState } from "../store";
 const initialState = {
 	loggedIn: false,
 	adminOverlap: false,
+	bodySize: 0,
 };
 
 export const uiSlice = createSlice({
@@ -12,6 +13,9 @@ export const uiSlice = createSlice({
 	reducers: {
 		toggleAdminOverlap: (state, action) => {
 			state.adminOverlap = !state.adminOverlap;
+		},
+		setBodySize: (state, action) => {
+			state.bodySize = action.payload;
 		},
 	},
 });

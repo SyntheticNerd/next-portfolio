@@ -1,23 +1,19 @@
 .ticker {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 80px;
-
-
+	position: relative;
+	width: 100%;
 }
 
 .innerTicker {
-  // background-color: red;
-  position: absolute;
-  color: var(--font-color-dim);
-  display: flex;
-  gap: 60px;
-  font-size: 48px;
-  font-weight: bold;
-  font-family: sans-serif;
-  white-space: nowrap;
-  p {
-    text-shadow: var(--ticker-shadow);
-  }
+	// background-color: red;
+	position: absolute;
+	color: var(--font-color-dim);
+	display: flex;
+	gap: 60px;
+	font-size: var(--ticker-font-size);
+	font-weight: bold;
+	font-family: sans-serif;
+	white-space: nowrap;
+	p {
+		text-shadow: var(--ticker-shadow);
+	}
 }

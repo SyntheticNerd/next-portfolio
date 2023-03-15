@@ -32,6 +32,16 @@
 	--font-color-light: rgba(255, 255, 255, 1);
 	--font-color-body: rgba(255, 255, 255, 0.8);
 	--font-color-dim: rgba(255, 255, 255, 0.7);
+
+	--intro-font-size: min(120%, 32px);
+	--ticker-font-size: max(24px, min(5vw, 48px));
+	--tech-font-size: max(14px, min(5vw, 32px));
+	--paragraph-font-size: max(12px, min(3vw, 24px));
+	--paragraph-line-height: max(14px, min(4vw, 32px));
+
+	--header: 700 40px/134% "Poppins";
+	--p: 400 var(--paragraph-font-size) / var(--paragraph-line-height) "Poppins";
+	--bold: 600 var(--tech-font-size) "Poppins";
 }
 
 * {

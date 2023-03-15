@@ -17,7 +17,7 @@ function MyApp({ Component, ...rest }: AppProps) {
 						content="width=device-width, initial-scale=1.0"
 					/>
 				</Head>
-				<Component {...props.pageProps} />
+				<Component className="WHEREDOESTHISSHOWUP" {...props.pageProps} />
 			</Layout>
 		</Provider>
 	);

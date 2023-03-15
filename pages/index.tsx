@@ -1,9 +1,11 @@
 import { GetServerSidePropsContext } from "next";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
+import AboutMe from "../components/aboutMe/aboutMe";
 import Featured from "../components/featured/featured";
 import Intro from "../components/intro/intro";
 import Background from "../components/layout/background/background";
+import MidBackground from "../components/layout/background/midBackground";
 import { updateAllProjects } from "../features/admin/projectsSlice";
 import { wrapper } from "../features/store";
 
@@ -18,7 +20,10 @@ export default function Home() {
 			<main>
 				<Background>
 					<Intro />
-					<Featured />
+					<MidBackground>
+						<Featured />
+						<AboutMe />
+					</MidBackground>
 				</Background>
 			</main>
 			<footer></footer>
