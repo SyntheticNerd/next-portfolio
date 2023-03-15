@@ -10,6 +10,8 @@ import {
 	useAnimationFrame,
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
+import { useAppSelector } from "../../features/store";
+import { windowSizeState } from "../../features/ui/uiSlice";
 
 interface Props {
 	children: React.ReactNode;
@@ -20,6 +22,7 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
 	const [hover, setHover] = useState(false);
 	const baseX = useMotionValue(0);
 	const tickerRef = useRef<HTMLDivElement>(null);
+	const screenSize = useAppSelector(windowSizeState);
 	const [tickerWidth, setTickerWidth] = useState(9841);
 	const { scrollY } = useScroll();
 	const scrollVelocity = useVelocity(scrollY);
@@ -39,7 +42,7 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
 
 	useEffect(() => {
 		if (tickerRef.current) {
-			setTickerWidth(tickerRef.current.clientWidth);
+			setTickerWidth(tickerRef.current.clientWidth / 2 + 40);
 		}
 	}, [tickerRef]);
 

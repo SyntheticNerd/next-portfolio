@@ -42,9 +42,9 @@ const NavBar = () => {
 	const nav2Ref = useRef<HTMLDivElement>(null);
 	const [navItems, setNavItems] = useState(initialNavItems);
 	const [freeItems, setFreeItems] = useState<NavItem[]>([]);
-//TODO Move all the nav controls to the UI Slice
-	const [navOpen, setNavOpen] = useState(750 <= screenSize.width);
-	const [flip, setFlip] = useState(750 <= screenSize.width);
+	//TODO Move all the nav controls to the UI Slice
+	const [navOpen, setNavOpen] = useState(false);
+	const [flip, setFlip] = useState(false);
 	const [wasDragged, setWasDragged] = useState(false);
 
 	const [navWrapperSize, setNavWrapperSize] = useState({ width: 0, height: 0 });
@@ -60,6 +60,12 @@ const NavBar = () => {
 		navBoundary,
 		flip,
 	};
+
+	useEffect(() => {
+    if(screenSize.width <= 760){
+
+    }
+  }, []);
 
 	//Resizes the draggable nav container when the nav changes
 	//* This should be where we can resize if screen changes too maybe

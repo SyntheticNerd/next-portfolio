@@ -23,7 +23,7 @@ const Background = ({ children }: Props) => {
 				<div className={classes.layer1} />
 				<motion.div
 					style={{
-						y: scrollProgress * -0.02,
+						y: scrollProgress * 0.08,
 					}}
 					className={classes.layer2}
 				/>
