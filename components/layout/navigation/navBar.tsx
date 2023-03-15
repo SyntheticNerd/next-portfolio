@@ -8,6 +8,8 @@ import NavBtnHandler from "./navBtnHandler";
 import MenuBtn from "./menuBtn";
 import initialNavItems from "./navBtnData";
 import FlipBtn from "./flipBtn";
+import { useAppSelector } from "../../../features/store";
+import { windowSizeState } from "../../../features/ui/uiSlice";
 
 interface NavItem {
 	id: string;
@@ -35,17 +37,17 @@ const closedSizeNav = `max(${40 + paddingNav}px, min(${
 //? How can me make this components simpler/smaller
 
 const NavBar = () => {
+	const screenSize = useAppSelector(windowSizeState);
+	const nav1Ref = useRef<HTMLDivElement>(null);
+	const nav2Ref = useRef<HTMLDivElement>(null);
 	const [navItems, setNavItems] = useState(initialNavItems);
 	const [freeItems, setFreeItems] = useState<NavItem[]>([]);
-
-	const [navOpen, setNavOpen] = useState(true);
-	const [flip, setFlip] = useState(true);
+//TODO Move all the nav controls to the UI Slice
+	const [navOpen, setNavOpen] = useState(750 <= screenSize.width);
+	const [flip, setFlip] = useState(750 <= screenSize.width);
 	const [wasDragged, setWasDragged] = useState(false);
 
 	const [navWrapperSize, setNavWrapperSize] = useState({ width: 0, height: 0 });
-	const [navSizeTransition, setNavSizeTransition] = useState("fit-content");
-	const nav1Ref = useRef<HTMLDivElement>(null);
-	const nav2Ref = useRef<HTMLDivElement>(null);
 	const navBoundary = useRef(null);
 
 	const navState = {
@@ -174,7 +176,7 @@ const NavBar = () => {
 							style={{
 								height: navOpen ? "fit-content" : closedSizeNav,
 								overflow: navOpen ? "visible" : "hidden",
-								maxWidth: `${navWrapperSize.width - 8}px`,
+								maxWidth: `${navWrapperSize.width}px`,
 							}}
 						>
 							<MenuBtn

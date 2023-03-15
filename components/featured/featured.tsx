@@ -7,7 +7,6 @@ import Project from "./project/project";
 
 const Featured = () => {
 	const projects = useAppSelector<ProjectType[]>(currentProjects);
-	console.log(projects);
 	return (
 		<div className={classes.featured}>
 			{projects.map((project) => (

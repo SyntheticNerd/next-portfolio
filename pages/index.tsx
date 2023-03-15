@@ -1,6 +1,7 @@
 import { GetServerSidePropsContext } from "next";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
+import { useEffect, useRef } from "react";
 import AboutMe from "../components/aboutMe/aboutMe";
 import Featured from "../components/featured/featured";
 import Intro from "../components/intro/intro";
@@ -10,6 +11,7 @@ import { updateAllProjects } from "../features/admin/projectsSlice";
 import { wrapper } from "../features/store";
 
 export default function Home() {
+	
 	return (
 		<div>
 			<Head>

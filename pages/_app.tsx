@@ -7,7 +7,8 @@ import { Provider } from "react-redux";
 import { wrapper } from "../features/store";
 
 function MyApp({ Component, ...rest }: AppProps) {
-	const {store, props} = wrapper.useWrappedStore(rest)
+	const { store, props } = wrapper.useWrappedStore(rest);
+
 	return (
 		<Provider store={store}>
 			<Layout>
@@ -17,11 +18,10 @@ function MyApp({ Component, ...rest }: AppProps) {
 						content="width=device-width, initial-scale=1.0"
 					/>
 				</Head>
-				<Component className="WHEREDOESTHISSHOWUP" {...props.pageProps} />
+				<Component {...props.pageProps} />
 			</Layout>
 		</Provider>
 	);
 }
-
 
 export default MyApp;
