@@ -110,6 +110,9 @@ const MySkills = () => {
 		<div className={classes.skillFolders}>
 			{filePosition.map((category, i) => (
 				<motion.div
+					drag
+					dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
+					dragElastic={0.5}
 					key={category}
 					className={clsx(
 						classes.folder,
@@ -119,8 +122,19 @@ const MySkills = () => {
 					initial={{ y: `-${i * 3}%` }}
 					animate={controlArray[i]}
 					transition={{ duration: 2 }}
+					onDragEnd={() => {
+						if (fileElevation.indexOf(category) > 0) {
+							handleFileChange(category);
+						}
+					}}
 				>
-					<Tab onClick={() => handleFileChange(category)}>
+					<Tab
+						onClick={() => {
+							if (fileElevation.indexOf(category) > 0) {
+								handleFileChange(category);
+							}
+						}}
+					>
 						<h3>{category}</h3>
 					</Tab>
 					<div className={classes.skillWrapper}>

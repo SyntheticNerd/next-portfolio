@@ -1,8 +1,7 @@
 .aboutMeContainer {
-	// background-color: red;
 	width: 90%;
 	margin: auto;
-	margin-top: 30vh;
+	margin-top: 20vh;
 	padding-bottom: 600px;
 	display: flex;
 	justify-content: center;
@@ -11,9 +10,10 @@
 }
 
 .summary {
-	width: 50%;
-	// flex-grow: 1;
+	flex-basis: 40%;
 	flex-shrink: 1;
+	flex-grow: 1;
+	min-width: min(463px, 70%);
 	h1 {
 		font: var(--header);
 		color: var(--font-color-light);
@@ -31,12 +31,11 @@
 	flex-shrink: 1;
 	flex-grow: 1;
 	padding: 8px;
-	flex-basis: auto;
-	min-width: min(600px, 70%);
-	// max-width: 800px;
-	// height: 600px;
+	flex-basis: 40%;
+	min-width: min(440px, 70%);
 	z-index: 0;
 	.folder {
+		margin-top: 10%;
 		position: absolute;
 		width: 100%;
 		height: fit-content;

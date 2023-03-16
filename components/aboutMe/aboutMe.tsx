@@ -7,7 +7,15 @@ const AboutMe = () => {
 	return (
 		<div className={classes.aboutMeContainer}>
 			<div className={classes.summary}>
-				<h1>About Me</h1>
+				<div
+					style={{
+						display: "flex",
+						justifyContent: "space-between",
+						marginBottom: "32px",
+					}}
+				>
+					<h1>About Me</h1>
+				</div>
 				<p>
 					Andrew is a versatile digital creative with web development, UX
 					design, and game development skills. He creates customized digital
@@ -18,6 +26,7 @@ const AboutMe = () => {
 					Scrum development practices, conducts user research, and performs data
 					analysis to deliver quality and efficient software solutions.
 				</p>
+				<button>Download Resume</button>
 			</div>
 			<MySkills />
 		</div>
