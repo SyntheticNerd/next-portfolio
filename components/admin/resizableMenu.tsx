@@ -4,7 +4,7 @@ import AdminPanel from "./adminPanel";
 import classes from "./adminPanel.module.scss";
 import { useAppSelector } from "../../features/store";
 import clsx from "clsx";
-import { adminOverlap } from "../../features/ui/uiSlice";
+import { adminOverlap, windowSizeState } from "../../features/ui/uiSlice";
 
 type PropsWithChildren<P> = P & { children?: ReactNode };
 type Props = {

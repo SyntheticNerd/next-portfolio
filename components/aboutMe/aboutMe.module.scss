@@ -2,15 +2,18 @@
 	// background-color: red;
 	width: 90%;
 	margin: auto;
-	margin-top: 15vh;
+	margin-top: 30vh;
 	padding-bottom: 600px;
 	display: flex;
-	align-items: center;
 	justify-content: center;
+	gap: 64px;
+	flex-wrap: wrap;
 }
 
 .summary {
 	width: 50%;
+	// flex-grow: 1;
+	flex-shrink: 1;
 	h1 {
 		font: var(--header);
 		color: var(--font-color-light);
@@ -24,7 +27,146 @@
 }
 
 .skillFolders {
-	width: 50%;
-	height: 300px;
-	background-color: red;
+	position: relative;
+	flex-shrink: 1;
+	flex-grow: 1;
+	padding: 8px;
+	flex-basis: auto;
+	min-width: min(600px, 70%);
+	// max-width: 800px;
+	// height: 600px;
+	z-index: 0;
+	.folder {
+		position: absolute;
+		width: 100%;
+		height: fit-content;
+		min-height: 555px;
+
+		top: 0px;
+		left: 0px;
+		border-radius: 16px;
+		box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
+		transition: background-color 1.5s, box-shadow 1.5s;
+
+		.tab {
+			position: absolute;
+			top: 0px;
+			width: 30%;
+			padding-bottom: 6%;
+			display: flex;
+			justify-content: center;
+			h3 {
+				position: absolute;
+				text-align: center;
+				color: white;
+				bottom: 50%;
+				transform: translateY(50%);
+			}
+			svg {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				z-index: -1;
+				height: 100%;
+				width: 100%;
+				transition: fill 1.5s;
+			}
+		}
+	}
+}
+
+.skillWrapper {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	padding: 10%;
+	gap: 32px;
+	.skill {
+		position: relative;
+		background-color: red;
+		width: min(15%, 80px);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 1em;
+		.sizer {
+			width: 100%;
+			padding-bottom: 100%;
+		}
+		p {
+			color: white;
+			position: absolute;
+			text-align: center;
+			bottom: 0px;
+			transform: translateY(100%);
+		}
+	}
+}
+
+.elevation0 {
+	background-color: var(--ele-6);
+	box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.1), 0px 8px 16px rgba(0, 0, 0, 0.4) !important;
+	z-index: 5;
+	.tab {
+		svg {
+			fill: var(--ele-6);
+		}
+	}
+}
+
+.elevation1 {
+	background-color: var(--ele-4-5);
+	box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.4) !important;
+	scale: 0.97;
+	z-index: 4;
+	transform: translateY(-3%);
+	svg {
+		fill: var(--ele-4-5);
+	}
+}
+.elevation2 {
+	background-color: var(--ele-4);
+	box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.1) !important;
+	scale: 0.94;
+	z-index: 3;
+	transform: translateY(-6%);
+	svg {
+		fill: var(--ele-4);
+	}
+}
+.elevation3 {
+	background-color: var(--ele-3-5);
+	box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.1) !important;
+	scale: 0.91;
+	z-index: 2;
+	transform: translateY(-9%);
+	svg {
+		fill: var(--ele-3-5);
+	}
+}
+
+.position0 {
+	.tab {
+		left: 0;
+		transform: translate(0%, -100%);
+	}
+}
+.position1 {
+	.tab {
+		left: 38.5%;
+		transform: translate(-50%, -100%);
+	}
+}
+.position2 {
+	.tab {
+		left: 62%;
+		transform: translate(-50%, -100%);
+	}
+}
+.position3 {
+	.tab {
+		right: 0;
+		transform: translate(0%, -100%);
+	}
 }

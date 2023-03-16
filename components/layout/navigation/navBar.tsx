@@ -8,8 +8,14 @@ import NavBtnHandler from "./navBtnHandler";
 import MenuBtn from "./menuBtn";
 import initialNavItems from "./navBtnData";
 import FlipBtn from "./flipBtn";
-import { useAppSelector } from "../../../features/store";
-import { windowSizeState } from "../../../features/ui/uiSlice";
+import { useAppDispatch, useAppSelector } from "../../../features/store";
+import {
+	navFlipState,
+	navOpenState,
+	toggleNav,
+	toggleNavFlip,
+	windowSizeState,
+} from "../../../features/ui/uiSlice";
 
 interface NavItem {
 	id: string;
@@ -37,18 +43,19 @@ const closedSizeNav = `max(${40 + paddingNav}px, min(${
 //? How can me make this components simpler/smaller
 
 const NavBar = () => {
-	const screenSize = useAppSelector(windowSizeState);
 	const nav1Ref = useRef<HTMLDivElement>(null);
 	const nav2Ref = useRef<HTMLDivElement>(null);
+	const navBoundary = useRef(null);
+	const [navWrapperSize, setNavWrapperSize] = useState({ width: 0, height: 0 });
+
 	const [navItems, setNavItems] = useState(initialNavItems);
 	const [freeItems, setFreeItems] = useState<NavItem[]>([]);
-	//TODO Move all the nav controls to the UI Slice
-	const [navOpen, setNavOpen] = useState(false);
-	const [flip, setFlip] = useState(false);
 	const [wasDragged, setWasDragged] = useState(false);
 
-	const [navWrapperSize, setNavWrapperSize] = useState({ width: 0, height: 0 });
-	const navBoundary = useRef(null);
+	const dispatch = useAppDispatch();
+	const screenSize = useAppSelector(windowSizeState);
+	const navOpen = useAppSelector(navOpenState);
+	const flip = useAppSelector(navFlipState);
 
 	const navState = {
 		navItems,
@@ -62,10 +69,9 @@ const NavBar = () => {
 	};
 
 	useEffect(() => {
-    if(screenSize.width <= 760){
-
-    }
-  }, []);
+		if (screenSize.width <= 760) {
+		}
+	}, []);
 
 	//Resizes the draggable nav container when the nav changes
 	//* This should be where we can resize if screen changes too maybe
@@ -139,17 +145,18 @@ const NavBar = () => {
 									/>
 								))}
 							</Reorder.Group>
+
 							<FlipBtn
 								onClick={() => {
-									!wasDragged && setFlip((prev) => !prev);
+									!wasDragged && dispatch(toggleNavFlip(null));
 								}}
 								flip={flip}
 							/>
 
 							<MenuBtn
-								navOpen={navOpen}
+								navOpen={navOpen ? navOpen : false}
 								onClick={() => {
-									!wasDragged && setNavOpen(!navOpen);
+									!wasDragged && dispatch(toggleNav(null));
 								}}
 							/>
 						</motion.nav>
@@ -186,17 +193,19 @@ const NavBar = () => {
 							}}
 						>
 							<MenuBtn
-								navOpen={navOpen}
+								navOpen={navOpen ? navOpen : false}
 								onClick={() => {
-									!wasDragged && setNavOpen(!navOpen);
+									!wasDragged && dispatch(toggleNav(null));
 								}}
 							/>
-							<FlipBtn
-								onClick={() => {
-									!wasDragged && setFlip((prev) => !prev);
-								}}
-								flip={flip}
-							/>
+							{screenSize.width >= 690 && (
+								<FlipBtn
+									onClick={() => {
+										!wasDragged && dispatch(toggleNavFlip(null));
+									}}
+									flip={flip}
+								/>
+							)}
 							<Reorder.Group
 								axis="y"
 								onReorder={(items) => setNavItems(items.reverse())}

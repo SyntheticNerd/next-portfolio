@@ -1,6 +1,7 @@
 import React from "react";
 
 import classes from "./aboutMe.module.scss";
+import MySkills from "./mySkills";
 
 const AboutMe = () => {
 	return (
@@ -18,7 +19,7 @@ const AboutMe = () => {
 					analysis to deliver quality and efficient software solutions.
 				</p>
 			</div>
-			<div className={classes.skillFolders}></div>
+			<MySkills />
 		</div>
 	);
 };

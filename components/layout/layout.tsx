@@ -15,7 +15,7 @@ const Layout = ({ children }: Props) => {
 			setWindowSize({ width: window.innerWidth, height: window.innerHeight })
 		);
 		function handleResize() {
-			console.log(window.innerWidth);
+			// console.log(window.innerWidth);
 			dispatch(
 				setWindowSize({ width: window.innerWidth, height: window.innerHeight })
 			);

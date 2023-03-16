@@ -1,10 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
-const initialState = {
+interface UIType {
+	loggedIn: boolean;
+	adminOverlap: null | boolean;
+	windowSize: { height: number; width: number };
+	navOpen: boolean | null;
+	navFlip: boolean;
+}
+
+const initialState: UIType = {
 	loggedIn: false,
-	adminOverlap: false,
+	adminOverlap: null,
 	windowSize: { height: 0, width: 0 },
+	navOpen: null,
+	navFlip: true,
 };
 
 export const uiSlice = createSlice({
@@ -12,15 +22,57 @@ export const uiSlice = createSlice({
 	initialState: initialState,
 	reducers: {
 		toggleAdminOverlap: (state, action) => {
-			state.adminOverlap = !state.adminOverlap;
+			if (state.adminOverlap !== null) {
+				state.adminOverlap = !state.adminOverlap;
+			} else {
+				state.adminOverlap = true;
+			}
 		},
 		setWindowSize: (state, action) => {
 			state.windowSize = action.payload;
+			if (state.adminOverlap === null) {
+				if (action.payload.width <= 1250) {
+					state.adminOverlap = true;
+				} else {
+					state.adminOverlap = false;
+				}
+			}
+			if (state.navOpen === null) {
+				if (action.payload.width <= 690) {
+					state.navOpen = false;
+				} else {
+					state.adminOverlap = true;
+				}
+			}
+			if (action.payload.width <= 690) {
+				state.navFlip = false;
+			}
+		},
+		setNav: (state, action) => {
+			state.navOpen = action.payload;
+		},
+		toggleNav: (state, action) => {
+			state.navOpen = !state.navOpen;
+		},
+		toggleNavFlip: (state, action) => {
+			if (state.windowSize.width <= 690) {
+				state.navFlip = false;
+			} else {
+				state.navFlip = !state.navFlip;
+			}
 		},
 	},
 });
 
-export const { toggleAdminOverlap, setWindowSize } = uiSlice.actions;
+export const {
+	toggleAdminOverlap,
+	setWindowSize,
+	setNav,
+	toggleNav,
+	toggleNavFlip,
+} = uiSlice.actions;
 export const adminOverlap = (state: RootState) => state.uiControl.adminOverlap;
 export const windowSizeState = (state: RootState) => state.uiControl.windowSize;
+export const navOpenState = (state: RootState) => state.uiControl.navOpen;
+export const navFlipState = (state: RootState) => state.uiControl.navFlip;
 export default uiSlice.reducer;
