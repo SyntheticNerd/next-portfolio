@@ -132,6 +132,14 @@ const MySkills = () => {
 		{ anim: file4Anim, drag: file4Drag },
 	];
 
+	const handleDrag = (
+		e: MouseEvent | TouchEvent | PointerEvent,
+		category: string
+	) => {
+		const newTop = filePosition.indexOf(category);
+		controlArray[newTop].drag.start(e, { snapToCursor: true });
+	};
+
 	const handleFileChange = (
 		e: MouseEvent | TouchEvent | PointerEvent,
 		category: string
@@ -141,7 +149,6 @@ const MySkills = () => {
 		// Give controlArray index of the current top
 		const oldTop = filePosition.indexOf(fileElevation[0]);
 		// Start drag controls
-		controlArray[newTop].drag.start(e);
 		// If the file changed is the top file
 		if (newTop === oldTop) {
 			// Send File to back and bring rest forward
@@ -227,7 +234,7 @@ const MySkills = () => {
 				>
 					<Tab
 						onClick={(event) => {
-							handleFileChange(event, category);
+							handleDrag(event, category);
 						}}
 					>
 						<h3 className={commonClasses.goldText}>{category}</h3>
@@ -236,7 +243,9 @@ const MySkills = () => {
 						{skills[category].map((skill, i) => (
 							<div className={classes.skill} key={i}>
 								<div className={classes.sizer} />
-								{skill.img && <Image src={skill.img} alt={skill.title} height={80} />}
+								{skill.img && (
+									<Image src={skill.img} alt={skill.title} height={80} />
+								)}
 								<p>{skill.title}</p>
 							</div>
 						))}
