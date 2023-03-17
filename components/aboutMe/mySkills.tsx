@@ -137,7 +137,7 @@ const MySkills = () => {
 		category: string
 	) => {
 		const newTop = filePosition.indexOf(category);
-		controlArray[newTop].drag.start(e, { snapToCursor: true });
+		controlArray[newTop].drag.start(e);
 	};
 
 	const handleFileChange = (
