@@ -4,15 +4,24 @@ import classes from "./aboutMe.module.scss";
 interface Props {
 	children: React.ReactNode;
 	onClick: (e: MouseEvent) => void;
+	onMouseDown: (e: MouseEvent) => void;
 }
 
-const Tab = ({ children, onClick }: Props) => {
+const Tab = ({ children, onClick, onMouseDown }: Props) => {
 	const clickHandler = (_event: any) => {
 		onClick(_event);
 	};
+	const mouseDownHandler = (_event: any) => {
+		onMouseDown(_event);
+	};
 
 	return (
-		<div onClick={clickHandler} className={classes.tab}>
+		<div
+			onMouseDown={mouseDownHandler}
+			onClick={clickHandler}
+			onTouchStart={mouseDownHandler}
+			className={classes.tab}
+		>
 			<svg
 				width="100%"
 				height="100%"
