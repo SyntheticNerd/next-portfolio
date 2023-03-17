@@ -41,7 +41,7 @@ export const uiSlice = createSlice({
 				if (action.payload.width <= 690) {
 					state.navOpen = false;
 				} else {
-					state.adminOverlap = true;
+					state.navOpen = true;
 				}
 			}
 			if (action.payload.width <= 690) {

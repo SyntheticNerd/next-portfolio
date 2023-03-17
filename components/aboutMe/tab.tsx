@@ -3,7 +3,7 @@ import classes from "./aboutMe.module.scss";
 
 interface Props {
 	children: React.ReactNode;
-	onClick: () => void;
+	onClick: (e: MouseEvent | TouchEvent | PointerEvent) => void;
 }
 
 const Tab = ({ children, onClick }: Props) => {

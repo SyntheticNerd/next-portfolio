@@ -1,7 +1,9 @@
 import React from "react";
 
 import classes from "./aboutMe.module.scss";
+import commonClasses from "../../styles/common.module.scss"
 import MySkills from "./mySkills";
+
 
 const AboutMe = () => {
 	return (
@@ -14,7 +16,7 @@ const AboutMe = () => {
 						marginBottom: "32px",
 					}}
 				>
-					<h1>About Me</h1>
+					<h1 className={commonClasses.goldText}>About Me</h1>
 				</div>
 				<p>
 					Andrew is a versatile digital creative with web development, UX

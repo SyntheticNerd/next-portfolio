@@ -1,7 +1,7 @@
 .aboutMeContainer {
 	width: 90%;
 	margin: auto;
-	margin-top: 20vh;
+	margin-top: 10vh;
 	padding-bottom: 600px;
 	display: flex;
 	justify-content: center;
@@ -34,32 +34,37 @@
 	flex-basis: 40%;
 	min-width: min(440px, 70%);
 	z-index: 0;
+	transform: translateY(25%);
+	min-height: 594px;
 	.folder {
-		margin-top: 10%;
 		position: absolute;
 		width: 100%;
 		height: fit-content;
-		min-height: 555px;
+		min-height: 594px;
 
 		top: 0px;
 		left: 0px;
 		border-radius: 16px;
 		box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
 		transition: background-color 1.5s, box-shadow 1.5s;
-
+		pointer-events: none;
 		.tab {
 			position: absolute;
-			top: 0px;
+			top: 1px;
 			width: 30%;
+			min-height: 3em;
+			min-width: 14em;
 			padding-bottom: 6%;
 			display: flex;
 			justify-content: center;
+			pointer-events: all;
 			h3 {
 				position: absolute;
 				text-align: center;
 				color: white;
 				bottom: 50%;
 				transform: translateY(50%);
+				font: var(--folder-header);
 			}
 			svg {
 				position: absolute;
@@ -80,11 +85,10 @@
 	align-items: center;
 	justify-content: center;
 	padding: 10%;
-	gap: 32px;
+	gap: 40px;
 	.skill {
 		position: relative;
-		background-color: red;
-		width: min(15%, 80px);
+		width: min(17%, 70px);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -137,7 +141,7 @@
 .elevation3 {
 	background-color: var(--ele-3-5);
 	box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.1) !important;
-	scale: 0.91;
+	scale: 0.912;
 	z-index: 2;
 	transform: translateY(-9%);
 	svg {
@@ -153,14 +157,14 @@
 }
 .position1 {
 	.tab {
-		left: 38.5%;
-		transform: translate(-50%, -100%);
+		left: 23%;
+		transform: translate(0%, -100%);
 	}
 }
 .position2 {
 	.tab {
-		left: 62%;
-		transform: translate(-50%, -100%);
+		right: 23%;
+		transform: translate(0%, -100%);
 	}
 }
 .position3 {

@@ -42,10 +42,12 @@
 	--tech-font-size: max(14px, min(5vw, 32px));
 	--paragraph-font-size: max(14px, min(3vw, 24px));
 	--paragraph-line-height: max(14px, min(4vw, 32px));
+	--folder-font-size: max(18px, min(1.3vw, 24px));
 
 	--header: 700 var(--header-font-size) / 134% "Poppins";
 	--p: 400 var(--paragraph-font-size) / 134% "Poppins";
 	--bold: 600 var(--tech-font-size) "Poppins";
+	--folder-header: 700 var(--folder-font-size) "Poppins";
 }
 
 * {
