@@ -46,7 +46,7 @@ import kubernetesIcon from "./icons/kubernetes-icon.png";
 import agileIcon from "./icons/agile-icon.png";
 
 interface SkillType {
-	[myKey: string]: { title: string; img: StaticImageData }[];
+	[myKey: string]: { title: string; img: StaticImageData | null }[];
 }
 
 const skills: SkillType = {
@@ -84,6 +84,13 @@ const skills: SkillType = {
 		{ title: "C#", img: csharpIcon },
 		{ title: "Unity", img: unityIcon },
 		{ title: "GameMaker Studio", img: gamemakerIcon },
+		{ title: "", img: null },
+		{ title: "", img: null },
+		{ title: "", img: null },
+		{ title: "", img: null },
+		{ title: "", img: null },
+		{ title: "", img: null },
+		{ title: "", img: null },
 	],
 	Tools: [
 		{ title: "AWS", img: awsIcon },
@@ -93,6 +100,11 @@ const skills: SkillType = {
 		{ title: "Docker", img: dockerIcon },
 		{ title: "Kubernetes", img: kubernetesIcon },
 		{ title: "Agile Methodologies", img: agileIcon },
+		{ title: "", img: null },
+		{ title: "", img: null },
+		{ title: "", img: null },
+		{ title: "", img: null },
+		{ title: "", img: null },
 	],
 };
 
@@ -224,7 +236,7 @@ const MySkills = () => {
 						{skills[category].map((skill, i) => (
 							<div className={classes.skill} key={i}>
 								<div className={classes.sizer} />
-								<Image src={skill.img} alt={skill.title} height={80} />
+								{skill.img && <Image src={skill.img} alt={skill.title} height={80} />}
 								<p>{skill.title}</p>
 							</div>
 						))}
