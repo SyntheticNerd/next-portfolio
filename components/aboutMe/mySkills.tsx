@@ -209,13 +209,13 @@ const MySkills = () => {
 					animate={controlArray[i].anim}
 					dragControls={controlArray[i].drag}
 					transition={{ duration: 2 }}
-					onDragEnd={(e) => {
-						handleFileChange(e, category);
+					onDragEnd={(event: MouseEvent) => {
+						handleFileChange(event, category);
 					}}
 				>
 					<Tab
-						onClick={(e: MouseEvent | TouchEvent | PointerEvent) => {
-							handleFileChange(e, category);
+						onClick={(event) => {
+							handleFileChange(event, category);
 						}}
 					>
 						<h3 className={commonClasses.goldText}>{category}</h3>
@@ -224,11 +224,7 @@ const MySkills = () => {
 						{skills[category].map((skill, i) => (
 							<div className={classes.skill} key={i}>
 								<div className={classes.sizer} />
-								<Image
-									src={skill.img}
-									alt={skill.title}
-									height={80}
-								/>
+								<Image src={skill.img} alt={skill.title} height={80} />
 								<p>{skill.title}</p>
 							</div>
 						))}

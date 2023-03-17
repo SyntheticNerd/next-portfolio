@@ -1,14 +1,18 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import classes from "./aboutMe.module.scss";
 
 interface Props {
 	children: React.ReactNode;
-	onClick: (e: MouseEvent | TouchEvent | PointerEvent) => void;
+	onClick: (e: MouseEvent) => void;
 }
 
 const Tab = ({ children, onClick }: Props) => {
+	const clickHandler = (_event: any) => {
+		onClick(_event);
+	};
+
 	return (
-		<div onClick={onClick} className={classes.tab}>
+		<div onClick={clickHandler} className={classes.tab}>
 			<svg
 				width="100%"
 				height="100%"
