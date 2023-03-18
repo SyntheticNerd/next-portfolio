@@ -114,6 +114,7 @@ const MySkills = () => {
 	const screenSize = useAppSelector(windowSizeState);
 	const filePosition = [...Object.keys(skills)];
 	const [fileElevation, setFileElevation] = useState([...Object.keys(skills)]);
+	const [wasDragged, setWasDragged] = useState(false);
 
 	const file1Anim = useAnimationControls();
 	const file2Anim = useAnimationControls();
@@ -154,9 +155,16 @@ const MySkills = () => {
 			// Send File to back and bring rest forward
 			fileElevation.forEach((ele, i) => {
 				if (i === 0) {
+					// There will be two animations one for mobile on for desktop
 					controlArray[filePosition.indexOf(ele)].anim.start({
-						x: ["0%", "-105%", "-105%", "0%"],
-						y: ["0%", "-105%", "-105%", `-${9 * experimentalModifier}%`],
+						x:
+							screenSize.width <= 1074
+								? ["0%", "-10%", "-10%", "0%"] //Mobile
+								: ["0%", "-110%", "-110%", "0%"], //Desktop
+						y:
+							screenSize.width <= 1074
+								? ["0%", `-140%`, `-120%`,`-${9 * experimentalModifier}%`] // Mobile
+								: ["0%", "-50%", "-50%", `-${9 * experimentalModifier}%`], // Desktop
 						rotate: [0, -5, -5, 0, 0],
 						zIndex: 2,
 						transition: {
@@ -187,8 +195,14 @@ const MySkills = () => {
 			_fileEle.forEach((ele, i) => {
 				if (i === 0) {
 					controlArray[filePosition.indexOf(ele)].anim.start({
-						x: ["0%", "-105%", "-105%", "0%"],
-						y: ["0%", "-105%", "-105%", "0%"],
+						x:
+							screenSize.width <= 1074
+								? ["0%", "-10%", "-10%", "0%"] //Mobile
+								: ["0%", "-110%", "-110%", "0%"], //Desktop
+						y:
+							screenSize.width <= 1074
+								? ["0%", `-140%`, `-120%`,`0%`] // Mobile
+								: ["0%", "-50%", "-50%", `0%`], // Desktop
 						rotate: [0, -5, -5, 0, 0],
 						zIndex: 5,
 						transition: {
@@ -229,13 +243,23 @@ const MySkills = () => {
 					animate={controlArray[i].anim}
 					dragControls={controlArray[i].drag}
 					transition={{ duration: 2 }}
+					onDragStart={() => {
+						// Track is folder was dragged
+						setWasDragged(true);
+					}}
 					onDragEnd={(event: MouseEvent) => {
 						handleFileChange(event, category);
 					}}
 				>
 					<Tab
 						onClick={(event) => {
-							handleFileChange(event, category);
+							// If folder was dragged set drag to false,
+							// DO NOT handleFileChange
+							if (!wasDragged) {
+								handleFileChange(event, category);
+							} else {
+								setWasDragged(false);
+							}
 						}}
 						onMouseDown={(event) => {
 							handleDrag(event, category);
