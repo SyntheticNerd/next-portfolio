@@ -28,19 +28,33 @@
 }
 
 .largePill {
-	font-family: "Poppins";
-	font-weight: 600;
-	font-size: 32px;
+	font: var(--btn-font);
 	color: var(--font-color-light);
 	background: none;
 	border: none;
 	outline: none;
 	background-color: var(--ele-5);
-	height: 64px;
-	padding: 0px 36px;
+	
+	padding: 8px 36px;
 	border-radius: 64px;
 }
 
 .btnShadow {
 	box-shadow: var(--nav-btn-shadow);
+	outline: 2px solid red;
+	&:hover{
+		transform: translateY(-4px);
+	}
+}
+.btnShadow2{
+	box-shadow: var(--nav-bar-shadow);
+	transition: all 0.3s;
+	&:hover{
+		transform: translateY(-4px);
+		scale: 1.01;
+	}
+	&:active{
+		transform: translateY(0px);
+		scale: 0.99;
+	}
 }

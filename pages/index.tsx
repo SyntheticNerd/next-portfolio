@@ -1,17 +1,11 @@
 import { GetServerSidePropsContext } from "next";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-import { useEffect, useRef } from "react";
-import AboutMe from "../components/aboutMe/aboutMe";
-import Featured from "../components/featured/featured";
-import Intro from "../components/intro/intro";
-import Background from "../components/layout/background/background";
-import MidBackground from "../components/layout/background/midBackground";
+import Main from "../components/Main";
 import { updateAllProjects } from "../features/admin/projectsSlice";
 import { wrapper } from "../features/store";
 
 export default function Home() {
-	
 	return (
 		<div>
 			<Head>
@@ -19,16 +13,7 @@ export default function Home() {
 				<meta name="description" content="Synthetic Nerd Portfolio and Blog" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<main>
-				<Background>
-					<Intro />
-					<MidBackground>
-						<Featured />
-						<AboutMe />
-					</MidBackground>
-				</Background>
-			</main>
-			<footer></footer>
+			<Main />
 		</div>
 	);
 }

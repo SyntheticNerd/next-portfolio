@@ -7,6 +7,7 @@ interface UIType {
 	windowSize: { height: number; width: number };
 	navOpen: boolean | null;
 	navFlip: boolean;
+	openResume: boolean;
 }
 
 const initialState: UIType = {
@@ -15,6 +16,7 @@ const initialState: UIType = {
 	windowSize: { height: 0, width: 0 },
 	navOpen: null,
 	navFlip: true,
+	openResume: false,
 };
 
 export const uiSlice = createSlice({
@@ -61,6 +63,9 @@ export const uiSlice = createSlice({
 				state.navFlip = !state.navFlip;
 			}
 		},
+		setOpenResume: (state, action) => {
+			state.openResume = action.payload;
+		},
 	},
 });
 
@@ -70,9 +75,11 @@ export const {
 	setNav,
 	toggleNav,
 	toggleNavFlip,
+	setOpenResume,
 } = uiSlice.actions;
 export const adminOverlap = (state: RootState) => state.uiControl.adminOverlap;
 export const windowSizeState = (state: RootState) => state.uiControl.windowSize;
 export const navOpenState = (state: RootState) => state.uiControl.navOpen;
 export const navFlipState = (state: RootState) => state.uiControl.navFlip;
+export const openResumeState = (state: RootState) => state.uiControl.openResume;
 export default uiSlice.reducer;

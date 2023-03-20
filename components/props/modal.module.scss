@@ -1,0 +1,32 @@
+.modalWrapperClosed {
+	display: none;
+}
+
+.modalWrapperOpen {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 9999;
+}
+
+.modalContent {
+	position: relative;
+	background-color: var(--ele-3);
+	padding: 1rem;
+	border-radius: 5px;
+	width: 100%;
+	overflow: auto;
+}
+
+.title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-top: 0;
+	margin-bottom: 1rem;
+}

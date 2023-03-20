@@ -8,26 +8,26 @@ import BehanceIcon from "../../props/icons/behance-icon";
 import React from "react";
 
 const navBtnData = [
-  {
-    id: "home",
-    title: "Home",
-    Icon: HomeIcon,
-  },
-  { id: "about-me", title: "About Me", Icon: AboutMeIcon as React.ElementType },
-  {
-    id: "portfolio",
-    title: "Portfolio",
-    Icon: PortfolioIcon as React.ElementType,
-  },
-  { id: "contact", title: "Contact", Icon: ContactIcon as React.ElementType },
-  { id: "clock", title: "Clock" },
-  { id: "github", title: "Github", Icon: GithubIcon as React.ElementType },
-  {
-    id: "linkedin",
-    title: "LinkedIn",
-    Icon: LinkedInIcon as React.ElementType,
-  },
-  { id: "behance", title: "Behance", Icon: BehanceIcon as React.ElementType },
+	{
+		id: "/",
+		title: "Home",
+		Icon: HomeIcon,
+	},
+	{ id: "about-me", title: "About Me", Icon: AboutMeIcon as React.ElementType },
+	{
+		id: "projects",
+		title: "Projects",
+		Icon: PortfolioIcon as React.ElementType,
+	},
+	{ id: "contact", title: "Contact", Icon: ContactIcon as React.ElementType },
+	{ id: "clock", title: "Clock" },
+	{ id: "github", title: "Github", Icon: GithubIcon as React.ElementType },
+	{
+		id: "linkedin",
+		title: "LinkedIn",
+		Icon: LinkedInIcon as React.ElementType,
+	},
+	// { id: "behance", title: "Behance", Icon: BehanceIcon as React.ElementType },
 ];
 
 export default navBtnData;

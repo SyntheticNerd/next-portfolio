@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.10.0",
     "@reduxjs/toolkit": "^1.9.2",
     "aws-cdk-lib": "^2.65.0",
     "aws-sdk": "^2.1316.0",
@@ -24,6 +25,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^8.0.5",
+    "react-scroll": "^1.8.9",
     "react-typed": "^1.2.0"
   },
   "devDependencies": {
@@ -31,6 +33,7 @@
     "@types/node": "18.11.8",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
+    "@types/react-scroll": "^1.8.6",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
     "sass": "^1.56.0",

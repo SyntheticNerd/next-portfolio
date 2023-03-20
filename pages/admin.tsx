@@ -29,7 +29,13 @@ export default function Admin({ session }: Props) {
 			</Head>
 			<div className="admin-wrapper">
 				<ResizableMenu session={session}>
-					<main>
+					{/* <iframe
+						src="/"
+						height="100%"
+						width="100%"
+						style={{ border: "none" }}
+					></iframe> */}
+					{/* <main>
 						<Background>
 							<Intro />
 							<MidBackground>
@@ -37,7 +43,7 @@ export default function Admin({ session }: Props) {
 								<AboutMe />
 							</MidBackground>
 						</Background>
-					</main>
+					</main> */}
 				</ResizableMenu>
 			</div>
 		</>

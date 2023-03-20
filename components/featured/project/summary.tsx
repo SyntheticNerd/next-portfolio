@@ -16,7 +16,7 @@ const Summary = ({ projectData }: { projectData: ProjectType }) => {
 			<div>
 				{projectData.article && (
 					<BorderWrapper
-						className={btnClasses.btnShadow}
+						borderClass={btnClasses.btnShadow2}
 						borderRadius="64px"
 						borderSize="3px"
 					>
@@ -25,7 +25,7 @@ const Summary = ({ projectData }: { projectData: ProjectType }) => {
 				)}
 				{github && (
 					<BorderWrapper
-						className={btnClasses.btnShadow}
+						borderClass={btnClasses.btnShadow2}
 						borderRadius="50%"
 						borderSize="3px"
 					>
@@ -42,7 +42,7 @@ const Summary = ({ projectData }: { projectData: ProjectType }) => {
 				)}
 				{liveSite && (
 					<BorderWrapper
-						className={btnClasses.btnShadow}
+						borderClass={btnClasses.btnShadow2}
 						borderRadius="50%"
 						borderSize="3px"
 					>

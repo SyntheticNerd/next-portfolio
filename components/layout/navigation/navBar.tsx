@@ -125,14 +125,17 @@ const NavBar = () => {
 						ease: "easeIn",
 					}}
 				>
-					<BorderWrapper borderRadius="80px" borderSize="2px">
+					<BorderWrapper
+						borderRadius="80px"
+						borderSize="2px"
+						style={{ boxShadow: "var(--nav-bar-shadow)" }}
+					>
 						<motion.nav
 							className={clsx(classes.nav)}
 							id={classes.nav1}
 							style={{
 								overflow: navOpen ? "visible" : "hidden",
 								width: navOpen ? "fit-content" : closedSizeNav,
-								boxShadow: "var(--nav-bar-shadow)",
 							}}
 						>
 							<Reorder.Group axis="x" onReorder={setNavItems} values={navItems}>

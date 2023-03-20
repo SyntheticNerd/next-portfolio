@@ -40,6 +40,7 @@ const ResizableMenu = ({ children, session }: PropsWithChildren<Props>) => {
 	};
 	const containerStyle = {
 		width: `${dims.w2}px`,
+		height: "100vh",
 	};
 
 	const startResize = (e: React.MouseEvent<Element, MouseEvent>) => {
@@ -87,8 +88,23 @@ const ResizableMenu = ({ children, session }: PropsWithChildren<Props>) => {
 						? classes.contentContainerOverlap
 						: classes.contentContainer
 				)}
-				style={!sessionState ? {} : !overlap ? containerStyle : {}}
+				style={
+					!sessionState
+						? { height: "100vh" }
+						: !overlap
+						? containerStyle
+						: { height: "100vh" }
+				}
 			>
+				<iframe
+					src="/"
+					height="100%"
+					width="100%"
+					style={{
+						border: "none",
+						pointerEvents: drag.active ? "none" : "auto",
+					}}
+				></iframe>
 				{children}
 			</div>
 		</div>

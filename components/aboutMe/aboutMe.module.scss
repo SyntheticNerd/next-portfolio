@@ -2,11 +2,13 @@
 	width: 90%;
 	margin: auto;
 	margin-top: 10vh;
-	padding-bottom: 600px;
+	padding-bottom: 20%;
+	padding-top: 5%;
 	display: flex;
 	justify-content: center;
 	gap: 64px;
 	flex-wrap: wrap;
+	height: fit-content;
 }
 
 .summary {
@@ -15,13 +17,17 @@
 	flex-grow: 1;
 	min-width: min(463px, 70%);
 	margin-bottom: 64px;
+	display: flex;
+	flex-direction: column;
+	gap: 32px;
+	height: fit-content;
+	// max-height: 100%;
 	h1 {
 		font: var(--header);
 		color: var(--font-color-light);
 	}
 	p {
 		font: var(--p);
-		margin-bottom: 80px;
 		letter-spacing: 0.1em;
 		color: var(--font-color-body);
 	}
@@ -43,12 +49,12 @@
 		position: absolute;
 		width: 100%;
 		// min-height: 594px;
-
 		top: 0px;
 		left: 0px;
 		border-radius: 16px;
 		box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
-		transition: background-color 1.5s, box-shadow 1.5s, scale 1.5s;
+		transition: background-color 1.5s, box-shadow 1.5s, scale 1.5s,
+			position 1.5s;
 		.tab {
 			position: absolute;
 			top: 1px;
@@ -114,6 +120,7 @@
 }
 
 .elevation0 {
+	position: relative !important;
 	background-color: var(--ele-6);
 	box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.1), 0px 8px 16px rgba(0, 0, 0, 0.4) !important;
 	z-index: 5;
@@ -177,5 +184,45 @@
 	.tab {
 		right: 0;
 		transform: translate(0%, -100%);
+	}
+}
+
+.resumeWrapper {
+	height: 80vh;
+	width: 80vw;
+	.toolBar {
+		display: flex;
+		margin-bottom: 16px;
+		gap: 16px;
+		justify-content: flex-end;
+		position: sticky;
+		top: 0px;
+	}
+	.closeBtn {
+		background: none;
+		border: none;
+		outline: none;
+		border-radius: 50%;
+		background-color: var(--ele-4);
+		// padding: 16px;
+		height: 40px;
+		width: 40px;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		div {
+			position: absolute;
+			width: 4px;
+			background: var(--border-gradient);
+			border-radius: 2px;
+			height: 60%;
+		}
+		div:nth-child(1) {
+			transform: rotate(45deg);
+		}
+		div:nth-child(2) {
+			transform: rotate(-45deg);
+		}
 	}
 }

@@ -33,12 +33,12 @@ const Background = ({ children }: Props) => {
 					}}
 					className={classes.layer3Top}
 				/>
-				<motion.div
+				{/* <motion.div
 					className={classes.layer3Bottom}
 					style={{
 						y: scrollProgress * -0.1 + 410,
 					}}
-				/>
+				/> */}
 			</div>
 			{children}
 		</div>

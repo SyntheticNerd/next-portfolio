@@ -45,6 +45,7 @@ const NavBtn = ({ btnData, onClick, wasDragged }: Props) => {
 				onMouseDown={() => setMouseDown(true)}
 				onMouseUp={() => setMouseDown(false)}
 				name={btnData.title}
+				aria-label={btnData.title}
 			>
 				{btnData.Icon && (
 					<div className={classes.iconWrapper}>

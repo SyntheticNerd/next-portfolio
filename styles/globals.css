@@ -18,6 +18,8 @@
 		#aa771c 100%
 	);
 
+	--goldish: #e0ba6c;
+
 	--ele-1: #121212;
 	--ele-2: #1e1e1e;
 	--ele-3: #232323;
@@ -27,6 +29,9 @@
 	--ele-5: #383838;
 	--ele-5-80: #383838cc;
 	--ele-6: #3a3a3a;
+
+	--error: #f14141;
+	--success: #4ccb51;
 
 	--nav-btn-shadow: 0px 16px 32px rgba(0, 0, 0, 0.5);
 	--nav-bar-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
@@ -48,6 +53,7 @@
 	--p: 400 var(--paragraph-font-size) / 134% "Poppins";
 	--bold: 600 var(--tech-font-size) "Poppins";
 	--folder-header: 700 var(--folder-font-size) "Poppins";
+	--btn-font: 500 var(--paragraph-font-size) / 134% "Poppins";
 }
 
 * {
