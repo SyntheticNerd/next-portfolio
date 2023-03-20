@@ -64,6 +64,9 @@ export const uiSlice = createSlice({
 			}
 		},
 		setOpenResume: (state, action) => {
+			if (action.payload === true) {
+				state.navOpen = false;
+			}
 			state.openResume = action.payload;
 		},
 	},

@@ -20,7 +20,6 @@ const Main = () => {
 		if (slugs) {
 			console.log(slugs);
 			if (typeof slugs !== "string") {
-				console.log("IT IS AN ARRAY");
 				slugs.forEach((slug: string) => {
 					if (slug === "resume") {
 						dispatch(setOpenResume(true));
