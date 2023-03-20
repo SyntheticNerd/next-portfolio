@@ -10,7 +10,7 @@ import { useAppDispatch } from "../features/store";
 import { setOpenResume } from "../features/ui/uiSlice";
 import Contact from "./contact/contact";
 
-const scrollPoints = ["home", "projects", "about-me"];
+const scrollPoints = ["home", "projects", "about-me", "contact"];
 
 const Main = () => {
 	const router = useRouter();
