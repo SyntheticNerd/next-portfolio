@@ -134,7 +134,7 @@
 .elevation1 {
 	background-color: var(--ele-4-5);
 	box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.1), 0px 4px 8px rgba(0, 0, 0, 0.4) !important;
-	scale: 0.97;
+	scale: 0.93;
 	z-index: 4;
 	transform: translateY(-3%);
 	svg {
@@ -144,7 +144,7 @@
 .elevation2 {
 	background-color: var(--ele-4);
 	box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.1) !important;
-	scale: 0.94;
+	scale: 0.90;
 	z-index: 3;
 	transform: translateY(-6%);
 	svg {
@@ -153,8 +153,8 @@
 }
 .elevation3 {
 	background-color: var(--ele-3-5);
-	box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.1) !important;
-	scale: 0.912;
+	box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.3) !important;
+	scale: 0.87;
 	z-index: 2;
 	transform: translateY(-9%);
 	svg {

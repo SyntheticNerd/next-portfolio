@@ -61,8 +61,8 @@ const skills: SkillType = {
 		{ title: "UX Design", img: uxIcon },
 		{ title: "Figma", img: figmaIcon },
 		{ title: "Adobe XD", img: xdIcon },
-		{ title: "Photoshop", img: photoshopIcon },
-		{ title: "Illustrator", img: illustratorIcon },
+		{ title: "", img: null },
+		{ title: "", img: null },
 	],
 	"Back-End": [
 		{ title: "Python", img: pythonIcon },
@@ -100,8 +100,9 @@ const skills: SkillType = {
 		{ title: "Docker", img: dockerIcon },
 		{ title: "Kubernetes", img: kubernetesIcon },
 		{ title: "Agile Methodologies", img: agileIcon },
-		{ title: "", img: null },
-		{ title: "", img: null },
+		{ title: "Photoshop", img: photoshopIcon },
+		{ title: "Illustrator", img: illustratorIcon },
+
 		{ title: "", img: null },
 		{ title: "", img: null },
 		{ title: "", img: null },
@@ -110,7 +111,7 @@ const skills: SkillType = {
 
 // TODO: make spacing larger after width 680
 const MySkills = () => {
-	const experimentalModifier = 2.4;
+	const experimentalModifier = 2.9;
 	const screenSize = useAppSelector(windowSizeState);
 	const filePosition = [...Object.keys(skills)];
 	const [fileElevation, setFileElevation] = useState([...Object.keys(skills)]);
@@ -163,7 +164,7 @@ const MySkills = () => {
 								: ["0%", "-110%", "-110%", "0%"], //Desktop
 						y:
 							screenSize.width <= 1074
-								? ["0%", `-140%`, `-120%`,`-${9 * experimentalModifier}%`] // Mobile
+								? ["0%", `-140%`, `-120%`, `-${9 * experimentalModifier}%`] // Mobile
 								: ["0%", "-50%", "-50%", `-${9 * experimentalModifier}%`], // Desktop
 						rotate: [0, -5, -5, 0, 0],
 						zIndex: 2,
@@ -201,7 +202,7 @@ const MySkills = () => {
 								: ["0%", "-110%", "-110%", "0%"], //Desktop
 						y:
 							screenSize.width <= 1074
-								? ["0%", `-140%`, `-120%`,`0%`] // Mobile
+								? ["0%", `-140%`, `-120%`, `0%`] // Mobile
 								: ["0%", "-50%", "-50%", `0%`], // Desktop
 						rotate: [0, -5, -5, 0, 0],
 						zIndex: 5,
