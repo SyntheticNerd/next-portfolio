@@ -92,6 +92,7 @@ const Contact = () => {
 		<div className={classes.formWrapper}>
 			<BorderWrapper
 				style={{ boxShadow: "var(--nav-bar-shadow)", width: "100%" }}
+				borderSize="3px"
 			>
 				<form onSubmit={handleSubmit} ref={formRef} noValidate>
 					{attempted && (

@@ -43,7 +43,7 @@ const Main = () => {
 				smooth: "ease",
 				offset: 0,
 			});
-	}, [dispatch, slugs]);
+	}, []);
 	return (
 		<main>
 			<Background>

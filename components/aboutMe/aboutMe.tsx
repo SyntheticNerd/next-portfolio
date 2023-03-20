@@ -47,7 +47,8 @@ const AboutMe = () => {
 								router.asPath.slice(-1) === "/"
 									? router.asPath + "resume"
 									: router.asPath + "/resume";
-							router.push(newPath, undefined, { scroll: false });
+							router.replace(newPath, undefined, { scroll: false });
+							dispatch(setOpenResume(true));
 						} else {
 							dispatch(setOpenResume(true));
 						}
