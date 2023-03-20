@@ -88,12 +88,12 @@ const NavBtnHandler = ({ btnData, navState, reorder }: Props) => {
 		if (wasDragged) {
 			setWasDragged(false);
 		} else {
-			scroller.scrollTo(id !== "/" ? id : "home", {
-				duration: 800,
-				delay: 0,
-				smooth: "ease",
-				offset: 0,
-			});
+			// scroller.scrollTo(id !== "/" ? id : "home", {
+			// 	duration: 800,
+			// 	delay: 0,
+			// 	smooth: "ease",
+			// 	offset: 0,
+			// });
 			router.push(`/${id}`, undefined, { scroll: false });
 		}
 	};
