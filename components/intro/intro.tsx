@@ -119,7 +119,8 @@ const Intro = () => {
 						dispatch(setOpenResume(true));
 					}
 				}}
-				style={{marginBottom: "5vh"}}
+				borderStyle={{ marginBottom: "5vh" }}
+				buttonStyle={{ backgroundColor: "var(--ele-3) !important" }}
 			>
 				Download Resume
 			</GoldBtn>

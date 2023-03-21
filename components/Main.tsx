@@ -46,10 +46,11 @@ const Main = () => {
 	}, []);
 	return (
 		<main>
+			<div id="modal-portal" />
 			<Background>
-				<ScrollElement name="home">
-					<Intro />
-				</ScrollElement>
+				<ScrollElement name="home" />
+				<Intro />
+				{/* </ScrollElement> */}
 				<MidBackground>
 					<ScrollElement name="projects">
 						<Featured />
@@ -59,7 +60,7 @@ const Main = () => {
 					</ScrollElement>
 				</MidBackground>
 				<ScrollElement name="contact">
-				<Contact />
+					<Contact />
 				</ScrollElement>
 				<Footer />
 			</Background>

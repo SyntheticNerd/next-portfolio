@@ -5,19 +5,20 @@ interface Props {
 	onClick?: () => void;
 	children: React.ReactNode;
 	className?: string;
-	style?: { [key: string]: string };
+	borderStyle?: { [key: string]: string };
+	buttonStyle?: { [key: string]: string };
 }
 
-const GoldBtn = ({ onClick, children, className, style }: Props) => {
+const GoldBtn = ({ onClick, children, className, borderStyle, buttonStyle }: Props) => {
 	return (
 		<BorderWrapper
 			borderRadius="200px"
 			borderSize="2px"
 			borderClass={buttonClasses.btnShadow2}
-			style={style}
+			style={borderStyle}
 			className={className}
 		>
-			<button className={buttonClasses.largePill} onClick={onClick}>
+			<button className={buttonClasses.largePill} onClick={onClick} style={buttonStyle}>
 				{children}
 			</button>
 		</BorderWrapper>

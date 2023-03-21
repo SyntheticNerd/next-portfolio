@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import React, { FC, ReactNode } from "react";
+import { createPortal } from "react-dom";
 import BorderWrapper from "./borderWrapper";
 import styles from "./modal.module.scss";
 
@@ -23,21 +24,24 @@ const Modal: FC<ModalProps> = ({
 	};
 
 	return (
-		<div
-			className={clsx(
-				styles.modal,
-				isOpen ? styles.modalWrapperOpen : styles.modalWrapperClosed
-			)}
-			onClick={handleClick}
-		>
-			<BorderWrapper
-				borderRadius="4px"
-				borderSize="2px"
-				style={{ boxShadow: "var(--nav-bar-shadow)" }}
-			>
-				<div className={styles.modalContent}>{children}</div>
-			</BorderWrapper>
-		</div>
+		<>
+			{isOpen &&
+				createPortal(
+					<div
+						className={clsx(styles.modal, styles.modalWrapperOpen)}
+						onClick={handleClick}
+					>
+						<BorderWrapper
+							borderRadius="4px"
+							borderSize="2px"
+							style={{ boxShadow: "var(--nav-bar-shadow)" }}
+						>
+							<div className={styles.modalContent}>{children}</div>
+						</BorderWrapper>
+					</div>,
+					document.getElementById("modal-portal")!
+				)}
+		</>
 	);
 };
 
