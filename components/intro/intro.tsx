@@ -5,6 +5,10 @@ import useMousePosition from "../../utils/hooks/useMousePosition";
 import BorderWrapper from "../props/borderWrapper";
 import classes from "./intro.module.scss";
 import Ticker from "./ticker";
+import GoldBtn from "../props/goldBtn";
+import { useRouter } from "next/router";
+import { useAppDispatch } from "../../features/store";
+import { setOpenResume } from "../../features/ui/uiSlice";
 
 const skillList = [
 	"JavaScript",
@@ -33,6 +37,8 @@ const Intro = () => {
 	const introRef = useRef<HTMLDivElement>(null);
 	const [introWidth, setIntroWidth] = useState(500);
 	const mousePosition = useMousePosition(introRef);
+	const router = useRouter();
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		if (introRef.current) {
@@ -99,6 +105,24 @@ const Intro = () => {
 					</div>
 				</BorderWrapper>
 			</motion.div>
+			<GoldBtn
+				onClick={() => {
+					let newPath = router.asPath;
+					if (!newPath.includes("resume")) {
+						newPath =
+							router.asPath.slice(-1) === "/"
+								? router.asPath + "resume"
+								: router.asPath + "/resume";
+						router.replace(newPath, undefined, { scroll: false });
+						dispatch(setOpenResume(true));
+					} else {
+						dispatch(setOpenResume(true));
+					}
+				}}
+				style={{marginBottom: "5vh"}}
+			>
+				Download Resume
+			</GoldBtn>
 			<Ticker baseVelocity={-3}>
 				{skillList.map((skill) => (
 					<p key={skill}>{skill}</p>

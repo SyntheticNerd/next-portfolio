@@ -50,9 +50,6 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
 
 	//TODO need to fix this so it resets properly.
 	const x = useTransform(baseX, (v) => {
-		console.log(baseX);
-		// console.log(v)
-		// console.log(velocityFactor)
 		return `${wrap(0, tickerWidth * -1, v)}px`;
 	});
 
@@ -61,7 +58,6 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
 	useAnimationFrame((t, delta) => {
 		let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 		if (drag) {
-			console.log("WORKING");
 			return;
 		}
 		// console.log("NOT WORKING");
@@ -89,7 +85,7 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
 	 * dynamically generated number of children.
 	 */
 	return (
-		<div className={classes.ticker}>
+		<div className={classes.ticker} style={{height: "var(--ticker-font-size)"}}>
 			<motion.div
 				drag="x"
 				onDrag={(event, { offset }) => {
