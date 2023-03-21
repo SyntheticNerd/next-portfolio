@@ -50,6 +50,9 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
 
 	//TODO need to fix this so it resets properly.
 	const x = useTransform(baseX, (v) => {
+		console.log(baseX);
+		// console.log(v)
+		// console.log(velocityFactor)
 		return `${wrap(0, tickerWidth * -1, v)}px`;
 	});
 
@@ -61,6 +64,7 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
 			console.log("WORKING");
 			return;
 		}
+		// console.log("NOT WORKING");
 		/**
 		 * This is what changes the direction of the scroll once we
 		 * switch scrolling directions.
@@ -87,33 +91,14 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
 	return (
 		<div className={classes.ticker}>
 			<motion.div
-				drag
-				onDragStart={() => setDrag(true)}
-				onDragEnd={() => setDrag(false)}
+				drag="x"
 				onDrag={(event, { offset }) => {
-					baseX.set(offset.x)
+					let current = baseX.get();
+					baseX.set(current + offset.x * 0.01);
 				}}
-				dragConstraints={{ top: 0, bottom: 0 }}
-				dragElastic={0}
-				// drag
-				
 				className={classes.innerTicker}
 				style={{ x }}
-				// onMouseEnter={() => setHover(true)}
-				// onMouseLeave={() => setHover(false)}
 				ref={tickerRef}
-				// onMouseDown={() => {
-				// 	setSpeed(40);
-				// }}
-				// onMouseUp={() => {
-				// 	setSpeed(12);
-				// }}
-				// onPointerDown={() => {
-				// 	setSpeed(40);
-				// }}
-				// onPointerUp={() => {
-				// 	setSpeed(12);
-				// }}
 			>
 				{children}
 				{children}
