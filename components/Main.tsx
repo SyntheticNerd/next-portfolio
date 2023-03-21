@@ -9,6 +9,7 @@ import { Element as ScrollElement, scroller } from "react-scroll";
 import { useAppDispatch } from "../features/store";
 import { setOpenResume } from "../features/ui/uiSlice";
 import Contact from "./contact/contact";
+import Footer from "./layout/footer/footer";
 
 const scrollPoints = ["home", "projects", "about-me", "contact"];
 
@@ -60,6 +61,7 @@ const Main = () => {
 				<ScrollElement name="contact">
 				<Contact />
 				</ScrollElement>
+				<Footer />
 			</Background>
 		</main>
 	);

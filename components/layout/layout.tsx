@@ -2,6 +2,7 @@ import { SessionProvider } from "next-auth/react";
 import React, { ReactNode, useEffect } from "react";
 import { useAppDispatch } from "../../features/store";
 import { setWindowSize } from "../../features/ui/uiSlice";
+import Footer from "./footer/footer";
 import NavBar from "./navigation/navBar";
 
 interface Props {
@@ -29,7 +30,6 @@ const Layout = ({ children }: Props) => {
 		<SessionProvider>
 			<NavBar />
 			{children}
-			<footer></footer>
 		</SessionProvider>
 	);
 };

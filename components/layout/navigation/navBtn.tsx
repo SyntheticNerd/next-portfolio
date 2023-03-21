@@ -13,7 +13,7 @@ interface NavItem {
 interface Props {
 	btnData: NavItem;
 	onClick: () => void;
-	wasDragged: boolean;
+	wasDragged?: boolean;
 }
 
 const measureText = (text: string) => {
