@@ -113,8 +113,8 @@ const Intro = () => {
 							router.asPath.slice(-1) === "/"
 								? router.asPath + "resume"
 								: router.asPath + "/resume";
-						router.replace(newPath, undefined, { scroll: false });
-						dispatch(setOpenResume(true));
+						router.push(newPath, undefined, { scroll: false });
+						// dispatch(setOpenResume(true));
 					} else {
 						dispatch(setOpenResume(true));
 					}
