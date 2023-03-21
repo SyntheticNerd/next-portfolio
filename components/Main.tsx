@@ -6,8 +6,8 @@ import Intro from "./intro/intro";
 import Background from "./layout/background/background";
 import MidBackground from "./layout/background/midBackground";
 import { Element as ScrollElement, scroller } from "react-scroll";
-import { useAppDispatch } from "../features/store";
-import { setOpenResume } from "../features/ui/uiSlice";
+import { useAppDispatch, useAppSelector } from "../features/store";
+import { openResumeState, setOpenResume } from "../features/ui/uiSlice";
 import Contact from "./contact/contact";
 import Footer from "./layout/footer/footer";
 
@@ -17,13 +17,16 @@ const Main = () => {
 	const router = useRouter();
 	const slugs = router.query.slug;
 	const dispatch = useAppDispatch();
+	const resumeOpen = useAppSelector(openResumeState);
 	useEffect(() => {
 		if (slugs) {
 			console.log(slugs);
 			if (typeof slugs !== "string") {
 				slugs.forEach((slug: string) => {
 					if (slug === "resume") {
-						dispatch(setOpenResume(true));
+						if (!resumeOpen) {
+							dispatch(setOpenResume(true));
+						}
 					} else if (scrollPoints.indexOf(slug) > -1) {
 						scroller.scrollTo(slug, {
 							duration: 800,
