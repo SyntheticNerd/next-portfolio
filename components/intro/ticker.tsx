@@ -60,7 +60,6 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
 		if (drag) {
 			return;
 		}
-		// console.log("NOT WORKING");
 		/**
 		 * This is what changes the direction of the scroll once we
 		 * switch scrolling directions.
