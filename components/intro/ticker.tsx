@@ -19,7 +19,9 @@ interface Props {
 }
 
 export default function Ticker({ children, baseVelocity = 100 }: Props) {
+	const [drag, setDrag] = useState(false);
 	const [hover, setHover] = useState(false);
+	const [speed, setSpeed] = useState(12);
 	const baseX = useMotionValue(0);
 	const tickerRef = useRef<HTMLDivElement>(null);
 	const screenSize = useAppSelector(windowSizeState);
@@ -30,7 +32,7 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
 		damping: 50,
 		stiffness: 400,
 	});
-	const velocityFactor = useTransform(smoothVelocity, [5, 30], [12, 30], {
+	const velocityFactor = useTransform(smoothVelocity, [5, 30], [speed, 30], {
 		clamp: false,
 	});
 
@@ -55,7 +57,10 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
 
 	useAnimationFrame((t, delta) => {
 		let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
-
+		if (drag) {
+			console.log("WORKING");
+			return;
+		}
 		/**
 		 * This is what changes the direction of the scroll once we
 		 * switch scrolling directions.
@@ -82,11 +87,33 @@ export default function Ticker({ children, baseVelocity = 100 }: Props) {
 	return (
 		<div className={classes.ticker}>
 			<motion.div
+				drag
+				onDragStart={() => setDrag(true)}
+				onDragEnd={() => setDrag(false)}
+				onDrag={(event, { offset }) => {
+					baseX.set(offset.x)
+				}}
+				dragConstraints={{ top: 0, bottom: 0 }}
+				dragElastic={0}
+				// drag
+				
 				className={classes.innerTicker}
 				style={{ x }}
-				onMouseEnter={() => setHover(true)}
-				onMouseLeave={() => setHover(false)}
+				// onMouseEnter={() => setHover(true)}
+				// onMouseLeave={() => setHover(false)}
 				ref={tickerRef}
+				// onMouseDown={() => {
+				// 	setSpeed(40);
+				// }}
+				// onMouseUp={() => {
+				// 	setSpeed(12);
+				// }}
+				// onPointerDown={() => {
+				// 	setSpeed(40);
+				// }}
+				// onPointerUp={() => {
+				// 	setSpeed(12);
+				// }}
 			>
 				{children}
 				{children}

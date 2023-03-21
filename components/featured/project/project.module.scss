@@ -5,6 +5,13 @@
 	justify-content: space-between;
 	width: 90%;
 	gap: 32px;
+	h2 {
+		font: var(--header);
+		color: var(--font-color-light);
+		line-height: 134.02%;
+		max-width: 540px;
+		margin-bottom: 36px;
+	}
 }
 .projectFlip {
 	color: var(--font-color-light);
@@ -15,12 +22,16 @@
 	width: 90%;
 	text-align: right;
 	gap: 32px;
+
 	.summary {
 		h2 {
 			margin-left: auto;
 		}
 		div {
 			flex-direction: row-reverse;
+			@media (max-width: 1074px) {
+				flex-direction: row;
+			}
 		}
 	}
 }
@@ -38,6 +49,15 @@
 		max-width: 540px;
 		margin-bottom: 36px;
 	}
+	@media (max-width: 1074px) {
+		h2 {
+			display: none;
+		}
+		p {
+			text-align: left;
+		}
+	}
+
 	p {
 		font: var(--p);
 		margin-bottom: 80px;
@@ -57,6 +77,19 @@
 	flex-grow: 1;
 	min-width: min(100%, 500px);
 	margin: 0px auto 16px;
+	h2 {
+		font: var(--header);
+		color: var(--font-color-light);
+		line-height: 134.02%;
+		max-width: 540px;
+		margin-bottom: 36px;
+		text-align: left;
+	}
+	@media (min-width: 1074px) {
+		h2 {
+			display: none;
+		}
+	}
 }
 .images {
 	position: relative;

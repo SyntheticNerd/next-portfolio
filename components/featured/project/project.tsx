@@ -12,7 +12,8 @@ const Project = ({ projectData }: { projectData: ProjectType }) => {
 		<div className={clsx(alignLeft ? classes.project : classes.projectFlip)}>
 			<Summary projectData={projectData} />
 			<div className={classes.imageContainer}>
-				<Pictures projectData={projectData}/>
+				<h2>{projectData.title}</h2>
+				<Pictures projectData={projectData} />
 				<div className={classes.techStack}>
 					{projectData.techSelected.map((tech) => (
 						<b key={tech}>{tech}</b>

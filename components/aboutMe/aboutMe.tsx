@@ -27,17 +27,17 @@ const AboutMe = () => {
 						justifyContent: "space-between",
 					}}
 				>
-					<h1 className={commonClasses.goldText}>About Me</h1>
+					<h1>About Me</h1>
 				</div>
 				<p>
-					Andrew is a versatile digital creative with web development, UX
-					design, and game development skills. He creates customized digital
-					solutions that align with his client{"'"}s brand identity, emphasizing
-					agility and aesthetics. Andrew has a broad range of technical skills,
+					I am a multidisciplinary developer with web development, UX
+					design, and game development skills. I create customized digital
+					solutions that align with my client{"'"}s brand identity, emphasizing
+					agility and aesthetics. I have a broad range of technical skills,
 					including proficiency in various programming languages, software
-					architecture, and cloud platforms. He uses agile methodologies and
-					Scrum development practices, conducts user research, and performs data
-					analysis to deliver quality and efficient software solutions.
+					architecture, and cloud platforms. I uses agile methodologies and
+					Scrum development practices, conduct user research, and performs data
+					analysis to deliver quality and efficient solutions.
 				</p>
 				<GoldBtn
 					onClick={() => {
