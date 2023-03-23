@@ -40,7 +40,6 @@ const NavBtnHandler = ({ btnData, navState, reorder }: Props) => {
 	};
 
 	const handleDragEnd = () => {
-		console.log(wasDragged);
 		if (wasDragged) {
 			// setWasDragged(false);
 
@@ -84,17 +83,22 @@ const NavBtnHandler = ({ btnData, navState, reorder }: Props) => {
 	};
 
 	const handleClick = (id: string) => {
-		console.log(wasDragged);
 		if (wasDragged) {
 			setWasDragged(false);
 		} else {
-			scroller.scrollTo(id !== "/" ? id : "home", {
-				duration: 800,
-				delay: 0,
-				smooth: "ease",
-				offset: 0,
-			});
-			router.push(`/${id}`, undefined, { scroll: false });
+			if (id === "github") {
+				window.open("https://github.com/SyntheticNerd", "_blank");
+			} else if (id === "linkedin") {
+				window.open("https://www.linkedin.com/in/andrew-schroepfer/", "_blank");
+			} else {
+				scroller.scrollTo(id !== "/" ? id : "home", {
+					duration: 800,
+					delay: 0,
+					smooth: "ease",
+					offset: 0,
+				});
+				router.push(`/${id}`, undefined, { scroll: false });
+			}
 		}
 	};
 

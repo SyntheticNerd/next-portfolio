@@ -20,7 +20,6 @@ const Main = () => {
 	const resumeOpen = useAppSelector(openResumeState);
 	useEffect(() => {
 		if (slugs) {
-			console.log(slugs);
 			if (typeof slugs !== "string") {
 				slugs.forEach((slug: string) => {
 					if (slug === "resume") {

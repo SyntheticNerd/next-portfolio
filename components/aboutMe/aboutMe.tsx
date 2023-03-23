@@ -11,7 +11,7 @@ import DownloadIcon from "../props/icons/download-icon";
 import { useRouter } from "next/router";
 import { useAppDispatch, useAppSelector } from "../../features/store";
 import { openResumeState, setOpenResume } from "../../features/ui/uiSlice";
-
+// TODO: Make animation faster.
 const AboutMe = () => {
 	// const [openResume, setOpenResume] = useState(false);
 	const router = useRouter();

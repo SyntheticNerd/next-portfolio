@@ -1,50 +1,63 @@
 .navBoundary {
-  position: fixed;
-  height: 100vh;
-  width: 100%;
-  padding: 32px;
-  z-index: 50;
-  pointer-events: none;
+	position: fixed;
+	height: 100vh;
+	width: 100%;
+	padding: 32px;
+	z-index: 50;
+	pointer-events: none;
 }
 
 .navBoundary * {
-  color: white;
+	color: white;
 }
 
 .nav {
-  background-color: var(--ele-2);
-  border-radius: 80px;
-  gap: 8px;
-  transition: all 0.2s;
-  padding: 4px;
+	background-color: var(--ele-2);
+	border-radius: 80px;
+	gap: 8px;
+	transition: all 0.2s;
+	padding: 4px;
+}
+
+.navBoundary button {
+	cursor: pointer;
+}
+
+.navBoundary button:active {
+	cursor: grabbing;
 }
 
 #nav1 {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
 }
 
 #nav2 {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .nav ul {
-  display: inherit;
-  list-style: none;
-  flex-direction: inherit;
-  gap: 16px;
+	display: inherit;
+	list-style: none;
+	flex-direction: inherit;
+	gap: 16px;
 }
 
 .navWrapper {
-  width: fit-content;
-  position: absolute;
-  float: right;
+	width: fit-content;
+	position: absolute;
+	float: right;
 }
 
 .dragContainer {
-  display: flex;
-  justify-content: flex-end;
-  float: right;
+	display: flex;
+	justify-content: flex-end;
+	float: right;
+	cursor: grab;
+}
+
+.dragContainer:active {
+	cursor: grabbing;
 }

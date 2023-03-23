@@ -26,6 +26,18 @@
 		.navItems {
 			display: flex;
 			gap: 5%;
+			button {
+				cursor: pointer;
+			}
+			& > div {
+				transition: transform 0.3s;
+				&:hover {
+					transform: translateY(-4px) scale(1.1);
+				}
+				&:active {
+					transform: translateY(4px) scale(0.99);
+				}
+			}
 		}
 		p {
 			margin-left: auto;

@@ -17,7 +17,11 @@
 	font-weight: bold;
 	font-family: sans-serif;
 	white-space: nowrap;
+	cursor: grab;
 	p {
 		text-shadow: var(--ticker-shadow);
+	}
+	&:active{
+		cursor: grabbing;
 	}
 }
