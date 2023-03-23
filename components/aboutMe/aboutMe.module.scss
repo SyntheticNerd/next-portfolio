@@ -65,6 +65,10 @@
 			justify-content: center;
 			pointer-events: all;
 			touch-action: none;
+			cursor: grab;
+			&:active {
+				cursor: grabbing;
+			}
 			h3 {
 				pointer-events: none;
 
@@ -143,7 +147,7 @@
 .elevation2 {
 	background-color: var(--ele-4);
 	box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.1) !important;
-	scale: 0.90;
+	scale: 0.9;
 	z-index: 3;
 	transform: translateY(-6%);
 	svg {

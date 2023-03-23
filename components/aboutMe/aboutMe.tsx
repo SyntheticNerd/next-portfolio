@@ -17,7 +17,6 @@ const AboutMe = () => {
 	const router = useRouter();
 	const openResume = useAppSelector(openResumeState);
 	const dispatch = useAppDispatch();
-
 	return (
 		<div className={classes.aboutMeContainer}>
 			<div className={classes.summary}>
@@ -30,14 +29,14 @@ const AboutMe = () => {
 					<h1>About Me</h1>
 				</div>
 				<p>
-					I am a multidisciplinary developer with web development, UX
-					design, and game development skills. I create customized digital
-					solutions that align with my client{"'"}s brand identity, emphasizing
-					agility and aesthetics. I have a broad range of technical skills,
-					including proficiency in various programming languages, software
-					architecture, and cloud platforms. I uses agile methodologies and
-					Scrum development practices, conduct user research, and performs data
-					analysis to deliver quality and efficient solutions.
+					I am a multidisciplinary developer with web development, UX design,
+					and game development skills. I create customized digital solutions
+					that align with my client{"'"}s brand identity, emphasizing agility
+					and aesthetics. I have a broad range of technical skills, including
+					proficiency in various programming languages, software architecture,
+					and cloud platforms. I uses agile methodologies and Scrum development
+					practices, conduct user research, and performs data analysis to
+					deliver quality and efficient solutions.
 				</p>
 				<GoldBtn
 					onClick={() => {
@@ -47,8 +46,8 @@ const AboutMe = () => {
 								router.asPath.slice(-1) === "/"
 									? router.asPath + "resume"
 									: router.asPath + "/resume";
-							router.replace(newPath, undefined, { scroll: false });
-							dispatch(setOpenResume(true));
+							router.push(newPath, undefined, { scroll: false });
+							// dispatch(setOpenResume(true));
 						} else {
 							dispatch(setOpenResume(true));
 						}

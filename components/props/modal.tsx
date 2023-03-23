@@ -22,7 +22,7 @@ const Modal: FC<ModalProps> = ({
 			handleClose();
 		}
 	};
-
+	console.log(isOpen);
 	return (
 		<>
 			{isOpen &&
