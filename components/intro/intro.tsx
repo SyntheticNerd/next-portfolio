@@ -120,7 +120,6 @@ const Intro = () => {
 					}
 				}}
 				borderStyle={{ marginBottom: "5vh" }}
-				buttonStyle={{ backgroundColor: "var(--ele-3) !important" }}
 			>
 				Download Resume
 			</GoldBtn>
