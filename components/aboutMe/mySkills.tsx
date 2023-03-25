@@ -273,7 +273,12 @@ const MySkills = () => {
 							<div className={classes.skill} key={i}>
 								<div className={classes.sizer} />
 								{skill.img && (
-									<Image src={skill.img} alt={skill.title} height={80} />
+									<Image
+										src={skill.img}
+										alt={skill.title}
+										height={80}
+										style={{ width: "auto", height: "auto" }}
+									/>
 								)}
 								<p>{skill.title}</p>
 							</div>

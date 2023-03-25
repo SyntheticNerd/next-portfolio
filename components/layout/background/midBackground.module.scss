@@ -44,3 +44,21 @@
 		margin-top: -3%;
 	}
 }
+
+.decoration {
+	position: absolute;
+	z-index: -1;
+}
+
+.small {
+	top: 10%;
+	left: 25%;
+}
+.medium {
+	top: 35%;
+	left: 45%;
+}
+.large {
+	top: 60%;
+	left: 20%;
+}

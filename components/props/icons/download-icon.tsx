@@ -28,7 +28,7 @@ const DownloadIcon = ({
 					y2="45.3333"
 					gradientUnits="userSpaceOnUse"
 				>
-					<stop stop-color="#BF953F" />
+					<stop stopColor="#BF953F" />
 					<stop offset="0.234375" stopColor="#FCF6BA" />
 					<stop offset="0.515625" stopColor="#B38728" />
 					<stop offset="0.78125" stopColor="#FBF5B7" />

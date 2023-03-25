@@ -45,7 +45,7 @@ const Main = () => {
 				smooth: "ease",
 				offset: 0,
 			});
-	}, []);
+	}, [slugs]);
 	return (
 		<main>
 			<div id="modal-portal" />
