@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown, { Components } from "react-markdown";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import mainCode from "react-syntax-highlighter/dist/cjs/styles/prism/pojoaque";
+import mainCode from "react-syntax-highlighter/dist/cjs/styles/prism/darcula";
 import inlineCode from "react-syntax-highlighter/dist/cjs/styles/prism/pojoaque";
 import Image from "next/image";
 import remarkGfm from "remark-gfm";
