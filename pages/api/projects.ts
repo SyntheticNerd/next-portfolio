@@ -29,6 +29,7 @@ const handler: NextApiHandler = async (req, res) => {
 			techSelected,
 			alignLeft,
 			featured,
+			article
 		}: ProjectType = req.body;
 		let client;
 		try {
@@ -52,6 +53,7 @@ const handler: NextApiHandler = async (req, res) => {
 			techSelected,
 			alignLeft,
 			featured,
+			article
 		};
 
 		try {

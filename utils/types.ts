@@ -1,3 +1,7 @@
+export interface ArticleType {
+	articleBody: string;
+}
+
 export interface ProjectType {
 	_id?: string;
 	title: string;
@@ -10,5 +14,5 @@ export interface ProjectType {
 	techSelected: string[];
 	alignLeft: boolean;
 	featured: boolean;
-	article?: boolean;
+	article?: ArticleType;
 }

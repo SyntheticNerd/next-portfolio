@@ -22,12 +22,12 @@ const AdminProjects = () => {
 				<h3>Projects</h3>
 			</CollapsibleTitle>
 			{!collapseProjects && (
-				<>
+				<div className={classes.collapseArea}>
 					<ProjectForm />
 					{projects.map((project) => (
 						<ProjectForm key={project._id} project={project} />
 					))}
-				</>
+				</div>
 			)}
 		</div>
 	);

@@ -10,6 +10,12 @@ const nextConfig = {
 				port: "",
 				pathname: "/next-s3-uploads/**",
 			},
+			{
+				protocol: "https",
+				hostname: "via.placeholder.com",
+				port: "",
+				pathname: "/150",
+			},
 		],
 	},
 };

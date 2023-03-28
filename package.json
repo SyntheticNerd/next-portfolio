@@ -24,9 +24,12 @@
     "next-s3-upload": "^0.2.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-markdown": "^8.0.6",
     "react-redux": "^8.0.5",
     "react-scroll": "^1.8.9",
-    "react-typed": "^1.2.0"
+    "react-syntax-highlighter": "^15.5.0",
+    "react-typed": "^1.2.0",
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
@@ -34,6 +37,7 @@
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
     "@types/react-scroll": "^1.8.6",
+    "@types/react-syntax-highlighter": "^15.5.6",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.0",
     "sass": "^1.56.0",

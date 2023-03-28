@@ -1,8 +1,17 @@
 .createProjectWrapper {
+	--border: 2px solid var(--font-color-dim);
+	padding: 8px;
+	border-radius: 8px;
+	border: var(--border);
 	h3 {
 		margin-bottom: 8px;
 	}
 	color: var(--font-color-light);
+}
+
+.collapseArea {
+	padding-left: 8px;
+	border-left: var(--border);
 }
 
 .technologiesUsed {
@@ -27,5 +36,110 @@
 .radioWrapper {
 	display: flex;
 	gap: 16px;
+	margin: 16px 0px;
+	label {
+		margin-left: 4px;
+	}
+}
+
+.projectForm {
+	padding: 0px 8px 16px;
+	border-left: var(--border);
+	border-bottom: var(--border);
+	max-height: 50vh;
+	min-height: 500px;
+	overflow-y: scroll;
 	margin-bottom: 16px;
+	position: relative;
+	.images {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 16px;
+		margin-top: 16px;
+		& > div {
+			width: fit-content;
+			label {
+				width: fit-content;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				cursor: pointer;
+				background-color: var(--ele-4);
+				padding: 4px;
+				border-radius: 4px;
+				box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.6);
+				margin-bottom: 16px;
+				transition: transform 0.3s;
+				min-height: 208px;
+				position: relative;
+				img {
+					// background-color: red;
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+				&:hover {
+					transform: translateY(-2px) scale(1.01);
+				}
+				&:active {
+					transform: translateY(1px) scale(0.98);
+				}
+			}
+			* {
+				display: block;
+			}
+			input {
+				display: none;
+			}
+		}
+	}
+}
+.saveBtn {
+	position: sticky;
+	top: 4px;
+	margin-left: auto;
+	margin-right: 8px;
+	z-index: 4;
+}
+
+.articleFormWrapper {
+	padding: 16px 4px;
+	.markDownContainer {
+		padding: 8px 0px;
+	}
+}
+
+.articleControlPanel {
+	display: flex;
+	gap: 16px;
+	button {
+		background: none;
+		outline: none;
+		border: none;
+		color: white;
+		font-weight: 700;
+		opacity: 0.5;
+	}
+	.previewActive {
+		opacity: 1;
+	}
+}
+
+.markDownContainer {
+	p,
+	li {
+		line-height: 2em;
+	}
+	h2{
+		margin-bottom: 16px;
+	}
+	p{
+		margin-bottom: 16px;
+	}
+	ul{
+		margin-bottom: 16px;
+	}
+	ol{
+		margin-bottom: 16px;
+	}
 }

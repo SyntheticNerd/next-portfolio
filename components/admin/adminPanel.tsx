@@ -3,6 +3,7 @@ import classes from "./adminPanel.module.scss";
 import { useAppDispatch, useAppSelector } from "../../features/store";
 import { toggleAdminOverlap, windowSizeState } from "../../features/ui/uiSlice";
 import AdminProjects from "./projects/adminProjects";
+import GoldBtnSmall from "../props/goldBtn-small";
 
 const AdminPanel = () => {
 	const dispatch = useAppDispatch();
@@ -11,12 +12,12 @@ const AdminPanel = () => {
 		<div className={classes.adminPanel}>
 			<div className={classes.optionContainer}>
 				<div className={classes.buttonContainer}>
-					<button onClick={() => dispatch(toggleAdminOverlap(null))}>
+					<GoldBtnSmall onClick={() => dispatch(toggleAdminOverlap(null))}>
 						overlap
-					</button>
-					<button onClick={() => dispatch(toggleAdminOverlap(null))}>
+					</GoldBtnSmall>
+					<GoldBtnSmall onClick={() => dispatch(toggleAdminOverlap(null))}>
 						logout
-					</button>
+					</GoldBtnSmall>
 				</div>
 				<AdminProjects />
 			</div>
