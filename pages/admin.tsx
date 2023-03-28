@@ -1,13 +1,8 @@
 import { GetServerSidePropsContext } from "next";
 import { getSession, useSession } from "next-auth/react";
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import AboutMe from "../components/aboutMe/aboutMe";
 import ResizableMenu from "../components/admin/resizableMenu";
-import Featured from "../components/featured/featured";
-import Intro from "../components/intro/intro";
-import Background from "../components/layout/background/background";
-import MidBackground from "../components/layout/background/midBackground";
+
 
 import { updateAllProjects } from "../features/admin/projectsSlice";
 import { wrapper } from "../features/store";
@@ -29,21 +24,6 @@ export default function Admin({ session }: Props) {
 			</Head>
 			<div className="admin-wrapper">
 				<ResizableMenu session={session}>
-					{/* <iframe
-						src="/"
-						height="100%"
-						width="100%"
-						style={{ border: "none" }}
-					></iframe> */}
-					{/* <main>
-						<Background>
-							<Intro />
-							<MidBackground>
-								<Featured />
-								<AboutMe />
-							</MidBackground>
-						</Background>
-					</main> */}
 				</ResizableMenu>
 			</div>
 		</>

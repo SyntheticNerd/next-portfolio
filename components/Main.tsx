@@ -46,13 +46,13 @@ const Main = () => {
 				offset: 0,
 			});
 	}, [slugs]);
+
 	return (
 		<main>
 			<div id="modal-portal" />
 			<Background>
 				<ScrollElement name="home" />
 				<Intro />
-				{/* </ScrollElement> */}
 				<MidBackground>
 					<ScrollElement name="projects">
 						<Featured />
