@@ -28,7 +28,6 @@ const ArticleForm = ({
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
 		if (e.key == "Tab") {
 			e.preventDefault();
-			console.log("TEST");
 			const target = e.target as HTMLTextAreaElement;
 			setBody(
 				`${body.substring(0, target.selectionStart)}\t${body.substring(

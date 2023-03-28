@@ -15,7 +15,6 @@ interface MarkdownElement {
 const MarkdownInterpreter = ({ body }: { body: string }) => {
 	const components: Components = {
 		ul(unorderedList) {
-			console.log("THIS HAPPENED");
 			return <ul>{unorderedList.children}</ul>;
 		},
 		ol(orderedList) {
@@ -30,7 +29,6 @@ const MarkdownInterpreter = ({ body }: { body: string }) => {
 				JSON.stringify(node.children[0])
 			);
 			if (element.tagName === "img") {
-				console.log(element);
 				return (
 					<div className={""}>
 						<Image
@@ -45,11 +43,9 @@ const MarkdownInterpreter = ({ body }: { body: string }) => {
 			return <p>{paragraph.children}</p>;
 		},
 		code(code) {
-			console.log(code);
 			const { className, children, inline } = code;
 			const language = className ? className!.split("-")[1] : "txt";
 			let retypedChildren: string[] = JSON.parse(JSON.stringify(children));
-			console.log(inline);
 			if (inline) {
 				return (
 					<SyntaxHighlighter

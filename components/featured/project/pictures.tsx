@@ -7,7 +7,6 @@ import { ProjectType } from "../../../utils/types";
 interface Props {
 	projectData: ProjectType;
 }
-console.log;
 const Pictures = ({ projectData }: Props) => {
 	const [hover, setHover] = useState(false);
 	return (

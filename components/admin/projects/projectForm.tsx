@@ -58,7 +58,6 @@ const ProjectForm = ({ project }: { project?: ProjectType }) => {
 	const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		setLoading(true);
-		console.log(articleHook.article)
 		let _data = {
 			_id: project?._id,
 			title: title,
