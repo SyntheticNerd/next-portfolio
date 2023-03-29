@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React from "react";
 import buttonClasses from "../../styles/buttons.module.scss";
 import BorderWrapper from "./borderWrapper";
@@ -6,19 +7,31 @@ interface Props {
 	children: React.ReactNode;
 	className?: string;
 	borderStyle?: { [key: string]: string };
+	borderClass?: string;
 	buttonStyle?: { [key: string]: string };
 }
 
-const GoldBtn = ({ onClick, children, className, borderStyle, buttonStyle }: Props) => {
+const GoldBtn = ({
+	onClick,
+	children,
+	className,
+	borderStyle,
+	borderClass,
+	buttonStyle,
+}: Props) => {
 	return (
 		<BorderWrapper
 			borderRadius="200px"
 			borderSize="2px"
-			borderClass={buttonClasses.btnShadow2}
+			borderClass={clsx(buttonClasses.btnShadow2, borderClass)}
 			style={borderStyle}
 			className={className}
 		>
-			<button className={buttonClasses.largePill} onClick={onClick} style={buttonStyle}>
+			<button
+				className={buttonClasses.largePill}
+				onClick={onClick}
+				style={buttonStyle}
+			>
 				{children}
 			</button>
 		</BorderWrapper>

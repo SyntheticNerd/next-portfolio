@@ -271,15 +271,14 @@ const MySkills = () => {
 					<div className={classes.skillWrapper}>
 						{skills[category].map((skill, i) => (
 							<div className={classes.skill} key={i}>
-								<div className={classes.sizer} />
-								{skill.img && (
-									<Image
-										src={skill.img}
-										alt={skill.title}
-										height={80}
-										style={{ width: "auto", height: "auto" }}
-									/>
-								)}
+								<div className={classes.sizer}>
+									{skill.img && (
+										<Image
+											src={skill.img}
+											alt={skill.title}
+										/>
+									)}
+								</div>
 								<p>{skill.title}</p>
 							</div>
 						))}
