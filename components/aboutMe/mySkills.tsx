@@ -111,7 +111,7 @@ const skills: SkillType = {
 
 // TODO: make spacing larger after width 680
 const MySkills = () => {
-	const experimentalModifier = 2.9;
+	const experimentalModifier = 4;
 	const screenSize = useAppSelector(windowSizeState);
 	const filePosition = [...Object.keys(skills)];
 	const [fileElevation, setFileElevation] = useState([...Object.keys(skills)]);

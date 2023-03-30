@@ -9,8 +9,8 @@ const Featured = () => {
 	const projects = useAppSelector<ProjectType[]>(currentProjects);
 	return (
 		<div className={classes.featured}>
-			{projects.map((project) => (
-				<Project key={project._id} projectData={project} />
+			{projects.map((project, i) => (
+				<Project i={i} key={project._id} projectData={project} />
 			))}
 		</div>
 	);

@@ -44,14 +44,20 @@
 	--intro-font-size: min(120%, 32px);
 	--ticker-font-size: max(24px, min(5vw, 48px));
 	--header-font-size: max(24px, min(5vw, 40px));
+	--header2-font-size: max(20px, min(4vw, 36px));
+	--header3-font-size: max(16px, min(3vw, 32px));
+	--header4-font-size: max(14px, min(2vw, 28px));
 	--tech-font-size: max(14px, min(5vw, 32px));
 	--paragraph-font-size: max(14px, min(3vw, 24px));
 	--footer-font-size: max(14px, min(1.8vw, 24px));
 	--paragraph-line-height: max(14px, min(4vw, 32px));
 	--folder-font-size: max(18px, min(1.3vw, 24px));
+	--skill-font-size: max(12px, min(1.8vw, 18px));
 
 	--header: 700 var(--header-font-size) / 134% "Poppins";
 	--p: 400 var(--paragraph-font-size) / 134% "Poppins";
+	--h2: 700 var(--header2-font-size) "Poppins";
+	--h3: 500 var(--header3-font-size) "Poppins";
 	--bold: 600 var(--tech-font-size) "Poppins";
 	--folder-header: 700 var(--folder-font-size) "Poppins";
 	--btn-font: 500 var(--paragraph-font-size) / 134% "Poppins";

@@ -98,7 +98,7 @@
 	// align-items: center;
 	justify-content: center;
 	padding: 10%;
-	gap: 40px;
+	gap: min(7vw, 40px) min(7vw, 40px);
 	min-height: max(400px, 100%);
 	.skill {
 		position: relative;
@@ -118,6 +118,7 @@
 			text-align: center;
 			bottom: 0px;
 			transform: translateY(100%);
+			font-size: var(--skill-font-size);
 		}
 	}
 }

@@ -8,12 +8,14 @@ import WebpageIcon from "../../props/icons/webpage-icon";
 import { ProjectType } from "../../../utils/types";
 import Modal from "../../props/modal";
 import MarkdownInterpreter from "../../props/markdown-interpreter";
+import Pictures from "./pictures";
+import clsx from "clsx";
 
 const Summary = ({ projectData }: { projectData: ProjectType }) => {
 	const { title, body, github, liveSite, article } = projectData;
 	const [articleOpen, setArticleOpen] = useState(false);
 	return (
-		<div className={classes.summary}>
+		<>
 			<h2>{title}</h2>
 			<p>{body}</p>
 			<div>
@@ -73,11 +75,29 @@ const Summary = ({ projectData }: { projectData: ProjectType }) => {
 					handleClose={() => setArticleOpen(false)}
 				>
 					<div className={classes.article}>
+						<BorderWrapper
+							borderRadius="50%"
+							borderSize="2px"
+							borderClass={clsx(btnClasses.btnShadow2, classes.closeBtn)}
+						>
+							<button onClick={() => setArticleOpen(false)}>
+								<div />
+								<div />
+							</button>
+						</BorderWrapper>
+						<div className={classes.articleImages}>
+							<Pictures projectData={projectData} />
+						</div>
+						<div className={classes.techStack}>
+							{projectData.techSelected.map((tech) => (
+								<p key={tech}>{tech}</p>
+							))}
+						</div>
 						<MarkdownInterpreter body={article!.articleBody} />
 					</div>
 				</Modal>
 			)}
-		</div>
+		</>
 	);
 };
 

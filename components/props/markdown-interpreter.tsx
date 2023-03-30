@@ -5,6 +5,8 @@ import mainCode from "react-syntax-highlighter/dist/cjs/styles/prism/pojoaque";
 import inlineCode from "react-syntax-highlighter/dist/cjs/styles/prism/pojoaque";
 import Image from "next/image";
 import remarkGfm from "remark-gfm";
+import toc from "remark-toc";
+import remarkable from "remarkable";
 
 interface MarkdownElement {
 	type: string;
@@ -58,14 +60,20 @@ const MarkdownInterpreter = ({ body }: { body: string }) => {
 				);
 			}
 			return (
-				<SyntaxHighlighter style={mainCode} language={language}>
-					{retypedChildren}
-				</SyntaxHighlighter>
+				<div style={{ marginBottom: "16px" }}>
+					<SyntaxHighlighter style={mainCode} language={language}>
+						{retypedChildren}
+					</SyntaxHighlighter>
+				</div>
 			);
 		},
 	};
 	return (
-		<ReactMarkdown components={components} remarkPlugins={[remarkGfm]}>
+		<ReactMarkdown
+			components={components}
+			remarkPlugins={[remarkGfm, toc]}
+			skipHtml={true}
+		>
 			{body}
 		</ReactMarkdown>
 	);

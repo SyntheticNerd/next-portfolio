@@ -1,9 +1,6 @@
 # From Breadcrumbs to Billing
 
-## Table of contents
-
 - [From Breadcrumbs to Billing](#from-breadcrumbs-to-billing)
-  - [Table of contents](#table-of-contents)
   - [Overview](#overview)
   - [What I Worked On](#what-i-worked-on)
     - [Breadcrumb Component](#breadcrumb-component)
