@@ -24,14 +24,14 @@ const Project = ({
 		<div className={clsx(alignLeft ? classes.project : classes.projectFlip)}>
 			<Parallax
 				className={classes.summary}
-				translateX={[`${-500 * direction}`, "0"]}
+				// translateX={[`${-500 * direction}`, "0"]}
 				startScroll={startScroll}
 				endScroll={endScroll}
 			>
 				<Summary projectData={projectData} />
 			</Parallax>
 			<Parallax
-				translateX={[`${500 * direction}`, "0"]}
+				// translateX={[`${500 * direction}`, "0"]}
 				startScroll={startScroll}
 				endScroll={endScroll}
 				className={classes.imageContainer}
