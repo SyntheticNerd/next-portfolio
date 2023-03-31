@@ -51,16 +51,20 @@ const Project = ({
 	const endModifier2 =
 		screen.height > clientHeight2 ? clientHeight2 : screen.height;
 
-	const scrollStart1 = topOffset1 - screen.height/2;
+	const scrollStart1 = topOffset1 - screen.height / 2;
 	const scrollEnd1 = topOffset1 - 150 + endModifier1 * 0.2;
-	const scrollStart2 = topOffset2 - screen.height/2;
+	// const scrollStart1 = topOffset1 - clientHeight1 * 2;
+	// const scrollEnd1 = topOffset1 - clientHeight1;
+	const scrollStart2 = topOffset2 - screen.height * 0.2;
 	const scrollEnd2 = topOffset2 - 150 + endModifier2 * 0.2;
+	// const scrollStart2 = topOffset2 - clientHeight2;
+	// const scrollEnd2 = topOffset2;
 
 	return (
 		<div className={clsx(alignLeft ? classes.project : classes.projectFlip)}>
 			<Parallax
 				className={classes.summaryParallax}
-				translateX={[-100 * direction, 0]}
+				translateX={[-200 * direction, 0]}
 				startScroll={scrollStart1}
 				endScroll={scrollEnd1}
 				targetElement={container1.current ? container1.current : undefined}
@@ -71,7 +75,7 @@ const Project = ({
 			</Parallax>
 			<Parallax
 				className={classes.imageContainer}
-				translateX={[100 * direction, 0]}
+				translateX={[200 * direction, 0]}
 				startScroll={scrollStart2}
 				endScroll={scrollEnd2}
 				targetElement={container2.current ? container2.current : undefined}
