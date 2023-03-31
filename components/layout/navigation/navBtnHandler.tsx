@@ -91,12 +91,12 @@ const NavBtnHandler = ({ btnData, navState, reorder }: Props) => {
 			} else if (id === "linkedin") {
 				window.open("https://www.linkedin.com/in/andrew-schroepfer/", "_blank");
 			} else {
-				scroller.scrollTo(id !== "/" ? id : "home", {
-					duration: 800,
-					delay: 0,
-					smooth: "ease",
-					offset: 0,
-				});
+				// scroller.scrollTo(id !== "/" ? id : "home", {
+				// 	duration: 800,
+				// 	delay: 0,
+				// 	smooth: "ease",
+				// 	offset: 0,
+				// });
 				router.push(`/${id}`, undefined, { scroll: false });
 			}
 		}

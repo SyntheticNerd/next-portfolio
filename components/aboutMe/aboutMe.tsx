@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import classes from "./aboutMe.module.scss";
 import btnClasses from "../../styles/buttons.module.scss";
@@ -10,7 +10,11 @@ import BorderWrapper from "../props/borderWrapper";
 import DownloadIcon from "../props/icons/download-icon";
 import { useRouter } from "next/router";
 import { useAppDispatch, useAppSelector } from "../../features/store";
-import { openResumeState, setOpenResume } from "../../features/ui/uiSlice";
+import {
+	openResumeState,
+	setOpenResume,
+	windowSizeState,
+} from "../../features/ui/uiSlice";
 import { Parallax } from "react-scroll-parallax";
 // TODO: Make animation faster.
 const AboutMe = () => {
@@ -18,9 +22,35 @@ const AboutMe = () => {
 	const router = useRouter();
 	const openResume = useAppSelector(openResumeState);
 	const dispatch = useAppDispatch();
+	const container = useRef<HTMLDivElement>(null);
+
+	const [topOffset, setTopOffset] = useState(0);
+
+	useEffect(() => {
+		if (container.current) {
+			console.log(
+				container.current.getBoundingClientRect().top + window.pageYOffset
+			);
+			setTopOffset(
+				container.current.getBoundingClientRect().top +
+					window.pageYOffset -
+					container.current.clientHeight
+			);
+
+		}
+	}, [container]);
+
+	const scrollStart = topOffset - 1000;
+	const scrollEnd = topOffset;
+
 	return (
-		<Parallax className={classes.aboutMeContainer}>
-			<div className={classes.summary}>
+		<Parallax
+			className={classes.aboutMeContainer}
+			translateY={[100, 0]}
+			startScroll={scrollStart}
+			endScroll={scrollEnd}
+		>
+			<div className={classes.summary} ref={container}>
 				<div
 					style={{
 						display: "flex",

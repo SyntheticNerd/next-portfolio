@@ -4,7 +4,6 @@ import { ProjectType } from "../../../utils/types";
 import Pictures from "./pictures";
 import classes from "./project.module.scss";
 import Summary from "./summary";
-import { motion, useMotionValue, useScroll, useTransform } from "framer-motion";
 import { Parallax } from "react-scroll-parallax";
 import { useAppSelector } from "../../../features/store";
 import { windowSizeState } from "../../../features/ui/uiSlice";
@@ -32,10 +31,6 @@ const Project = ({
 
 	useEffect(() => {
 		if (container1.current && container2.current) {
-			console.log(
-				container1.current.getBoundingClientRect().top + window.pageYOffset,
-				container2.current.getBoundingClientRect().top + window.pageYOffset
-			);
 			setTopOffset1(
 				container1.current.getBoundingClientRect().top +
 					window.pageYOffset -
