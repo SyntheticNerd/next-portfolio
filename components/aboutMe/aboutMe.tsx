@@ -11,6 +11,7 @@ import DownloadIcon from "../props/icons/download-icon";
 import { useRouter } from "next/router";
 import { useAppDispatch, useAppSelector } from "../../features/store";
 import { openResumeState, setOpenResume } from "../../features/ui/uiSlice";
+import { Parallax } from "react-scroll-parallax";
 // TODO: Make animation faster.
 const AboutMe = () => {
 	// const [openResume, setOpenResume] = useState(false);
@@ -18,7 +19,7 @@ const AboutMe = () => {
 	const openResume = useAppSelector(openResumeState);
 	const dispatch = useAppDispatch();
 	return (
-		<div className={classes.aboutMeContainer}>
+		<Parallax className={classes.aboutMeContainer}>
 			<div className={classes.summary}>
 				<div
 					style={{
@@ -101,7 +102,7 @@ const AboutMe = () => {
 					/>
 				</div>
 			</Modal>
-		</div>
+		</Parallax>
 	);
 };
 

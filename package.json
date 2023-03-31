@@ -31,7 +31,9 @@
     "react-syntax-highlighter": "^15.5.0",
     "react-typed": "^1.2.0",
     "remark-gfm": "^3.0.1",
+    "remark-heading-id": "^1.0.0",
     "remark-rehype": "^10.1.0",
+    "remark-slug": "^7.0.1",
     "remark-toc": "^8.0.1",
     "remarkable": "^2.0.1"
   },

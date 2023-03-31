@@ -44,6 +44,7 @@ import cloudfrontIcon from "./icons/cloudfront-icon.png";
 import dockerIcon from "./icons/docker-icon.png";
 import kubernetesIcon from "./icons/kubernetes-icon.png";
 import agileIcon from "./icons/agile-icon.png";
+import { Parallax, useParallax } from "react-scroll-parallax";
 
 interface SkillType {
 	[myKey: string]: { title: string; img: StaticImageData | null }[];
@@ -272,12 +273,7 @@ const MySkills = () => {
 						{skills[category].map((skill, i) => (
 							<div className={classes.skill} key={i}>
 								<div className={classes.sizer}>
-									{skill.img && (
-										<Image
-											src={skill.img}
-											alt={skill.title}
-										/>
-									)}
+									{skill.img && <Image src={skill.img} alt={skill.title} />}
 								</div>
 								<p>{skill.title}</p>
 							</div>
