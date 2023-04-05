@@ -22,10 +22,10 @@ const Main = () => {
 		if (slugs) {
 			if (typeof slugs !== "string") {
 				slugs.forEach((slug: string) => {
+					console.log(slug);
 					if (slug === "resume") {
-						if (!resumeOpen) {
-							dispatch(setOpenResume(true));
-						}
+						console.log("IN HERE");
+						dispatch(setOpenResume(true));
 					} else if (scrollPoints.indexOf(slug) > -1) {
 						scroller.scrollTo(slug, {
 							duration: 800,
@@ -53,7 +53,7 @@ const Main = () => {
 			<Background>
 				<ScrollElement name="home" />
 				<Intro />
-				<MidBackground>
+				<MidBackground style={{ zIndex: "1" }}>
 					<ScrollElement name="projects">
 						<Featured />
 					</ScrollElement>
@@ -61,7 +61,7 @@ const Main = () => {
 						<AboutMe />
 					</ScrollElement>
 				</MidBackground>
-				<ScrollElement name="contact">
+				<ScrollElement name="contact" style={{ zIndex: "0" }}>
 					<Contact />
 				</ScrollElement>
 				<Footer />

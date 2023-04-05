@@ -7,8 +7,8 @@ import classes from "./intro.module.scss";
 import Ticker from "./ticker";
 import GoldBtn from "../props/goldBtn";
 import { useRouter } from "next/router";
-import { useAppDispatch } from "../../features/store";
-import { setOpenResume } from "../../features/ui/uiSlice";
+import { useAppDispatch, useAppSelector } from "../../features/store";
+import { setOpenResume, windowSizeState } from "../../features/ui/uiSlice";
 
 const skillList = [
 	"JavaScript",
@@ -41,6 +41,7 @@ const Intro = () => {
 	const mousePosition = useMousePosition(introRef);
 	const router = useRouter();
 	const dispatch = useAppDispatch();
+	const screenSize = useAppSelector(windowSizeState)
 
 	useEffect(() => {
 		if (introRef.current) {

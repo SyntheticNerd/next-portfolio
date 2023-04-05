@@ -47,66 +47,165 @@ import agileIcon from "./icons/agile-icon.png";
 import { Parallax, useParallax } from "react-scroll-parallax";
 
 interface SkillType {
-	[myKey: string]: { title: string; img: StaticImageData | null }[];
+	[myKey: string]: {
+		title: string;
+		img: StaticImageData | null;
+		docs: string;
+	}[];
 }
 
 const skills: SkillType = {
 	"Front-End": [
-		{ title: "JavaScript", img: javascriptIcon },
-		{ title: "TypeScript", img: typescriptIcon },
-		{ title: "HTML", img: htmlIcon },
-		{ title: "CSS", img: cssIcon },
-		{ title: "React", img: reactIcon },
-		{ title: "Next.JS", img: nextjsIcon },
-		{ title: "Redux", img: reduxIcon },
-		{ title: "UX Design", img: uxIcon },
-		{ title: "Figma", img: figmaIcon },
-		{ title: "Adobe XD", img: xdIcon },
-		{ title: "", img: null },
-		{ title: "", img: null },
+		{
+			title: "JavaScript",
+			img: javascriptIcon,
+			docs: "https://developer.mozilla.org/en-US/docs/Web/javascript",
+		},
+		{
+			title: "TypeScript",
+			img: typescriptIcon,
+			docs: "https://www.typescriptlang.org/docs/",
+		},
+		{
+			title: "HTML",
+			img: htmlIcon,
+			docs: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+		},
+		{
+			title: "CSS",
+			img: cssIcon,
+			docs: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+		},
+		{ title: "React", img: reactIcon, docs: "https://reactjs.org/docs/" },
+		{ title: "Next.JS", img: nextjsIcon, docs: "https://nextjs.org/docs/" },
+		{ title: "Redux", img: reduxIcon, docs: "https://redux.js.org/" },
+		{ title: "UX Design", img: uxIcon, docs: "" },
+		{ title: "Figma", img: figmaIcon, docs: "https://www.figma.com/" },
+		{
+			title: "Adobe XD",
+			img: xdIcon,
+			docs: "https://helpx.adobe.com/xd/user-guide.html",
+		},
+		{ title: "", img: null, docs: "" },
+		{ title: "", img: null, docs: "" },
 	],
 	"Back-End": [
-		{ title: "Python", img: pythonIcon },
-		{ title: "Django", img: djangoIcon },
-		{ title: "Node", img: nodeIcon },
-		{ title: "Express", img: expressIcon },
-		{ title: "Webpack", img: webpackIcon },
-		{ title: "MongoDB", img: mongodbIcon },
-		{ title: "Mongoose", img: mongooseIcon },
-		{ title: "SQL", img: sqlIcon },
-		{ title: "MySql", img: mysqlIcon },
-		{ title: "Sequelize", img: sequalizeIcon },
-		{ title: "PostgreSQL", img: postgresqlIcon },
-		{ title: "Firebase", img: firebaseIcon },
+		{ title: "Python", img: pythonIcon, docs: "https://docs.python.org/3/" },
+		{
+			title: "Django",
+			img: djangoIcon,
+			docs: "https://docs.djangoproject.com/",
+		},
+		{ title: "Node", img: nodeIcon, docs: "https://nodejs.org/en/docs/" },
+		{
+			title: "Express",
+			img: expressIcon,
+			docs: "https://expressjs.com/en/api.html",
+		},
+		{
+			title: "Webpack",
+			img: webpackIcon,
+			docs: "https://webpack.js.org/concepts/",
+		},
+		{ title: "MongoDB", img: mongodbIcon, docs: "https://docs.mongodb.com/" },
+		{
+			title: "Mongoose",
+			img: mongooseIcon,
+			docs: "https://mongoosejs.com/docs/",
+		},
+		{
+			title: "SQL",
+			img: sqlIcon,
+			docs: "https://www.w3schools.com/sql/default.asp",
+		},
+		{ title: "MySql", img: mysqlIcon, docs: "https://dev.mysql.com/doc/" },
+		{
+			title: "Sequelize",
+			img: sequalizeIcon,
+			docs: "https://sequelize.org/master/",
+		},
+		{
+			title: "PostgreSQL",
+			img: postgresqlIcon,
+			docs: "https://www.postgresql.org/docs/current/index.html",
+		},
+		{
+			title: "Firebase",
+			img: firebaseIcon,
+			docs: "https://firebase.google.com/docs",
+		},
 	],
 	"Game-Dev": [
-		{ title: "C++", img: cplusplusIcon },
-		{ title: "Unreal Engine", img: unrealIcon },
-		{ title: "C#", img: csharpIcon },
-		{ title: "Unity", img: unityIcon },
-		{ title: "GameMaker Studio", img: gamemakerIcon },
-		{ title: "", img: null },
-		{ title: "", img: null },
-		{ title: "", img: null },
-		{ title: "", img: null },
-		{ title: "", img: null },
-		{ title: "", img: null },
-		{ title: "", img: null },
+		{ title: "C++", img: cplusplusIcon, docs: "https://isocpp.org/" },
+		{
+			title: "Unreal Engine",
+			img: unrealIcon,
+			docs: "https://docs.unrealengine.com/en-US/",
+		},
+		{
+			title: "C#",
+			img: csharpIcon,
+			docs: "https://docs.microsoft.com/en-us/dotnet/csharp/",
+		},
+		{
+			title: "Unity",
+			img: unityIcon,
+			docs: "https://docs.unity3d.com/Manual/index.html",
+		},
+		{
+			title: "GameMaker Studio",
+			img: gamemakerIcon,
+			docs: "https://docs.yoyogames.com/",
+		},
+		{ title: "", img: null, docs: "" },
+		{ title: "", img: null, docs: "" },
+		{ title: "", img: null, docs: "" },
+		{ title: "", img: null, docs: "" },
+		{ title: "", img: null, docs: "" },
+		{ title: "", img: null, docs: "" },
+		{ title: "", img: null, docs: "" },
 	],
 	Tools: [
-		{ title: "AWS", img: awsIcon },
-		{ title: "Amplify", img: amiplifyIcon },
-		{ title: "Lambda", img: lambdaIcon },
-		{ title: "CloudFront", img: cloudfrontIcon },
-		{ title: "Docker", img: dockerIcon },
-		{ title: "Kubernetes", img: kubernetesIcon },
-		{ title: "Agile Methodologies", img: agileIcon },
-		{ title: "Photoshop", img: photoshopIcon },
-		{ title: "Illustrator", img: illustratorIcon },
-
-		{ title: "", img: null },
-		{ title: "", img: null },
-		{ title: "", img: null },
+		{
+			title: "AWS",
+			img: awsIcon,
+			docs: "https://docs.aws.amazon.com/?nc2=h_ql_doc_do",
+		},
+		{ title: "Amplify", img: amiplifyIcon, docs: "https://docs.amplify.aws/" },
+		{
+			title: "Lambda",
+			img: lambdaIcon,
+			docs: "https://docs.aws.amazon.com/lambda/latest/dg/welcome.html",
+		},
+		{
+			title: "CloudFront",
+			img: cloudfrontIcon,
+			docs: "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html",
+		},
+		{ title: "Docker", img: dockerIcon, docs: "https://docs.docker.com/" },
+		{
+			title: "Kubernetes",
+			img: kubernetesIcon,
+			docs: "https://kubernetes.io/docs/",
+		},
+		{
+			title: "Agile Methodologies",
+			img: agileIcon,
+			docs: "https://www.agilealliance.org/agile101/",
+		},
+		{
+			title: "Photoshop",
+			img: photoshopIcon,
+			docs: "https://www.adobe.com/products/photoshop.html",
+		},
+		{
+			title: "Illustrator",
+			img: illustratorIcon,
+			docs: "https://www.adobe.com/products/illustrator.html",
+		},
+		{ title: "", img: null, docs: "" },
+		{ title: "", img: null, docs: "" },
+		{ title: "", img: null, docs: "" },
 	],
 };
 
@@ -272,9 +371,20 @@ const MySkills = () => {
 					<div className={classes.skillWrapper}>
 						{skills[category].map((skill, i) => (
 							<div className={classes.skill} key={i}>
-								<div className={classes.sizer}>
-									{skill.img && <Image src={skill.img} alt={skill.title} />}
-								</div>
+								{skill.docs.length ? (
+									<a
+										href={skill.docs}
+										target="_blank"
+										rel="noreferrer"
+										className={classes.sizer}
+									>
+										{skill.img && <Image src={skill.img} alt={skill.title} />}
+									</a>
+								) : (
+									<div className={classes.sizer}>
+										{skill.img && <Image src={skill.img} alt={skill.title} />}
+									</div>
+								)}
 								<p>{skill.title}</p>
 							</div>
 						))}

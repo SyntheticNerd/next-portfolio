@@ -1,4 +1,4 @@
-import React from "react";
+import React, { StyleHTMLAttributes } from "react";
 import classes from "./midBackground.module.scss";
 import Image from "next/image";
 import smallDecoration from "./images/decoration-small.png";
@@ -7,11 +7,12 @@ import largeDecoration from "./images/decoration-large.png";
 import clsx from "clsx";
 interface Props {
 	children: React.ReactNode;
+	style: React.CSSProperties;
 }
 
-const MidBackground = ({ children }: Props) => {
+const MidBackground = ({ children, style }: Props) => {
 	return (
-		<div className={classes.midBackground}>
+		<div className={classes.midBackground} style={style}>
 			<div className={classes.bgWrapper}>
 				<div className={classes.midTop} />
 				<div className={classes.midMid} />
