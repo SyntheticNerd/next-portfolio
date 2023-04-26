@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import Layout from "../components/layout/layout";
+import { Analytics } from "@vercel/analytics/react";
 
 import Head from "next/head";
 import { Provider } from "react-redux";
@@ -11,6 +12,7 @@ function MyApp({ Component, ...rest }: AppProps) {
 	const { store, props } = wrapper.useWrappedStore(rest);
 
 	return (
+		<>
 		<Provider store={store}>
 			<ParallaxProvider>
 				<Layout>
@@ -24,6 +26,8 @@ function MyApp({ Component, ...rest }: AppProps) {
 				</Layout>
 			</ParallaxProvider>
 		</Provider>
+		<Analytics />
+		</>
 	);
 }
 
